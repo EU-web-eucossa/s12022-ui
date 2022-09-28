@@ -1,6 +1,6 @@
 # Frontend service
 
-Built with [React]() and [Vite]()
+Built with [React](https://reactjs.org/) and [Vite](https://vitejs.dev/)
 
 To run the app we'll use `pnpm` as our package manager. So if you don't have it already installed in your sysyem you can install it using
 
