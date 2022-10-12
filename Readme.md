@@ -35,4 +35,5 @@ For build
 ```sh
 pnpm run build
 ```
-
+# Contribution guidelines
+Some text
