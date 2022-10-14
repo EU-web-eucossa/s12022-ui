@@ -30,6 +30,7 @@ If you don't have nodejs installed in your system check on the documentation on 
 Once you have node installed and the package manager installed then we can move to the next step then choose a package manager
 
 <h3 id="package_manager">Package manager</h3>
+
 Because we'll be using `nodejs` we have to pick on a package manager and trade-off the other two. Here is the summary of the package managers
 
 > [npm](https://docs.npmjs.com/) - For Node package manager that has the largest community of packages and comes default with `nodejs` installation
