@@ -17,11 +17,10 @@ Built with
 	- [Runtime](#runtime)
 	-	[Package manager](#package_manager)
 - [Running project in development](#run)
-- [Code of conduct](#conduct)
--	[Contribution](#contribution)
-	- [Branching](#branching)
+- [Contribution](#contribution)
+<!--	- [Branching](#branching)
 	- [Pull requests and issues](#pr_issues)
-
+-->
 <h1 id="setup">Setup and Installation</h1>
 
 This will guide you through step by step means to setup the project properly on your computer for development
@@ -39,6 +38,7 @@ If you don't have nodejs installed in your system check on the documentation on 
 Once you have node installed and the package manager installed then we can move to the next step then choose a package manager
 
 <h3 id="package_manager">Package manager</h3>
+
 Because we'll be using `nodejs` we have to pick on a package manager and trade-off the other two. Here is the summary of the package managers
 
 > [npm](https://docs.npmjs.com/) - For Node package manager that has the largest community of packages and comes default with `nodejs` installation
@@ -99,14 +99,13 @@ The project should launch on `http://localhost:3000`
 Navigate to the browser to see if all is well.
 
 <h1 id="contribution">Contribution</h1>
----
-<h3 id="branching">Branching</h1>
-<h1 id="setup">Setup and Installation</h1>
----
-<h1 id="conduct">Code of conduct</h1>
----
+Contribution guidelines :rocket: are
 
----
-<h1 id="pr_issues">Pull requests(PR) and isssues</h1>
+Create a branch for which you'll be pushing your code which is not the `main` branch. __Naming Convention__ is `<your_name>-dev` or `dev-<your_name>` to make it easy to idenntify with your branch and commits
+
+__Note__ that there should be no direct commit to the `main` branch. So as to avoid breaking.
+
+We'll all create our __Pull requests__ to the `development` branch afterwards is when now we'll merge to `main` once a __milestone__ completed
+
 
 
