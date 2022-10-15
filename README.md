@@ -1,6 +1,15 @@
 # Frontend service 2022
 
-Built with [React](https://reactjs.org/) and [Vite](https://vitejs.dev/)
+[Tailwindcss]:https://tailwindcss.com/
+[ReactJs:https]://reactjs.org/
+[ViteLink]:https://vitejs.dev/
+[faLink]:https://fontawesome.com/
+
+Built with 
+- [React](ReactJs) 
+- [Vite](ViteLink) 
+- [Tailwind css](Tailwindcss)
+- [Font Awesome](faLink)
 
 # Table of contents
 
@@ -8,11 +17,10 @@ Built with [React](https://reactjs.org/) and [Vite](https://vitejs.dev/)
 	- [Runtime](#runtime)
 	-	[Package manager](#package_manager)
 - [Running project in development](#run)
-- [Code of conduct](#conduct)
--	[Contribution](#contribution)
-	- [Branching](#branching)
+- [Contribution](#contribution)
+<!--	- [Branching](#branching)
 	- [Pull requests and issues](#pr_issues)
-
+-->
 <h1 id="setup">Setup and Installation</h1>
 
 This will guide you through step by step means to setup the project properly on your computer for development
@@ -30,6 +38,7 @@ If you don't have nodejs installed in your system check on the documentation on 
 Once you have node installed and the package manager installed then we can move to the next step then choose a package manager
 
 <h3 id="package_manager">Package manager</h3>
+
 Because we'll be using `nodejs` we have to pick on a package manager and trade-off the other two. Here is the summary of the package managers
 
 > [npm](https://docs.npmjs.com/) - For Node package manager that has the largest community of packages and comes default with `nodejs` installation
@@ -57,15 +66,46 @@ pnpm -v # 7.12.2
 Then now we are ready to run the project
 
 <h1 id="run">Runnning the project locally</h1>
----
-<h1 id="setup">Setup and Installation</h1>
----
-<h1 id="conduct">Code of conduct</h1>
----
+
+To work on the project locally please consider having done the installations right.
+First clone the repository
+
+__https__
+```sh
+git clone https://github.com/eucossa-2022-sem2-web2-project/react-frontend-service-2022-s1.git
+```
+__ssh__
+```sh
+git clone git@github.com:eucossa-2022-sem2-web2-project/react-frontend-service-2022-s1.git
+```
+Next navigate to the folder 
+```sh
+cd react-frontend-service-2022-s1
+```
+Once in the correct folder now install all the required dependencies using the command
+```sh
+pnpm i 
+```
+Or
+```sh
+pnpm install
+```
+
+To run the project once all the dependancies have been installed run
+```sh
+pnpm dev
+```
+The project should launch on `http://localhost:3000`
+Navigate to the browser to see if all is well.
+
 <h1 id="contribution">Contribution</h1>
----
-<h3 id="branching">Branching</h1>
----
-<h1 id="pr_issues">Pull requests(PR) and isssues</h1>
+Contribution guidelines :rocket: are
+
+Create a branch for which you'll be pushing your code which is not the `main` branch. __Naming Convention__ is `<your_name>-dev` or `dev-<your_name>` to make it easy to idenntify with your branch and commits
+
+__Note__ that there should be no direct commit to the `main` branch. So as to avoid breaking.
+
+We'll all create our __Pull requests__ to the `development` branch afterwards is when now we'll merge to `main` once a __milestone__ completed
+
 
 
