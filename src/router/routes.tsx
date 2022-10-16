@@ -1,5 +1,6 @@
 import AboutPage from '../pages/AboutPage';
 import CartPage from '../pages/CartPage';
+import CategoriesPage from '../pages/CategoriesPage';
 import ContactPage from '../pages/ContactPage';
 import Homepage from '../pages/Homepage';
 import { IRouteProps } from '../interfaces/router';
@@ -20,7 +21,12 @@ const routes: IRouteProps[] = [
 		pathName: 'SingleProductPage',
 		urlPath: '/product/:id'
 	},
-
+	{
+		Component: <CategoriesPage />,
+		isNested: false,
+		pathName: 'categories',
+		urlPath: '/categories'
+	},
 	{
 		Component: <AboutPage />,
 		isNested: false,
