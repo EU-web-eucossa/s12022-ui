@@ -13,7 +13,7 @@ const Header = () => {
 					{navLinks.map((item, index) => {
 						return (
 							<li key={index}>
-								<Link to={item.path} className="text-primary uppercase flex">
+								<Link to={item.path} className="text-primary capitalize font-bold flex">
 									{item.name}
 								</Link>
 							</li>
