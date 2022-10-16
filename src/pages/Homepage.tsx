@@ -1,7 +1,9 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IProduct } from '../interfaces/product';
+import { Link } from 'react-router-dom';
 import React from 'react';
 import allProducts from '../data/products';
+import slugify from '../helpers/slugify';
 import starGenerator from '../helpers/starGenerator';
 
 const Homepage = () => {
@@ -10,23 +12,23 @@ const Homepage = () => {
 	React.useEffect(() => {
 		setproducts(allProducts);
 	}, []);
-	console.log(products.slice(0, 4));
 	
 	return (
 		<div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-4 p-4">
 			{products.map((p) => (
-				<div key={p.name}>
-					<div className="h-96 w-100">
+				<div key={p.name} className="flex flex-col gap-4">
+					<Link to={`/product/${slugify(p.name)}`} className="w-100">
 						<img src={p.featuredImage} alt="" className="w-full object-cover" />
-					</div>
+					</Link>
 					<div>
-						<h2>{p.name}</h2>
+						<h2 className='text-xl font-bold capitalize'>{p.name}</h2>
 						<div>
 							{starGenerator(p.ratings).map((s, i) => (
 								<FontAwesomeIcon key={i} icon={s} color="#F58634" className='cursor-pointer' />
 							))}
 						</div>
-						<div>{p.ratings}</div>
+						<div className='text-lg font-bold'>${p.price}</div>
+						<div>Price {p.price}</div>
 					</div>
 				</div>
 			))}
