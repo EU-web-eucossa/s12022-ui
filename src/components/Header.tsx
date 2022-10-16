@@ -12,7 +12,7 @@ const Header = () => {
 							<li key={index}>
 								<Link
 									to={`/${item.toLowerCase()}`}
-									className="text-orange-500 uppercase"
+									className="text-orange-500 uppercase flex"
 								>
 									{item}
 								</Link>

@@ -12,7 +12,8 @@ const routes: IRouteProps[] = [
 		isNested: false,
 		pathName: 'Home',
 		urlPath: '/'
-	},
+	},																																				
+
 	{
 		Component: <AboutPage />,
 
@@ -39,5 +40,5 @@ const routes: IRouteProps[] = [
 		urlPath: '*'
 	}
 ];
-
+				
 export default routes;
