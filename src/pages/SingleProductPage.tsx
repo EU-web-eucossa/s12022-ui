@@ -16,7 +16,6 @@ const SingleProductPage = () => {
 		);
 		setProduct(p!);
 	}, [id]);
-	console.log(product);
 
 	return (
 		<div>

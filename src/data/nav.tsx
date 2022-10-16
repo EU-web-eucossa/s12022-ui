@@ -19,8 +19,8 @@ const navLinks: NavType[] = [
 		icon: faHome
 	},
 	{
-		name: 'category',
-		path: '/category',
+		name: 'Category',
+		path: '/categories',
 		icon: faShoppingCart
 	},
 	{
