@@ -15,12 +15,15 @@ export interface IProduct {
 }
 
 export type CategoryType =
-	| 'food'
-	| 'sports wear'
-	| 'blouses'
-	| 'shirts'
-	| 'jordan'
-	| 'sneakers';
+	| 'clothes'
+	| 'sports-wear'
+	| 'Airpods'
+	| 'Shoes'
+	| 'Smartphones'
+	| 'Speakers'
+	| 'Headphones'
+	| 'Television'
+	| 'SmartWatch';
 
 export interface IReview {
 	author: string;
