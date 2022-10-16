@@ -1,20 +1,20 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
+import navLinks from '../data/nav';
 
 const Header = () => {
 	return (
-		<div className='bg-white shadow-md py-4'>
+		<div className="bg-white shadow-md py-4 sticky top-0 z-[1020]">
 			<nav className="flex items-center justify-between max-w-7xl mx-auto">
-				<h2 className="uppercase text-orange-500 text-4xl">Grab me</h2>
+				<Link to={'/'} className="uppercase text-primary text-4xl">
+					Grab me
+				</Link>
 				<ul className="flex gap-4">
-					{['Home', 'About', 'Contact'].map((item, index) => {
+					{navLinks.map((item, index) => {
 						return (
 							<li key={index}>
-								<Link
-									to={`/${item.toLowerCase()}`}
-									className="text-orange-500 uppercase flex"
-								>
-									{item}
+								<Link to={item.path} className="text-primary uppercase flex">
+									{item.name}
 								</Link>
 							</li>
 						);

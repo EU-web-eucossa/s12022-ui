@@ -1,3 +1,4 @@
+import Footer from '../components/Footer';
 import Header from '../components/Header';
 import React from 'react';
 
@@ -9,8 +10,8 @@ const BaseLayout = (props: Props) => {
 	return (
 		<div>
 			<Header />
-			<div>{props.children}</div>
-			<div>Footer</div>
+			<div className="max-w-7xl mx-auto min-h-screen">{props.children}</div>
+			<Footer />
 		</div>
 	);
 };

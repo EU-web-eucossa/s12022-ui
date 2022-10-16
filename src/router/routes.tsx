@@ -5,6 +5,7 @@ import Homepage from '../pages/Homepage';
 import { IRouteProps } from '../interfaces/router';
 import NotFound from '../pages/NotFound';
 import React from 'react';
+import SingleProductPage from '../pages/SingleProductPage';
 
 const routes: IRouteProps[] = [
 	{
@@ -12,11 +13,16 @@ const routes: IRouteProps[] = [
 		isNested: false,
 		pathName: 'Home',
 		urlPath: '/'
-	},																																				
+	},
+	{
+		Component: <SingleProductPage />,
+		isNested: false,
+		pathName: 'SingleProductPage',
+		urlPath: '/product/:id'
+	},
 
 	{
 		Component: <AboutPage />,
-
 		isNested: false,
 		pathName: 'About',
 		urlPath: '/about'
@@ -40,5 +46,5 @@ const routes: IRouteProps[] = [
 		urlPath: '*'
 	}
 ];
-				
+
 export default routes;
