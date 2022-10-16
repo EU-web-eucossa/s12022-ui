@@ -7,7 +7,7 @@
 
 Built with 
 - [React](ReactJs) 
-- [Vite](ViteLink) 
+- [Vite](https://vitejs.dev/) 
 - [Tailwind css](Tailwindcss)
 - [Font Awesome](faLink)
 

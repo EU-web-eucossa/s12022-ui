@@ -17,6 +17,13 @@ module.exports = {
 				rubik: ['Rubik', 'sans-serif'],
 				roboto: ['Roboto', 'sans-serif'],
 				'c-text': ['Crimson Text', 'sans-serif']
+			},
+			colors: {
+				primary: '#F58634',
+				black: '#02111B',
+				error: '#5A0001',
+				placeholder: '#B2B2B2',
+				success: '#4CB944'
 			}
 		}
 	},
