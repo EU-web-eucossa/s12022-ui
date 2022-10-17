@@ -11,7 +11,7 @@ const CategoryProductItem = ({ product }: { product: IProduct }) => {
 	const dispatch = useAppDispatch();
 
 	return (
-		<div className="shadow-md rounded-md">
+		<div className="shadow-md rounded-md flex flex-col justify-between">
 			<div className="h-48 relative">
 				<img
 					src="/product.webp"

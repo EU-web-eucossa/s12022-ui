@@ -7,7 +7,9 @@ import { useAppSelector } from '../state/hooks';
 import { faSearch, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
-	const { totalQuantity } = useAppSelector((state) => state.root.cart);
+	const { totalQuantity, totalPrice } = useAppSelector(
+		(state) => state.root.cart
+	);
 	const [cartOpen, setCartOpen] = React.useState<boolean>(false);
 
 	return (
@@ -37,6 +39,9 @@ const Header = () => {
 							placeholder="Search products,brands and categories..."
 							className="border-none w-full text-sm md:text-md placeholder:text-placeholder focus:ring-0 focus:border-none focus:outline-none"
 						/>
+					</div>
+					<div className="flex items-center gap-4 font-bold">
+						KSh {totalPrice.toFixed(2)}
 					</div>
 					<div
 						className="h-8 md:h-12 w-8 md:w-12 bg-primary rounded-lg cursor-pointer flex items-center justify-center relative"
