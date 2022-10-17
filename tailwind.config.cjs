@@ -15,6 +15,7 @@ module.exports = {
 		extend: {
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],
+				poppins: ['Poppins', 'sans-serif'],
 				rubik: ['Rubik', 'sans-serif'],
 				roboto: ['Roboto', 'sans-serif'],
 				'c-text': ['Crimson Text', 'sans-serif']
