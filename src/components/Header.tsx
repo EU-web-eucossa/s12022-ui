@@ -8,7 +8,7 @@ import { faSearch, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
 	const { totalQuantity } = useAppSelector((state) => state.root.cart);
-	const [cartOpen, setCartOpen] = React.useState<boolean>(true);
+	const [cartOpen, setCartOpen] = React.useState<boolean>(false);
 
 	return (
 		<React.Fragment>
@@ -39,7 +39,7 @@ const Header = () => {
 						/>
 					</div>
 					<div
-						className="h-8 md:h-12 w-8 md:w-12 bg-primary rounded-lg flex items-center justify-center relative"
+						className="h-8 md:h-12 w-8 md:w-12 bg-primary rounded-lg cursor-pointer flex items-center justify-center relative"
 						onClick={(e) => {
 							e.preventDefault();
 							setCartOpen(!cartOpen);

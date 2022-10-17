@@ -52,7 +52,11 @@ const Cart = () => {
 										className="flex-[1]"
 										onClick={(e) => {
 											e.preventDefault();
-											dispatch(removeProductFromCart({ id: slugify(p.name).toLowerCase() }));
+											dispatch(
+												removeProductFromCart({
+													id: slugify(p.name).toLowerCase()
+												})
+											);
 										}}
 									/>
 								</div>
@@ -61,22 +65,21 @@ const Cart = () => {
 					))}
 				</ul>
 			) : (
-				<div className="text-center">Cart is empty</div>
+				<div className="">Cart is empty</div>
 			)}
-			<div className="font-medium text-md px-2">Total: Ksh{totalPrice}</div>
-			{totalQuantity > 0 && (
-				<div className="my-2">
-					<button
-						className="bg-error text-white font-bold w-full rounded"
-						onClick={(e) => {
-							e.preventDefault();
-							dispatch(clearCart());
-						}}
-					>
-						Clear cart
-					</button>
-				</div>
-			)}
+			<div className="font-medium text-md px-2">Total: Ksh {totalPrice.toFixed(2)}</div>
+
+			<div className="my-2">
+				<button
+					className="bg-error text-white font-medium w-full rounded"
+					onClick={(e) => {
+						e.preventDefault();
+						dispatch(clearCart());
+					}}
+				>
+					Reset cart
+				</button>
+			</div>
 		</div>
 	);
 };

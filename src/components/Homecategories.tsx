@@ -15,17 +15,16 @@ const Homecategories = () => {
 			</div>
 			<div className="flex gap-4 overflow-x-scroll no-scrollbar">
 				{[
-					'clothes',
-					'shoes',
 					'sports-wear',
-					'airpods',
-					'smartphones',
-					'smart watch',
-					'television',
-					'speakers',
-					'headphones'
-				].map((c) => (
-					<HomecategoryItem key={c} title={c} />
+					'Airpods',
+					'Shoes',
+					'Smartphones',
+					'Speakers',
+					'Headphones',
+					'Television',
+					'SmartWatch'
+				].map((category) => (
+					<HomecategoryItem key={category} title={category}/>
 				))}
 			</div>
 		</div>

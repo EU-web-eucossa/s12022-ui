@@ -32,7 +32,7 @@ const CategoriesPage = () => {
 				</h2>
 			</div>
 			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
-				{products.map((p) => (
+				{products.filter(prod => prod.category === category).map((p) => (
 					<CategoryProductItem key={p.name} product={p} />
 				))}
 			</div>
