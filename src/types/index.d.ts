@@ -8,13 +8,17 @@ export type ProductsStateType = {
 
 export type UserStateType = {
 	user: IUser | null;
-    isAuthenticated: boolean;
+	isAuthenticated: boolean;
 	loading: boolean;
 	error: string | null;
 };
 
+type CartProductType = IProduct & {
+	quantity: number;
+};
+
 export type CartStateType = {
-	products: IProduct[];
+	cartProducts: CartProductType[];
 	totalPrice: number;
 	totalQuantity: number;
 };
