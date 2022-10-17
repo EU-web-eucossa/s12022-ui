@@ -2,16 +2,17 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IProduct } from '../interfaces/product';
 import React from 'react';
-import allproducts from '../data/products';
 import slugify from '../helpers/slugify';
 import starGenerator from '../helpers/starGenerator';
+import { useAppSelector } from '../state/hooks';
 import { useParams } from 'react-router-dom';
 
 const SingleProductPage = () => {
-	const [product, setProduct] = React.useState<IProduct | null>(null);
 	const { id } = useParams();
+	const { products } = useAppSelector((state) => state.products);
+	const [product, setProduct] = React.useState<IProduct | null>(null);
 	React.useEffect(() => {
-		const p = allproducts.find(
+		const p = products.find(
 			(p) => slugify(p.name).toLowerCase() === slugify(id!).toLowerCase()
 		);
 		setProduct(p!);
@@ -33,7 +34,7 @@ const SingleProductPage = () => {
 							/>
 						))}
 					</div>
-					<h2 className='capitalize font-bold'>price {product.price}</h2>
+					<h2 className="capitalize font-bold">price {product.price}</h2>
 				</div>
 			)}
 		</div>
