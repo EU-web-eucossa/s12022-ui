@@ -1,8 +1,11 @@
+/* eslint-disable indent */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { CartStateType } from '../../types';
+import { IProduct } from '../../interfaces/product';
+import slugify from '../../helpers/slugify';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 const initialState: CartStateType = {
-	products: [],
+	cartProducts: [],
 	totalPrice: 0,
 	totalQuantity: 0
 };
@@ -11,35 +14,56 @@ const cartSlice = createSlice({
 	name: 'cart',
 	initialState,
 	reducers: {
-		addProductToCart: (state, action: PayloadAction<CartStateType>) => {
-			const product = action.payload.products[0];
-			const productExists = state.products.find(
-				(item) => item.name === product.name
+		addProductToCart: (
+			state: CartStateType,
+			action: PayloadAction<IProduct>
+		) => {
+			state.cartProducts = state.cartProducts.find(
+				(p) =>
+					slugify(p.name).toLowerCase() ===
+					slugify(action.payload.name).toLowerCase()
+			)
+				? state.cartProducts.map((p) =>
+						slugify(p.name).toLowerCase() ===
+						slugify(action.payload.name).toLowerCase()
+							? { ...p, quantity: p.quantity + 1 }
+							: p
+				)
+				: [...state.cartProducts, { ...action.payload, quantity: 1 }];
+			state.totalPrice = state.cartProducts.reduce(
+				(acc, p) => acc + p.price * p.quantity,
+				0
 			);
-			if (productExists) {
-				productExists.quantity += product.quantity;
-				productExists.price += product.price;
-			} else state.products.push(product);
-
-			state.totalPrice += product.price;
-			state.totalQuantity += product.quantity;
+			state.totalQuantity = state.cartProducts.length;
 		},
-		increaseProductQuantity: (state, action: PayloadAction<CartStateType>) => {
-			const product = action.payload.products[0];
-			const productExists = state.products.find(
-				(item) => item.name === product.name
+		increaseProductQuantity: (state, action: PayloadAction<{ id: string }>) => {
+			state.cartProducts = state.cartProducts.map((p) =>
+				slugify(p.name).toLowerCase() === action.payload.id
+					? { ...p, quantity: p.quantity + 1 }
+					: p
 			);
-			if (productExists) {
-				productExists.quantity += 1;
-				productExists.price += product.price;
-			}
-			state.totalPrice += product.price;
-			state.totalQuantity += 1;
+			state.totalPrice = state.cartProducts.reduce(
+				(acc, p) => acc + p.price * p.quantity,
+				0
+			);
+			state.totalQuantity = state.cartProducts.length;
 		},
 		removeProductFromCart: (state, action: PayloadAction<{ id: string }>) => {
-			state.products = state.products.filter(
-				(product) => product.name !== action.payload.id
+			state.cartProducts = state.cartProducts.filter(
+				(product) =>
+					slugify(product.name).toLowerCase() !==
+					slugify(action.payload.id).toLowerCase()
 			);
+			state.totalPrice = state.cartProducts.reduce(
+				(acc, p) => acc + p.price * p.quantity,
+				0
+			);
+			state.totalQuantity = state.cartProducts.length;
+		},
+		clearCart: (state) => {
+			state.cartProducts = [];
+			state.totalPrice = 0;
+			state.totalQuantity = 0;
 		}
 	}
 });
@@ -47,7 +71,8 @@ const cartSlice = createSlice({
 export const {
 	addProductToCart,
 	increaseProductQuantity,
-	removeProductFromCart
+	removeProductFromCart,
+	clearCart
 } = cartSlice.actions;
 
 export default cartSlice.reducer;
