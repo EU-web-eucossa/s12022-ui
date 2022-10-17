@@ -5,6 +5,7 @@ import TopScroll from '../helpers/TopScroll';
 import routes from './routes';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 
+
 const AppRouter = () => {
 	return (
 		<HashRouter>

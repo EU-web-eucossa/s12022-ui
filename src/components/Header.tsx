@@ -1,27 +1,45 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import React from 'react';
-import navLinks from '../data/nav';
+import { faBell } from '@fortawesome/free-regular-svg-icons';
+import { faSearch, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
+	const [cartQuantity, setCartQuantity] = React.useState(2);
+
 	return (
-		<div className="bg-white shadow-md py-4 sticky top-0 z-[1020]">
-			<nav className="flex items-center justify-between max-w-7xl mx-auto">
-				<Link to={'/'} className="uppercase text-primary text-4xl">
-					Grab me
-				</Link>
-				<ul className="flex gap-4">
-					{navLinks.map((item, index) => {
-						return (
-							<li key={index}>
-								<Link to={item.path} className="text-primary capitalize font-bold flex">
-									{item.name}
-								</Link>
-							</li>
-						);
-					})}
-				</ul>
-			</nav>
-		</div>
+		<React.Fragment>
+			<div className="bg-white">
+				<nav className="px-4 sm:px-5 gap-2 md:px-2 max-w-7xl mx-auto flex items-center justify-between">
+					<Link to={'/'}>
+						<img src="/logo.svg" alt="" className="w-20 h-20 md:w-40 md:h-40" />
+					</Link>
+					<div className="text-center">
+						<h1 className="text-md md:text-4xl font-bold">Discover</h1>
+						<p className="text-sm md:text-xl font-medium">Find anything you want</p>
+					</div>
+					<div>
+						<FontAwesomeIcon icon={faBell} className="text-xl md:text-4xl" />
+					</div>
+				</nav>
+			</div>
+			<div className="bg-white sticky top-0 py-2 shadow">
+				<nav className="px-4 sm:px-5 md:px-2 max-w-7xl mx-auto flex items-center gap-4">
+					<div className="flex px-1 md:px-4 rounded-md flex-[1] items-center w-full border  border-slate-400">
+						<FontAwesomeIcon icon={faSearch} size="1x" />
+						<input type="search" placeholder='Search products,brands and categories...' className='border-none w-full text-sm md:text-md	 focus:ring-0 focus:border-none focus:outline-none'/>
+					</div>
+					<div className="h-8 md:h-12 w-8 md:w-12 bg-primary rounded-lg flex items-center justify-center relative">
+						<FontAwesomeIcon icon={faShoppingCart} color="white" className='text-md'/>
+						{cartQuantity > 0 && (
+							<span className="absolute -top-1 -right-1 bg-white rounded-full p-1 text-black border-black border text-sm h-5 w-5 flex items-center justify-center">
+								{cartQuantity}
+							</span>
+						)}
+					</div>
+				</nav>
+			</div>
+		</React.Fragment>
 	);
 };
 
