@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import CategoryProductItem from '../components/CategoryProductItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IProduct } from '../interfaces/product';
 import React from 'react';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { useAppSelector } from '../state/hooks';
@@ -10,6 +11,9 @@ const CategoriesPage = () => {
 	const location = useLocation();
 	const [category, setCategory] = React.useState<string | null>('');
 	const { products } = useAppSelector((state) => state.products);
+	const [filteredProducts, setFilteredProducts] = React.useState<IProduct[]>(
+		[]
+	);
 	const getCategoryFromUrl = (url: string) => {
 		const urlParams = new URLSearchParams(url);
 
@@ -19,20 +23,32 @@ const CategoriesPage = () => {
 		return setCategory(getCategoryFromUrl(location.search!));
 	}, [location.search]);
 
+	React.useEffect(() => {
+		if (category) {
+			const filtered = products.filter((p) => p.category === category);
+			if (filtered.length > 0) return setFilteredProducts(filtered);
+
+			return setFilteredProducts([]);
+		}
+
+		return setFilteredProducts(products);
+	}, [category, products]);
+
 	return (
 		<div>
-			<div className='py-4'>
-				<h2 className='flex items-center text-xl capitalize'>
+			<div className="py-4">
+				<h2 className="flex items-center text-xl capitalize">
 					Categories{' '}
 					{category && (
-						<span className='flex items-center'>
-							<FontAwesomeIcon icon={faChevronRight} className='text-[12px]' /> {category}
+						<span className="flex items-center">
+							<FontAwesomeIcon icon={faChevronRight} className="text-[12px]" />{' '}
+							{category}
 						</span>
 					)}
 				</h2>
 			</div>
 			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
-				{products.filter(prod => prod.category === category).map((p) => (
+				{filteredProducts.map((p) => (
 					<CategoryProductItem key={p.name} product={p} />
 				))}
 			</div>

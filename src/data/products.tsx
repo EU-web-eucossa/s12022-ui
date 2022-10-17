@@ -4,7 +4,7 @@ const products: IProduct[] = [
 	{
 		category: 'sports-wear',
 		featured: false,
-		name: 'sports-wear one',
+		name: 'Yoga pants',
 		description:
 			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur eos minima quo eligendi esse soluta, facere totam explicabo recusandae architecto nam omnis excepturi nobis repellat assumenda, sapiente laboriosam? Soluta enim, quibusdam omnis quod numquam aspernatur esse commodi eos distinctio blanditiis?',
 		featuredImage: '/product.webp',
@@ -36,7 +36,7 @@ const products: IProduct[] = [
 	{
 		category: 'Headphones',
 		featured: false,
-		name: 'Headphones three',
+		name: 'Mega GP gaming Headphones ',
 		description:
 			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur eos minima quo eligendi esse soluta, facere totam explicabo recusandae architecto nam omnis excepturi nobis repellat assumenda, sapiente laboriosam? Soluta enim, quibusdam omnis quod numquam aspernatur esse commodi eos distinctio blanditiis?',
 		featuredImage: '/product.webp',
@@ -52,7 +52,7 @@ const products: IProduct[] = [
 	{
 		category: 'Shoes',
 		featured: false,
-		name: 'Shoes four',
+		name: 'Open shoes dx',
 		description:
 			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur eos minima quo eligendi esse soluta, facere totam explicabo recusandae architecto nam omnis excepturi nobis repellat assumenda, sapiente laboriosam? Soluta enim, quibusdam omnis quod numquam aspernatur esse commodi eos distinctio blanditiis?',
 		featuredImage: '/product.webp',
@@ -68,7 +68,7 @@ const products: IProduct[] = [
 	{
 		category: 'SmartWatch',
 		featured: false,
-		name: 'SmartWatch five',
+		name: 'LED snony SmartWatch ',
 		description:
 			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur eos minima quo eligendi esse soluta, facere totam explicabo recusandae architecto nam omnis excepturi nobis repellat assumenda, sapiente laboriosam? Soluta enim, quibusdam omnis quod numquam aspernatur esse commodi eos distinctio blanditiis?',
 		featuredImage: '/product.webp',
@@ -84,7 +84,7 @@ const products: IProduct[] = [
 	{
 		category: 'Speakers',
 		featured: false,
-		name: 'Speakers six',
+		name: 'Sayona sub-woofer',
 		description:
 			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur eos minima quo eligendi esse soluta, facere totam explicabo recusandae architecto nam omnis excepturi nobis repellat assumenda, sapiente laboriosam? Soluta enim, quibusdam omnis quod numquam aspernatur esse commodi eos distinctio blanditiis?',
 		featuredImage: '/product.webp',
@@ -100,7 +100,7 @@ const products: IProduct[] = [
 	{
 		category: 'Television',
 		featured: false,
-		name: 'Television seven',
+		name: 'Smart Aucma Television',
 		description:
 			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur eos minima quo eligendi esse soluta, facere totam explicabo recusandae architecto nam omnis excepturi nobis repellat assumenda, sapiente laboriosam? Soluta enim, quibusdam omnis quod numquam aspernatur esse commodi eos distinctio blanditiis?',
 		featuredImage: '/product.webp',
@@ -116,7 +116,7 @@ const products: IProduct[] = [
 	{
 		category: 'clothes',
 		featured: false,
-		name: 'clothes eight',
+		name: 'Swimming costume eight',
 		description:
 			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur eos minima quo eligendi esse soluta, facere totam explicabo recusandae architecto nam omnis excepturi nobis repellat assumenda, sapiente laboriosam? Soluta enim, quibusdam omnis quod numquam aspernatur esse commodi eos distinctio blanditiis?',
 		featuredImage: '/product.webp',
@@ -132,7 +132,7 @@ const products: IProduct[] = [
 	{
 		category: 'Shoes',
 		featured: false,
-		name: 'Shoes nine',
+		name: 'Rubber Shoes one',
 		description:
 			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur eos minima quo eligendi esse soluta, facere totam explicabo recusandae architecto nam omnis excepturi nobis repellat assumenda, sapiente laboriosam? Soluta enim, quibusdam omnis quod numquam aspernatur esse commodi eos distinctio blanditiis?',
 		featuredImage: '/product.webp',
@@ -147,7 +147,7 @@ const products: IProduct[] = [
 	},{
 		category: 'clothes',
 		featured: false,
-		name: 'clothes ten',
+		name: 'Night dress(Silver)',
 		description:
 			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur eos minima quo eligendi esse soluta, facere totam explicabo recusandae architecto nam omnis excepturi nobis repellat assumenda, sapiente laboriosam? Soluta enim, quibusdam omnis quod numquam aspernatur esse commodi eos distinctio blanditiis?',
 		featuredImage: '/product.webp',
@@ -179,7 +179,7 @@ const products: IProduct[] = [
 	{
 		category: 'Airpods',
 		featured: false,
-		name: 'Airpods two',
+		name: 'Silicon Airpods two',
 		description:
 			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur eos minima quo eligendi esse soluta, facere totam explicabo recusandae architecto nam omnis excepturi nobis repellat assumenda, sapiente laboriosam? Soluta enim, quibusdam omnis quod numquam aspernatur esse commodi eos distinctio blanditiis?',
 		featuredImage: '/product.webp',
@@ -195,7 +195,7 @@ const products: IProduct[] = [
 	{
 		category: 'Headphones',
 		featured: false,
-		name: 'Headphones three',
+		name: 'Super base BT headphones',
 		description:
 			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur eos minima quo eligendi esse soluta, facere totam explicabo recusandae architecto nam omnis excepturi nobis repellat assumenda, sapiente laboriosam? Soluta enim, quibusdam omnis quod numquam aspernatur esse commodi eos distinctio blanditiis?',
 		featuredImage: '/product.webp',
@@ -211,7 +211,7 @@ const products: IProduct[] = [
 	{
 		category: 'Shoes',
 		featured: false,
-		name: 'Shoes four',
+		name: 'Awesome Shoes four',
 		description:
 			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur eos minima quo eligendi esse soluta, facere totam explicabo recusandae architecto nam omnis excepturi nobis repellat assumenda, sapiente laboriosam? Soluta enim, quibusdam omnis quod numquam aspernatur esse commodi eos distinctio blanditiis?',
 		featuredImage: '/product.webp',
@@ -243,7 +243,7 @@ const products: IProduct[] = [
 	{
 		category: 'Speakers',
 		featured: false,
-		name: 'Speakers six',
+		name: 'Portable BT Speakers',
 		description:
 			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur eos minima quo eligendi esse soluta, facere totam explicabo recusandae architecto nam omnis excepturi nobis repellat assumenda, sapiente laboriosam? Soluta enim, quibusdam omnis quod numquam aspernatur esse commodi eos distinctio blanditiis?',
 		featuredImage: '/product.webp',
@@ -259,7 +259,7 @@ const products: IProduct[] = [
 	{
 		category: 'Television',
 		featured: false,
-		name: 'Television seven',
+		name: 'Von 32\'-inch screen',
 		description:
 			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur eos minima quo eligendi esse soluta, facere totam explicabo recusandae architecto nam omnis excepturi nobis repellat assumenda, sapiente laboriosam? Soluta enim, quibusdam omnis quod numquam aspernatur esse commodi eos distinctio blanditiis?',
 		featuredImage: '/product.webp',
@@ -275,7 +275,7 @@ const products: IProduct[] = [
 	{
 		category: 'clothes',
 		featured: false,
-		name: 'clothes eight',
+		name: 'Cousion cover',
 		description:
 			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur eos minima quo eligendi esse soluta, facere totam explicabo recusandae architecto nam omnis excepturi nobis repellat assumenda, sapiente laboriosam? Soluta enim, quibusdam omnis quod numquam aspernatur esse commodi eos distinctio blanditiis?',
 		featuredImage: '/product.webp',
@@ -291,7 +291,7 @@ const products: IProduct[] = [
 	{
 		category: 'Shoes',
 		featured: false,
-		name: 'Shoes nine',
+		name: 'Shoes nine dope',
 		description:
 			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur eos minima quo eligendi esse soluta, facere totam explicabo recusandae architecto nam omnis excepturi nobis repellat assumenda, sapiente laboriosam? Soluta enim, quibusdam omnis quod numquam aspernatur esse commodi eos distinctio blanditiis?',
 		featuredImage: '/product.webp',
@@ -306,7 +306,7 @@ const products: IProduct[] = [
 	},{
 		category: 'clothes',
 		featured: false,
-		name: 'clothes ten',
+		name: 'Outdoor blouse',
 		description:
 			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur eos minima quo eligendi esse soluta, facere totam explicabo recusandae architecto nam omnis excepturi nobis repellat assumenda, sapiente laboriosam? Soluta enim, quibusdam omnis quod numquam aspernatur esse commodi eos distinctio blanditiis?',
 		featuredImage: '/product.webp',
