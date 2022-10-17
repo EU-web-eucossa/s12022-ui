@@ -8,7 +8,7 @@ import { faSearch, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
 	const { totalQuantity } = useAppSelector((state) => state.root.cart);
-	const [cartOpen, setCartOpen] = React.useState<boolean>(true);
+	const [cartOpen, setCartOpen] = React.useState<boolean>(false);
 
 	return (
 		<React.Fragment>
