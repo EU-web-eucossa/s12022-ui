@@ -10,7 +10,7 @@ const BaseLayout = (props: Props) => {
 	return (
 		<div>
 			<Header />
-			<div className="max-w-7xl mx-auto min-h-screen">{props.children}</div>
+			<div className="max-w-7xl mx-auto min-h-screen px-2 md:px-4">{props.children}</div>
 			<Footer />
 		</div>
 	);
