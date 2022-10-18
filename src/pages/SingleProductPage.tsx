@@ -1,15 +1,12 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IProduct } from '../interfaces/product';
-import { addProductToCart } from '../state/slices/cartSlice';
-// eslint-disable-next-line sort-imports
 import React from 'react';
+import { addProductToCart } from '../state/slices/cartSlice';
 import slugify from '../helpers/slugify';
-
 import starGenerator from '../helpers/starGenerator';
-import { useAppDispatch, useAppSelector } from '../state/hooks';
-// eslint-disable-next-line sort-imports
 import { useParams } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '../state/hooks';
 
 
 const SingleProductPage = ({ product }: { product: IProduct }) => {
