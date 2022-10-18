@@ -9,27 +9,27 @@ import { useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../state/hooks';
 
 
-const SingleProductPage = ({ product }: { product: IProduct }) => {
+const SingleProductPage = () => {
 	const { id } = useParams();
 	const { products } = useAppSelector((state) => state.products);
-	const [item ,setItem] = React.useState<IProduct | null>(null);
+	const [currentProduct ,setCurrentProdut] = React.useState<IProduct | null>(null);
 	React.useEffect(() => {
 		const p = products.find(
 			(p) => slugify(p.name).toLowerCase() === slugify(id!).toLowerCase()
 		);
-		setItem(p!);
+		setCurrentProdut(p!);
 	}, [id]);
 	const dispatch= useAppDispatch();
 
 	return (
 		<div>
-			{item && (
+			{currentProduct && (
 				<div className=" flex py-5">
-					<img src={item.featuredImage} alt="" className="h-80" />
+					<img src={currentProduct.featuredImage} alt="" className="h-80" />
 					<div className='pl-8'>
-						<h1 className="text-4xl font-bold capitalize">{item.name}</h1>
+						<h1 className="text-4xl font-bold capitalize">{currentProduct.name}</h1>
 						<div className='pt-3'>
-							{starGenerator(item.ratings).map((s, i) => (
+							{starGenerator(currentProduct.ratings).map((s, i) => (
 								<FontAwesomeIcon
 									key={i}
 									icon={s}
@@ -38,12 +38,12 @@ const SingleProductPage = ({ product }: { product: IProduct }) => {
 								/>
 							))}
 						</div>
-						<h2 className="pt-3 capitalize font-bold">price {item.price}</h2>
+						<h2 className="pt-3 capitalize font-bold">price {currentProduct.price}</h2>
 						<button
 							className="bg-primary text-white py-2  p-4 rounded-full"
 							onClick={(e)=>{
 								e.preventDefault();
-								dispatch(addProductToCart({...product}));
+								dispatch(addProductToCart({...currentProduct}));
 							}}
 				
 						>
