@@ -1,32 +1,38 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IProduct } from '../interfaces/product';
+import { addProductToCart } from '../state/slices/cartSlice';
+// eslint-disable-next-line sort-imports
 import React from 'react';
 import slugify from '../helpers/slugify';
+
 import starGenerator from '../helpers/starGenerator';
-import { useAppSelector } from '../state/hooks';
+import { useAppDispatch, useAppSelector } from '../state/hooks';
+// eslint-disable-next-line sort-imports
 import { useParams } from 'react-router-dom';
 
-const SingleProductPage = () => {
+
+const SingleProductPage = ({ product }: { product: IProduct }) => {
 	const { id } = useParams();
 	const { products } = useAppSelector((state) => state.products);
-	const [product, setProduct] = React.useState<IProduct | null>(null);
+	const [item ,setItem] = React.useState<IProduct | null>(null);
 	React.useEffect(() => {
 		const p = products.find(
 			(p) => slugify(p.name).toLowerCase() === slugify(id!).toLowerCase()
 		);
-		setProduct(p!);
+		setItem(p!);
 	}, [id]);
+	const dispatch= useAppDispatch();
 
 	return (
 		<div>
-			{product && (
+			{item && (
 				<div className=" flex py-5">
-					<img src={product.featuredImage} alt="" className="h-80" />
+					<img src={item.featuredImage} alt="" className="h-80" />
 					<div className='pl-8'>
-						<h1 className="text-4xl font-bold capitalize">{product.name}</h1>
+						<h1 className="text-4xl font-bold capitalize">{item.name}</h1>
 						<div className='pt-3'>
-							{starGenerator(product.ratings).map((s, i) => (
+							{starGenerator(item.ratings).map((s, i) => (
 								<FontAwesomeIcon
 									key={i}
 									icon={s}
@@ -35,9 +41,13 @@ const SingleProductPage = () => {
 								/>
 							))}
 						</div>
-						<h2 className="pt-3 capitalize font-bold">price {product.price}</h2>
+						<h2 className="pt-3 capitalize font-bold">price {item.price}</h2>
 						<button
 							className="bg-primary text-white py-2  p-4 rounded-full"
+							onClick={(e)=>{
+								e.preventDefault();
+								dispatch(addProductToCart({...product}));
+							}}
 				
 						>
 					ADD TO CART
