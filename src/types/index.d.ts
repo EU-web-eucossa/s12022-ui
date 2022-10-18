@@ -22,3 +22,7 @@ export type CartStateType = {
 	totalPrice: number;
 	totalQuantity: number;
 };
+
+type WhiteListStateType = {
+	products: IProduct[];
+};

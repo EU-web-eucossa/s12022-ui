@@ -4,6 +4,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import productsReducer from './../slices/productsSlice';
 import storage from 'redux-persist/lib/storage';
 import userReducer from './../slices/userSlice';
+import whitelistReducer from './../slices/whiteListSlice';
 
 import {
 	FLUSH,
@@ -24,7 +25,11 @@ const persistConfig = {
 
 const rootReducer = persistReducer(
 	persistConfig,
-	combineReducers({ user: userReducer, cart: cartReducer })
+	combineReducers({
+		user: userReducer,
+		cart: cartReducer,
+		whiteList: whitelistReducer
+	})
 );
 
 const store = configureStore({
