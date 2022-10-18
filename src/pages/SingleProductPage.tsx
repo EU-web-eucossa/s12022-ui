@@ -21,20 +21,28 @@ const SingleProductPage = () => {
 	return (
 		<div>
 			{product && (
-				<div className="py-5">
+				<div className=" flex py-5">
 					<img src={product.featuredImage} alt="" className="h-80" />
-					<h1 className="text-4xl font-bold capitalize">{product.name}</h1>
-					<div>
-						{starGenerator(product.ratings).map((s, i) => (
-							<FontAwesomeIcon
-								key={i}
-								icon={s}
-								color="#F58634"
-								className="cursor-pointer"
-							/>
-						))}
+					<div className='pl-8'>
+						<h1 className="text-4xl font-bold capitalize">{product.name}</h1>
+						<div className='pt-3'>
+							{starGenerator(product.ratings).map((s, i) => (
+								<FontAwesomeIcon
+									key={i}
+									icon={s}
+									color="#F58634"
+									className="cursor-pointer"
+								/>
+							))}
+						</div>
+						<h2 className="pt-3 capitalize font-bold">price {product.price}</h2>
+						<button
+							className="bg-primary text-white py-2  p-4 rounded-full"
+				
+						>
+					ADD TO CART
+						</button>
 					</div>
-					<h2 className="capitalize font-bold">price {product.price}</h2>
 				</div>
 			)}
 		</div>
