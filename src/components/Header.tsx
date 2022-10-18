@@ -7,7 +7,7 @@ import { useAppSelector } from '../state/hooks';
 import { faSearch, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
-	const { totalQuantity, totalPrice } = useAppSelector(
+	const { totalQuantity } = useAppSelector(
 		(state) => state.root.cart
 	);
 	const [cartOpen, setCartOpen] = React.useState<boolean>(false);
