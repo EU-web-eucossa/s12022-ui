@@ -4,8 +4,10 @@ import CategoriesPage from '../pages/CategoriesPage';
 import ContactPage from '../pages/ContactPage';
 import Homepage from '../pages/Homepage';
 import { IRouteProps } from '../interfaces/router';
+import LoginPage from '../pages/LoginPage';
 import NotFound from '../pages/NotFound';
 import React from 'react';
+import SignupPage from '../pages/SignupPage';
 import SingleProductPage from '../pages/SingleProductPage';
 
 const routes: IRouteProps[] = [
@@ -38,6 +40,18 @@ const routes: IRouteProps[] = [
 		isNested: false,
 		pathName: 'Contact',
 		urlPath: '/contact'
+	},
+	{
+		Component: <LoginPage />,
+		pathName: 'Login',
+		isNested:false,
+		urlPath: '/login'
+	},
+	{
+		Component: <SignupPage />,
+		pathName: 'Signup',
+		urlPath: '/signup',
+		isNested:false
 	},
 	{
 		Component: <CartPage />,
