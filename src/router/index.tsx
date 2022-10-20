@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import BaseLayout from '../layouts/BaseLayout';
+import LoginPage from '../pages/LoginPage';
 import React from 'react';
+import SignupPage from '../pages/SignupPage';
 import TopScroll from '../helpers/TopScroll';
 import routes from './routes';
 import { HashRouter, Route, Routes } from 'react-router-dom';
@@ -12,6 +14,8 @@ const AppRouter = () => {
 			<TopScroll />
 			<BaseLayout>
 				<Routes>
+					<Route path='/login' element={<LoginPage/>}/>
+					<Route path='/login' element={<SignupPage/>}/>
 					{routes.map(
 						({
 							Component: MComponent,
