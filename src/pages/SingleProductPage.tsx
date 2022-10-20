@@ -24,9 +24,12 @@ const SingleProductPage = () => {
 	return (
 		<div>
 			{currentProduct && (
-				<div className=" flex py-5">
-					<img src={currentProduct.featuredImage} alt="" className="h-80" />
-					<div className='pl-8'>
+				<div className="flex justify-between items-center py-5">
+					<div className='flex flex-col'>
+						<img src={currentProduct.featuredImage} alt="" className="h-80 w-80" />
+						<p>{currentProduct.description}</p>
+					</div>
+					<div className='pr-4'>
 						<h1 className="text-4xl font-bold capitalize">{currentProduct.name}</h1>
 						<div className='pt-3'>
 							{starGenerator(currentProduct.ratings).map((s, i) => (
