@@ -28,6 +28,7 @@ const SingleProductPage = () => {
 					<div className='flex flex-col'>
 						<img src={currentProduct.featuredImage} alt="" className="h-80 w-80" />
 						<p>{currentProduct.description}</p>
+						<p></p>
 					</div>
 					<div className='pr-4'>
 						<h1 className="text-4xl font-bold capitalize">{currentProduct.name}</h1>
@@ -55,6 +56,14 @@ const SingleProductPage = () => {
 					</div>
 				</div>
 			)}
+			<div className='flex flex-col justify-center items-center'>
+				<h4>More Like This</h4>
+				<div className='flex  justify-around items-center'>
+					<button className='rounded-full p-2 mx-24 border border-black'>Polly Necks</button>
+					<button className='rounded-full p-2 mx-24 border border-black'>Resian Skirts</button>
+					<button className='rounded-full p-2 mx-24 border border-black'>Resian Dresses</button>
+				</div>
+			</div>
 		</div>
 	);
 };
