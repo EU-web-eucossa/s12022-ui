@@ -3,7 +3,7 @@ import Header from '../components/Header';
 import React from 'react';
 
 type Props = {
-	children: JSX.Element;
+	children: JSX.Element| JSX.Element[]
 };
 
 const BaseLayout = (props: Props) => {
