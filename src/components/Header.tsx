@@ -4,13 +4,20 @@ import { Link } from 'react-router-dom';
 import React from 'react';
 import { faBell } from '@fortawesome/free-regular-svg-icons';
 import { useAppSelector } from '../state/hooks';
+import { useLocation } from 'react-router-dom';
 import { faSearch, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
-	const { totalQuantity } = useAppSelector(
-		(state) => state.root.cart
-	);
+	const location = useLocation();
+	const { totalQuantity } = useAppSelector((state) => state.root.cart);
 	const [cartOpen, setCartOpen] = React.useState<boolean>(false);
+	const closeOnWindowClick = () => {
+		cartOpen && setCartOpen(false);
+	};
+	window.addEventListener('click', closeOnWindowClick);
+	React.useEffect(() => {
+		return window.removeEventListener('click', closeOnWindowClick);
+	}, [location]);
 
 	return (
 		<React.Fragment>
@@ -47,6 +54,7 @@ const Header = () => {
 						className="h-8 md:h-12 w-8 md:w-12 bg-primary rounded-lg cursor-pointer flex items-center justify-center relative"
 						onClick={(e) => {
 							e.preventDefault();
+							e.stopPropagation();
 							setCartOpen(!cartOpen);
 						}}
 					>
