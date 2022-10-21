@@ -11,7 +11,7 @@ const PasswordElement = (props:PropsTypes) => {
 	const [show,setShow] = React.useState<boolean>(false);
  
 	return (
-		<div className='flex items-center border border-slate-300 px-2 rounded-md'>
+		<div className='flex items-center border border-slate-300 px-2 rounded-full'>
 			<input
 				className="w-full border-none outline-none focus:ring-0"
 				name={props.name}
