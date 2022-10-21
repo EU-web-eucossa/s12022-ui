@@ -3,8 +3,12 @@ import HomecategoryItem from './HomecategoryItem';
 import { Link } from 'react-router-dom';
 import React from 'react';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { useAppSelector } from '../state/hooks';
 
 const Homecategories = () => {
+	const { categories } = useAppSelector((state) => state.categories);
+	console.log(categories);
+
 	return (
 		<div className="shadow p-4 mt-2 rounded-sm">
 			<div className="flex justify-between py-2 ">
@@ -14,18 +18,10 @@ const Homecategories = () => {
 				</Link>
 			</div>
 			<div className="flex gap-4 overflow-x-scroll no-scrollbar">
-				{[
-					'sports-wear',
-					'Airpods',
-					'Shoes',
-					'Smartphones',
-					'Speakers',
-					'Headphones',
-					'Television',
-					'SmartWatch'
-				].map((category) => (
-					<HomecategoryItem key={category} title={category}/>
-				))}
+				{categories &&
+					categories.map((category) => (
+						<HomecategoryItem key={category} title={category} />
+					))}
 			</div>
 		</div>
 	);

@@ -1,19 +1,63 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import AppRouter from './router';
+import { AxiosError } from 'axios';
 import React from 'react';
-import allProducts from './data/products';
-import { loadProductsSuccess } from './state/slices/productsSlice';
+import { axiosQuery } from './api';
 import { useAppDispatch } from './state/hooks';
+import {
+	loadCategoryFailure,
+	loadCategoryStart,
+	loadCategorySuccess
+} from './state/slices/categoriesSlice';
+import {
+	loadProductsFailure,
+	loadProductsStart,
+	loadProductsSuccess
+} from './state/slices/productsSlice';
+
 
 const App = () => {
 	const dispatch = useAppDispatch();
+	const fetchProducts = async () => {
+		try {
+			dispatch(loadProductsStart());
+			const response = await axiosQuery.get('/products');
+			const data = response.data;
+			dispatch(
+				loadProductsSuccess({
+					products: data.products
+				})
+			);
+		} catch (error: any) {
+			if (error instanceof AxiosError) {
+				console.log(error.response?.data);
+				dispatch(loadProductsFailure({ error: error.response?.data }));
+			}
+		}
+	};
+	const fetchProductCategories = async () => {
+		try {
+			dispatch(loadCategoryStart());
+			const response = await axiosQuery.get('/products/categories');
+			const data = response.data;
+			dispatch(
+				loadCategorySuccess({
+					categories: data
+				})
+			);
+		} catch (error: any) {
+			if (error instanceof AxiosError) {
+				console.log(error.response?.data);
+				dispatch(
+					loadCategoryFailure({ error: error.response?.data.toString() })
+				);
+			}
+		}
+	};
 	React.useEffect(() => {
-		dispatch(
-			loadProductsSuccess({
-				products: allProducts,
-				loading: false,
-				error: null
-			})
-		);
+		fetchProductCategories();
+		fetchProducts();
+		
 	}, []);
 
 	return <AppRouter />;
