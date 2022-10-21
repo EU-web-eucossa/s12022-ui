@@ -16,12 +16,18 @@ const productsSlice = createSlice({
 			state.loading = true;
 			state.error = null;
 		},
-		loadProductsSuccess: (state, action: PayloadAction<ProductsStateType>) => {
+		loadProductsSuccess: (
+			state,
+			action: PayloadAction<Pick<ProductsStateType, 'products'>>
+		) => {
 			state.products = action.payload.products;
 			state.loading = false;
 			state.error = null;
 		},
-		loadProductsFailure: (state, action: PayloadAction<ProductsStateType>) => {
+		loadProductsFailure: (
+			state,
+			action: PayloadAction<Pick<ProductsStateType, 'error'>>
+		) => {
 			state.loading = false;
 			state.error = action.payload.error;
 		}
