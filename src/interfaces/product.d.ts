@@ -1,32 +1,13 @@
 export interface IProduct {
-	name: string;
-	color?: string | string[];
-	price: number;
-    featured:boolean
-	quantity: number;
-	inStock: boolean;
-	ratings: number;
+	id: number | string;
+	title: string;
 	description: string;
-	sizes?: string | string[];
-	category: CategoryType;
-	featuredImage: string;
-	images?: string[];
-	reviews: IReview[];
-}
-
-export type CategoryType =
-	| 'clothes'
-	| 'sports-wear'
-	| 'Airpods'
-	| 'Shoes'
-	| 'Smartphones'
-	| 'Speakers'
-	| 'Headphones'
-	| 'Television'
-	| 'SmartWatch';
-
-export interface IReview {
-	author: string;
-	text: string;
-	date: Date;
+	price: number;
+	discountPercentage: number;
+	rating: number;
+	stock: number;
+	brand: string;
+	category: string;
+	thumbnail: string;
+	images: Array<string>;
 }
