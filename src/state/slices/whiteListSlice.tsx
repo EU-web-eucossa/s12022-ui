@@ -1,6 +1,5 @@
 import { IProduct } from '../../interfaces/product';
 import { WhiteListStateType } from '../../types';
-import slugify from '../../helpers/slugify';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 const initialState: WhiteListStateType = {
@@ -14,8 +13,8 @@ const productWhitelistSlice = createSlice({
 		addProductToWhitelist: (state, action: PayloadAction<IProduct>) => {
 			state.products = state.products.find(
 				(p) =>
-					slugify(p.name).toLowerCase() ===
-					slugify(action.payload.name).toLowerCase()
+					p.id ===
+					p.id
 			)
 				? state.products
 				: [...state.products, action.payload];
@@ -26,8 +25,8 @@ const productWhitelistSlice = createSlice({
 		) => {
 			state.products = state.products.filter(
 				(p) =>
-					slugify(p.name).toLowerCase() !==
-					slugify(action.payload.id).toLowerCase()
+					p.id !==
+					action.payload.id
 			);
 		}
 	}
