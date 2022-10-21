@@ -9,14 +9,14 @@ import { useAppDispatch, useAppSelector } from '../state/hooks';
 
 const SingleProductPage = () => {
 	const { id } = useParams();
-	const { products } = useAppSelector((state) => state.products);
+	const { products:{products} } = useAppSelector((state) => state);
 	const [currentProduct, setCurrentProdut] = React.useState<IProduct | null>(
 		null
 	);
 	React.useEffect(() => {
 		const p = products.find((p) => p.id === Number(id)!);
 		setCurrentProdut(p!);
-	}, []);
+	}, [products.length]);
 	const dispatch = useAppDispatch();
 
 	return (
