@@ -2,7 +2,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Homecategories from '../components/Homecategories';
 import { Link } from 'react-router-dom';
 import React from 'react';
-import slugify from '../helpers/slugify';
 import starGenerator from '../helpers/starGenerator';
 import { useAppSelector } from '../state/hooks';
 
