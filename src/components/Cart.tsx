@@ -30,16 +30,17 @@ const Cart = () => {
 					{cartProducts.map((p) => (
 						<li key={p.title} className="flex gap-2 w-full">
 							<div>
-								<img src={p.thumbnail} alt="" className="w-20 h-20" />
+								<img src={p.thumbnail} alt="" className="w-24 h-24 mx-auto" />
 							</div>
-							<div className="text-[12px] flex flex-col gap-1 w-full">
+							<div className="text-[12px] flex flex-col gap-1 w-full border p-1">
 								<h1 className="capitalize">{p.title}</h1>
 								<p>Quatity {p.quantity}</p>
-								<p>Ksh {(p.price * p.quantity).toFixed(2)}</p>
-								<div className="flex gap-2 w-full">
+								<p>Unit price ${p.price.toFixed(2)}</p>
+								<p>Total $ {(p.price * p.quantity).toFixed(2)}</p>
+								<div className="flex gap-2 w-full border-t p-2">
 									<FontAwesomeIcon
 										icon={faAdd}
-										className="flex-[1] text-primary text-lg"
+										className="flex-[1] text-primary text-lg border-r"
 										onClick={(e) => {
 											e.preventDefault();
 											dispatch(
@@ -51,7 +52,7 @@ const Cart = () => {
 									/>
 									<FontAwesomeIcon
 										icon={faTrash}
-										className="flex-[1] text-lg text-error"
+										className="flex-[1] text-lg text-error border-l"
 										onClick={(e) => {
 											e.preventDefault();
 											dispatch(
@@ -67,7 +68,7 @@ const Cart = () => {
 					))}
 				</ul>
 			) : (
-				<div className="">Cart is empty</div>
+				<div className=" text-center text-primary border-b">Cart is empty</div>
 			)}
 			<div className="font-medium text-md px-2 mt-4">
 				Total: $ {totalPrice.toFixed(2)}

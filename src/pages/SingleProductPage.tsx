@@ -16,26 +16,24 @@ const SingleProductPage = () => {
 	React.useEffect(() => {
 		const p = products.find((p) => p.id === Number(id)!);
 		setCurrentProdut(p!);
-	}, [id]);
+	}, []);
 	const dispatch = useAppDispatch();
-	console.log(currentProduct, id);
 
 	return (
 		<div>
 			{currentProduct && (
 				<div className=" flex py-5">
-					<div className='flex flex-col gap-3'>
+					<div className="flex flex-col gap-3">
 						<img src={currentProduct.thumbnail} alt="" className="h-80" />
 						<div className="flex gap-2">
 							{currentProduct.images.length > 0 &&
-								currentProduct.images.map((image) => (
-									<>
-										<img
-											src={image}
-											alt=""
-											className="h-32 w-32 object-cover border rounded-md border-black shadow-lg hover:scale-110 cursor-pointer transition-all ease-linear duration-300"
-										/>
-									</>
+								currentProduct.images.map((image, i) => (
+									<img
+										key={i}
+										src={image}
+										alt=""
+										className="h-32 w-32 object-cover border rounded-md border-black shadow-lg hover:scale-110 cursor-pointer transition-all ease-linear duration-300"
+									/>
 								))}
 						</div>
 					</div>
