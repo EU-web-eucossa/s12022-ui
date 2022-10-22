@@ -11,7 +11,7 @@ const PasswordElement = (props:PropsTypes) => {
 	const [show,setShow] = React.useState<boolean>(false);
  
 	return (
-		<div className='flex items-center border border-slate-300 px-2 rounded-md'>
+		<div className='flex items-center border border-slate-300 px-2 rounded-md bg-white focus:border-slate-300'>
 			<input
 				className="w-full border-none outline-none focus:ring-0"
 				name={props.name}
@@ -21,7 +21,7 @@ const PasswordElement = (props:PropsTypes) => {
 			<button onClick={function(e){
 				e.preventDefault();
 				setShow(!show);
-			}}><FontAwesomeIcon icon={show?faEye:faEyeSlash}/></button>
+			}} className="text-placeholder"><FontAwesomeIcon icon={show?faEye:faEyeSlash}/></button>
 		</div>
 	);
 

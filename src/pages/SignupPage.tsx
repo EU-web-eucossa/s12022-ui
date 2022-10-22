@@ -1,28 +1,42 @@
+/* eslint-disable react/no-unescaped-entities */
 import InputElement from '../components/InputElement';
+import { Link } from 'react-router-dom';
 import PasswordElement from '../components/PasswordElement';
 import React from 'react';
 
 const SignupPage = () => {
 	return (
-		<div className="container flex justify-center mt-10">
-			<div className="w-full sm:w-full md:w-2/4 font-medium">
-				<form className="flex flex-col justify-center mt-5 sm:m-8 gap-4">
-					<InputElement placeholder={'First Name'} type={'text'} name={'FirstName'} />
-					<InputElement placeholder={'LastName'} type={'text'} name={'LastName'} />
-					<InputElement placeholder={'Email Address'} type={'email'} name={'email'} />
-					<PasswordElement placeholder={'Password'} name={'password'} />
-					
-					<button className="mb-3 rounded-full bg-primary p-2" type="submit">
-						Sign In
-					</button>
-				</form>
-				<p className="mb-7 text-center">
-					Already have an account?{' '}
-					<a href="#/login" className="text-primary">
-						Log in
-					</a>
-				</p>
-			</div>
+		<div className="flex justify-center items-center mt-10 flex-col h-full">
+			<form className="flex flex-col mt-5 gap-4 sm:m-8 px-4 w-full bg-white p-5 md:p-12 rounded-md max-w-[40rem]">
+				<div>
+					<img
+						src="/logo.svg"
+						alt=""
+						className="mx-auto h-30 w-30 object-cover"
+					/>
+				</div>
+				<InputElement
+					placeholder={'Username'}
+					type={'text'}
+					name={'username'}
+				/>
+				<InputElement
+					placeholder={'Email address'}
+					type={'email'}
+					name={'email'}
+				/>
+				<PasswordElement placeholder={'Password'} name={'password'} />
+				
+				<button className="mb-3 rounded-full bg-primary p-2 font-bold" type="submit">
+					Sign Up
+				</button>
+			</form>
+			<p className="mb-7 text-center">
+				Don't have an account?{' '}
+				<Link to={'/login'} className="text-primary">
+					Sign in
+				</Link>
+			</p>
 		</div>
 	);
 };
