@@ -16,7 +16,7 @@ const LoginPage = () => {
 					<PasswordElement placeholder={'Password'} name={'password'} />
 					<div className="flex items-center gap-5">
 						<input
-							className=""
+							className="checked:bg-primary rounded-full w-5"
 							type="checkbox"
 							id="rememberMe"
 							name="rememberMe"
