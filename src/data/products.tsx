@@ -3,12 +3,12 @@ import { IProduct } from '../interfaces/product';
 const products: IProduct[] = [
 	{
 		category: 'sports-wear',
-		featured: false,
-		name: 'Yoga pants',
+
+		title: 'Yoga pants',
 		description:
 			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur eos minima quo eligendi esse soluta, facere totam explicabo recusandae architecto nam omnis excepturi nobis repellat assumenda, sapiente laboriosam? Soluta enim, quibusdam omnis quod numquam aspernatur esse commodi eos distinctio blanditiis?',
-		featuredImage: '/product.webp',
-		inStock: true,
+		thumbnail: '/product.webp',
+
 		quantity: 20,
 		reviews: [],
 		ratings: 2,
@@ -19,12 +19,12 @@ const products: IProduct[] = [
 	},
 	{
 		category: 'Airpods',
-		featured: false,
-		name: 'Airpods two',
+
+		title: 'Airpods two',
 		description:
 			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur eos minima quo eligendi esse soluta, facere totam explicabo recusandae architecto nam omnis excepturi nobis repellat assumenda, sapiente laboriosam? Soluta enim, quibusdam omnis quod numquam aspernatur esse commodi eos distinctio blanditiis?',
-		featuredImage: '/product.webp',
-		inStock: true,
+		thumbnail: '/product.webp',
+
 		quantity: 20,
 		reviews: [],
 		ratings: 3,
@@ -35,12 +35,12 @@ const products: IProduct[] = [
 	},
 	{
 		category: 'Headphones',
-		featured: false,
-		name: 'Mega GP gaming Headphones ',
+
+		title: 'Mega GP gaming Headphones ',
 		description:
 			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur eos minima quo eligendi esse soluta, facere totam explicabo recusandae architecto nam omnis excepturi nobis repellat assumenda, sapiente laboriosam? Soluta enim, quibusdam omnis quod numquam aspernatur esse commodi eos distinctio blanditiis?',
-		featuredImage: '/product.webp',
-		inStock: true,
+		thumbnail: '/product.webp',
+
 		quantity: 20,
 		reviews: [],
 		ratings: 3.5,
@@ -51,12 +51,12 @@ const products: IProduct[] = [
 	},
 	{
 		category: 'Shoes',
-		featured: false,
-		name: 'Open shoes dx',
+
+		title: 'Open shoes dx',
 		description:
 			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur eos minima quo eligendi esse soluta, facere totam explicabo recusandae architecto nam omnis excepturi nobis repellat assumenda, sapiente laboriosam? Soluta enim, quibusdam omnis quod numquam aspernatur esse commodi eos distinctio blanditiis?',
-		featuredImage: '/product.webp',
-		inStock: true,
+		thumbnail: '/product.webp',
+
 		quantity: 20,
 		reviews: [],
 		ratings: 4,
@@ -67,12 +67,12 @@ const products: IProduct[] = [
 	},
 	{
 		category: 'SmartWatch',
-		featured: false,
-		name: 'LED snony SmartWatch ',
+
+		title: 'LED snony SmartWatch ',
 		description:
 			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur eos minima quo eligendi esse soluta, facere totam explicabo recusandae architecto nam omnis excepturi nobis repellat assumenda, sapiente laboriosam? Soluta enim, quibusdam omnis quod numquam aspernatur esse commodi eos distinctio blanditiis?',
-		featuredImage: '/product.webp',
-		inStock: true,
+		thumbnail: '/product.webp',
+
 		quantity: 20,
 		reviews: [],
 		ratings: 4.5,
@@ -83,12 +83,12 @@ const products: IProduct[] = [
 	},
 	{
 		category: 'Speakers',
-		featured: false,
-		name: 'Sayona sub-woofer',
+
+		title: 'Sayona sub-woofer',
 		description:
 			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur eos minima quo eligendi esse soluta, facere totam explicabo recusandae architecto nam omnis excepturi nobis repellat assumenda, sapiente laboriosam? Soluta enim, quibusdam omnis quod numquam aspernatur esse commodi eos distinctio blanditiis?',
-		featuredImage: '/product.webp',
-		inStock: true,
+		thumbnail: '/product.webp',
+
 		quantity: 20,
 		reviews: [],
 		ratings: 3.5,
@@ -99,12 +99,12 @@ const products: IProduct[] = [
 	},
 	{
 		category: 'Television',
-		featured: false,
-		name: 'Smart Aucma Television',
+
+		title: 'Smart Aucma Television',
 		description:
 			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur eos minima quo eligendi esse soluta, facere totam explicabo recusandae architecto nam omnis excepturi nobis repellat assumenda, sapiente laboriosam? Soluta enim, quibusdam omnis quod numquam aspernatur esse commodi eos distinctio blanditiis?',
-		featuredImage: '/product.webp',
-		inStock: true,
+		thumbnail: '/product.webp',
+
 		quantity: 20,
 		reviews: [],
 		ratings: 3.5,
@@ -115,12 +115,12 @@ const products: IProduct[] = [
 	},
 	{
 		category: 'clothes',
-		featured: false,
-		name: 'Swimming costume eight',
+
+		title: 'Swimming costume eight',
 		description:
 			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur eos minima quo eligendi esse soluta, facere totam explicabo recusandae architecto nam omnis excepturi nobis repellat assumenda, sapiente laboriosam? Soluta enim, quibusdam omnis quod numquam aspernatur esse commodi eos distinctio blanditiis?',
-		featuredImage: '/product.webp',
-		inStock: true,
+		thumbnail: '/product.webp',
+
 		quantity: 20,
 		reviews: [],
 		ratings: 3.5,
@@ -131,12 +131,12 @@ const products: IProduct[] = [
 	},
 	{
 		category: 'Shoes',
-		featured: false,
-		name: 'Rubber Shoes one',
+
+		title: 'Rubber Shoes one',
 		description:
 			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur eos minima quo eligendi esse soluta, facere totam explicabo recusandae architecto nam omnis excepturi nobis repellat assumenda, sapiente laboriosam? Soluta enim, quibusdam omnis quod numquam aspernatur esse commodi eos distinctio blanditiis?',
-		featuredImage: '/product.webp',
-		inStock: true,
+		thumbnail: '/product.webp',
+
 		quantity: 20,
 		reviews: [],
 		ratings: 1,
@@ -144,14 +144,15 @@ const products: IProduct[] = [
 		color: [],
 		images: [],
 		sizes: []
-	},{
+	},
+	{
 		category: 'clothes',
-		featured: false,
-		name: 'Night dress(Silver)',
+
+		title: 'Night dress(Silver)',
 		description:
 			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur eos minima quo eligendi esse soluta, facere totam explicabo recusandae architecto nam omnis excepturi nobis repellat assumenda, sapiente laboriosam? Soluta enim, quibusdam omnis quod numquam aspernatur esse commodi eos distinctio blanditiis?',
-		featuredImage: '/product.webp',
-		inStock: true,
+		thumbnail: '/product.webp',
+
 		quantity: 20,
 		reviews: [],
 		ratings: 1,
@@ -162,12 +163,12 @@ const products: IProduct[] = [
 	},
 	{
 		category: 'sports-wear',
-		featured: false,
-		name: 'sports-wear one',
+
+		title: 'sports-wear one',
 		description:
 			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur eos minima quo eligendi esse soluta, facere totam explicabo recusandae architecto nam omnis excepturi nobis repellat assumenda, sapiente laboriosam? Soluta enim, quibusdam omnis quod numquam aspernatur esse commodi eos distinctio blanditiis?',
-		featuredImage: '/product.webp',
-		inStock: true,
+		thumbnail: '/product.webp',
+
 		quantity: 20,
 		reviews: [],
 		ratings: 2,
@@ -178,12 +179,12 @@ const products: IProduct[] = [
 	},
 	{
 		category: 'Airpods',
-		featured: false,
-		name: 'Silicon Airpods two',
+
+		title: 'Silicon Airpods two',
 		description:
 			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur eos minima quo eligendi esse soluta, facere totam explicabo recusandae architecto nam omnis excepturi nobis repellat assumenda, sapiente laboriosam? Soluta enim, quibusdam omnis quod numquam aspernatur esse commodi eos distinctio blanditiis?',
-		featuredImage: '/product.webp',
-		inStock: true,
+		thumbnail: '/product.webp',
+
 		quantity: 20,
 		reviews: [],
 		ratings: 3,
@@ -194,12 +195,12 @@ const products: IProduct[] = [
 	},
 	{
 		category: 'Headphones',
-		featured: false,
-		name: 'Super base BT headphones',
+
+		title: 'Super base BT headphones',
 		description:
 			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur eos minima quo eligendi esse soluta, facere totam explicabo recusandae architecto nam omnis excepturi nobis repellat assumenda, sapiente laboriosam? Soluta enim, quibusdam omnis quod numquam aspernatur esse commodi eos distinctio blanditiis?',
-		featuredImage: '/product.webp',
-		inStock: true,
+		thumbnail: '/product.webp',
+
 		quantity: 20,
 		reviews: [],
 		ratings: 3.5,
@@ -210,12 +211,12 @@ const products: IProduct[] = [
 	},
 	{
 		category: 'Shoes',
-		featured: false,
-		name: 'Awesome Shoes four',
+
+		title: 'Awesome Shoes four',
 		description:
 			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur eos minima quo eligendi esse soluta, facere totam explicabo recusandae architecto nam omnis excepturi nobis repellat assumenda, sapiente laboriosam? Soluta enim, quibusdam omnis quod numquam aspernatur esse commodi eos distinctio blanditiis?',
-		featuredImage: '/product.webp',
-		inStock: true,
+		thumbnail: '/product.webp',
+
 		quantity: 20,
 		reviews: [],
 		ratings: 4,
@@ -226,12 +227,12 @@ const products: IProduct[] = [
 	},
 	{
 		category: 'SmartWatch',
-		featured: false,
-		name: 'SmartWatch five',
+
+		title: 'SmartWatch five',
 		description:
 			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur eos minima quo eligendi esse soluta, facere totam explicabo recusandae architecto nam omnis excepturi nobis repellat assumenda, sapiente laboriosam? Soluta enim, quibusdam omnis quod numquam aspernatur esse commodi eos distinctio blanditiis?',
-		featuredImage: '/product.webp',
-		inStock: true,
+		thumbnail: '/product.webp',
+
 		quantity: 20,
 		reviews: [],
 		ratings: 4.5,
@@ -242,12 +243,12 @@ const products: IProduct[] = [
 	},
 	{
 		category: 'Speakers',
-		featured: false,
-		name: 'Portable BT Speakers',
+
+		title: 'Portable BT Speakers',
 		description:
 			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur eos minima quo eligendi esse soluta, facere totam explicabo recusandae architecto nam omnis excepturi nobis repellat assumenda, sapiente laboriosam? Soluta enim, quibusdam omnis quod numquam aspernatur esse commodi eos distinctio blanditiis?',
-		featuredImage: '/product.webp',
-		inStock: true,
+		thumbnail: '/product.webp',
+
 		quantity: 20,
 		reviews: [],
 		ratings: 3.5,
@@ -258,12 +259,12 @@ const products: IProduct[] = [
 	},
 	{
 		category: 'Television',
-		featured: false,
-		name: 'Von 32\'-inch screen',
+
+		title: "Von 32'-inch screen",
 		description:
 			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur eos minima quo eligendi esse soluta, facere totam explicabo recusandae architecto nam omnis excepturi nobis repellat assumenda, sapiente laboriosam? Soluta enim, quibusdam omnis quod numquam aspernatur esse commodi eos distinctio blanditiis?',
-		featuredImage: '/product.webp',
-		inStock: true,
+		thumbnail: '/product.webp',
+
 		quantity: 20,
 		reviews: [],
 		ratings: 3.5,
@@ -274,12 +275,12 @@ const products: IProduct[] = [
 	},
 	{
 		category: 'clothes',
-		featured: false,
-		name: 'Cousion cover',
+
+		title: 'Cousion cover',
 		description:
 			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur eos minima quo eligendi esse soluta, facere totam explicabo recusandae architecto nam omnis excepturi nobis repellat assumenda, sapiente laboriosam? Soluta enim, quibusdam omnis quod numquam aspernatur esse commodi eos distinctio blanditiis?',
-		featuredImage: '/product.webp',
-		inStock: true,
+		thumbnail: '/product.webp',
+
 		quantity: 20,
 		reviews: [],
 		ratings: 3.5,
@@ -290,12 +291,12 @@ const products: IProduct[] = [
 	},
 	{
 		category: 'Shoes',
-		featured: false,
-		name: 'Shoes nine dope',
+
+		title: 'Shoes nine dope',
 		description:
 			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur eos minima quo eligendi esse soluta, facere totam explicabo recusandae architecto nam omnis excepturi nobis repellat assumenda, sapiente laboriosam? Soluta enim, quibusdam omnis quod numquam aspernatur esse commodi eos distinctio blanditiis?',
-		featuredImage: '/product.webp',
-		inStock: true,
+		thumbnail: '/product.webp',
+
 		quantity: 20,
 		reviews: [],
 		ratings: 1,
@@ -303,14 +304,15 @@ const products: IProduct[] = [
 		color: [],
 		images: [],
 		sizes: []
-	},{
+	},
+	{
 		category: 'clothes',
-		featured: false,
-		name: 'Outdoor blouse',
+
+		title: 'Outdoor blouse',
 		description:
 			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur eos minima quo eligendi esse soluta, facere totam explicabo recusandae architecto nam omnis excepturi nobis repellat assumenda, sapiente laboriosam? Soluta enim, quibusdam omnis quod numquam aspernatur esse commodi eos distinctio blanditiis?',
-		featuredImage: '/product.webp',
-		inStock: true,
+		thumbnail: '/product.webp',
+
 		quantity: 20,
 		reviews: [],
 		ratings: 1,

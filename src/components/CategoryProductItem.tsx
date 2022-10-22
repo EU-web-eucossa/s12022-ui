@@ -12,11 +12,11 @@ const CategoryProductItem = ({ product }: { product: IProduct }) => {
 
 	return (
 		<div className="shadow-md rounded-md flex flex-col justify-between">
-			<div className="h-48 relative">
+			<div className="h-64 relative">
 				<img
-					src="/product.webp"
+					src={product.thumbnail}
 					alt=""
-					className="w-full object-cover absolute h-full -z-[1]"
+					className="w-full object-cover absolute h-64 -z-[1]"
 				/>
 				<div className="p-1 flex justify-between">
 					<FontAwesomeIcon icon={faListDots} />
@@ -24,14 +24,14 @@ const CategoryProductItem = ({ product }: { product: IProduct }) => {
 				</div>
 			</div>
 			<div className="px-1 font-roboto capitalize">
-				<h1 className="text-lg font-bold">{product.name}</h1>
+				<h1 className="text-lg font-bold">{product.title}</h1>
 				<p>
-					Ksh <strong>{product.price}</strong>
+					<strong>$ {product.price.toFixed(2)}</strong>
 				</p>
 			</div>
 			<div className="flex justify-between items-center">
 				<div className="pl-2 flex items gap-1">
-					{starGenerator(product.ratings).map((r, i) => (
+					{starGenerator(product.rating).map((r, i) => (
 						<FontAwesomeIcon
 							icon={r}
 							key={i}

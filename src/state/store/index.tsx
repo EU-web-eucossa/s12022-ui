@@ -1,4 +1,5 @@
 import cartReducer from '../slices/cartSlice';
+import categoriesReducer from './../slices/categoriesSlice';
 import { combineReducers } from 'redux';
 import { configureStore } from '@reduxjs/toolkit';
 import productsReducer from './../slices/productsSlice';
@@ -18,7 +19,7 @@ import {
 } from 'redux-persist';
 
 const persistConfig = {
-	key: 'root-eucossa-app-store-2022-01',
+	key: 'root-eucossa-app-store-2022-02',
 	version: 1,
 	storage
 };
@@ -35,7 +36,8 @@ const rootReducer = persistReducer(
 const store = configureStore({
 	reducer: {
 		root: rootReducer,
-		products: productsReducer
+		products: productsReducer,
+		categories: categoriesReducer
 	},
 	middleware: (getDefaultMiddleware) =>
 		getDefaultMiddleware({

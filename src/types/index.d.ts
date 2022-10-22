@@ -6,6 +6,12 @@ export type ProductsStateType = {
 	error: string | null;
 };
 
+export type ProductCategoriesStateType = {
+	categories: string[];
+	loading: boolean;
+	error: string | null;
+};
+
 export type UserStateType = {
 	user: IUser | null;
 	isAuthenticated: boolean;
