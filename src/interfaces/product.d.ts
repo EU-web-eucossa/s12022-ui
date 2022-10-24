@@ -1,4 +1,7 @@
 export interface IProduct {
+	featuredImage: string | undefined;
+	name: ReactNode;
+	ratings(ratings: any): unknown;
 	id: number | string;
 	title: string;
 	description: string;

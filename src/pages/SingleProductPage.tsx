@@ -25,6 +25,7 @@ const SingleProductPage = () => {
 				<div className=" flex py-5">
 					<div className="flex flex-col gap-3">
 						<img src={currentProduct.thumbnail} alt="" className="h-80" />
+						<p>{currentProduct.description}</p>
 						<div className="flex gap-2">
 							{currentProduct.images.length > 0 &&
 								currentProduct.images.map((image, i) => (
@@ -64,9 +65,19 @@ const SingleProductPage = () => {
 							ADD TO CART
 						</button>
 					</div>
+					<div className='flex flex-col justify-center items-center'>
+						<h4>More Like This</h4>
+						<div className='flex  justify-around items-center'>
+							<button className='rounded-full p-2 mx-24 border border-black'>Polly Necks</button>
+							<button className='rounded-full p-2 mx-24 border border-black'>Resian Skirts</button>
+							<button className='rounded-full p-2 mx-24 border border-black'>Resian Dresses</button>
+						</div>
+					</div> 
 				</div>
 			)}
 		</div>
+			
+	
 	);
 };
 
