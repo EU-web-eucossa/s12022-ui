@@ -2,6 +2,7 @@
 import CategoryProductItem from '../components/CategoryProductItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IProduct } from '../interfaces/product';
+import { Link } from 'react-router-dom';
 import React from 'react';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { useAppSelector } from '../state/hooks';
@@ -38,16 +39,16 @@ const CategoriesPage = () => {
 		<div>
 			<div className="py-4">
 				<h2 className="flex items-center text-xl capitalize">
-					Categories{' '}
+					<Link to={'/categories'}>Categories</Link>{' '}
 					{category && (
 						<span className="flex items-center">
 							<FontAwesomeIcon icon={faChevronRight} className="text-[12px]" />{' '}
-							{category}
+							<Link to={`/categories?category=${category}`}>{category}</Link>
 						</span>
 					)}
 				</h2>
 			</div>
-			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-4">
+			<div className="grid py-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-4">
 				{filteredProducts.map((p) => (
 					<CategoryProductItem key={p.title} product={p} />
 				))}

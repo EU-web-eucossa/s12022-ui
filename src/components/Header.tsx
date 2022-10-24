@@ -49,7 +49,7 @@ const Header = () => {
 					</div>
 					
 					<div
-						className="h-8 md:h-12 w-8 md:w-12 bg-primary rounded-lg cursor-pointer flex items-center justify-center "
+						className="h-8 md:h-12 w-8 md:w-12 bg-primary rounded-lg cursor-pointer flex items-center justify-center relative"
 						onClick={(e) => {
 							e.preventDefault();
 							e.stopPropagation();

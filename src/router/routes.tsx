@@ -9,6 +9,7 @@ import { IRouteProps } from '../interfaces/router';
 import LoginPage from '../pages/LoginPage';
 import NotFound from '../pages/NotFound';
 import ProfilePage from '../pages/ProfilePage';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react';
 import SignupPage from '../pages/SignupPage';
 import SingleProductPage from '../pages/SingleProductPage';
