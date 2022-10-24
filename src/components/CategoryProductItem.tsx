@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IProduct } from '../interfaces/product';
+import { Link } from 'react-router-dom';
 import React from 'react';
 import { addProductToCart } from '../state/slices/cartSlice';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
@@ -12,7 +13,7 @@ const CategoryProductItem = ({ product }: { product: IProduct }) => {
 
 	return (
 		<div className="shadow-md rounded-md flex flex-col justify-between">
-			<div className="h-64 relative">
+			<Link to={`/product/${product.id}`} className="h-64 relative">
 				<img
 					src={product.thumbnail}
 					alt=""
@@ -22,7 +23,7 @@ const CategoryProductItem = ({ product }: { product: IProduct }) => {
 					<FontAwesomeIcon icon={faListDots} />
 					<FontAwesomeIcon icon={faHeart} />
 				</div>
-			</div>
+			</Link>
 			<div className="px-1 font-roboto capitalize">
 				<h1 className="text-lg font-bold">{product.title}</h1>
 				<p>

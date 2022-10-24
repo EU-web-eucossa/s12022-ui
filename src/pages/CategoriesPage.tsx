@@ -2,6 +2,7 @@
 import CategoryProductItem from '../components/CategoryProductItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IProduct } from '../interfaces/product';
+import { Link } from 'react-router-dom';
 import React from 'react';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { useAppSelector } from '../state/hooks';
@@ -10,7 +11,10 @@ import { useLocation } from 'react-router-dom';
 const CategoriesPage = () => {
 	const location = useLocation();
 	const [category, setCategory] = React.useState<string | null>('');
-	const { products } = useAppSelector((state) => state.products);
+	const {
+		products: { products },
+		categories: { categories }
+	} = useAppSelector((state) => state);
 	const [filteredProducts, setFilteredProducts] = React.useState<IProduct[]>(
 		[]
 	);
@@ -36,21 +40,58 @@ const CategoriesPage = () => {
 
 	return (
 		<div>
-			<div className="py-4">
+			<div className="py-4 flex justify-between items-center">
 				<h2 className="flex items-center text-xl capitalize">
-					Categories{' '}
+					<Link to={'/categories'}>Categories</Link>{' '}
 					{category && (
 						<span className="flex items-center">
 							<FontAwesomeIcon icon={faChevronRight} className="text-[12px]" />{' '}
-							{category}
+							<Link to={`/categories?category=${category}`}>{category}</Link>
 						</span>
 					)}
 				</h2>
+				<div className="">
+					<select
+						name=""
+						id=""
+						className="py-2 rounded-md"
+						onChange={(e) => {
+							setCategory(e.target.value);
+						}}
+					>
+						{categories.map((selectedCategory) => (
+							<option
+								key={category}
+								className={`text-sm text-gray-500 hover:text-gray-700 text-ellipsis ${
+									selectedCategory === category ? 'text-gray-700' : ''
+								}`}
+							>
+								{selectedCategory}
+							</option>
+						))}
+					</select>
+				</div>
 			</div>
-			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-4">
-				{filteredProducts.map((p) => (
-					<CategoryProductItem key={p.title} product={p} />
-				))}
+			<div className="grid py-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-4">
+				{filteredProducts.length === 0 ? (
+					<div className="h-full flex items-center justify-center flex-col gap-4 text-center">
+						<h1 className="font-extrabold text-3xl text-red-600">404</h1>
+						<h2 className="">
+							No products found in{' '}
+							<span className="font-bold text-primary">{category}</span>{' '}
+							category
+						</h2>
+						<p>
+							<span className="text-black underline text-xl">
+								Please select another category
+							</span>
+						</p>
+					</div>
+				) : (
+					filteredProducts.map((p) => (
+						<CategoryProductItem key={p.title} product={p} />
+					))
+				)}
 			</div>
 		</div>
 	);
