@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IProduct } from '../interfaces/product';
+import { Link } from 'react-router-dom';
 import React from 'react';
 import { addProductToCart } from '../state/slices/cartSlice';
 import starGenerator from '../helpers/starGenerator';
@@ -9,7 +10,10 @@ import { useAppDispatch, useAppSelector } from '../state/hooks';
 
 const SingleProductPage = () => {
 	const { id } = useParams();
-	const { products:{products} } = useAppSelector((state) => state);
+	const {
+		products: { products },
+		categories: { categories }
+	} = useAppSelector((state) => state);
 	const [currentProduct, setCurrentProdut] = React.useState<IProduct | null>(
 		null
 	);
@@ -22,62 +26,73 @@ const SingleProductPage = () => {
 	return (
 		<div>
 			{currentProduct && (
-				<div className=" flex py-5">
-					<div className="flex flex-col gap-3">
-						<img src={currentProduct.thumbnail} alt="" className="h-80" />
-						<p>{currentProduct.description}</p>
-						<div className="flex gap-2">
-							{currentProduct.images.length > 0 &&
-								currentProduct.images.map((image, i) => (
-									<img
+				<div className=" flex py-5 flex-col">
+					<div className="grid  grid-cols-1 md:grid-cols-2">
+						<div className="flex flex-col gap-4">
+							<img
+								src={currentProduct.thumbnail}
+								alt=""
+								className="h-96 object-cover rounded-md"
+							/>
+
+							<div className="flex gap-2 w-full overflow-x-scroll no-scrollbar">
+								{currentProduct.images.length > 0 &&
+									currentProduct.images.map((image, i) => (
+										<img
+											key={i}
+											src={image}
+											alt=""
+											className="h-32 w-32 object-cover border rounded-md border-black shadow-lg hover:scale-110 cursor-pointer transition-all ease-linear duration-300"
+										/>
+									))}
+							</div>
+							<p>{currentProduct.description}</p>
+						</div>
+						<div className="pl-8">
+							<h1 className="text-4xl font-bold capitalize">
+								{currentProduct.title}
+							</h1>
+							<div className="pt-3">
+								{starGenerator(currentProduct.rating).map((s, i) => (
+									<FontAwesomeIcon
 										key={i}
-										src={image}
-										alt=""
-										className="h-32 w-32 object-cover border rounded-md border-black shadow-lg hover:scale-110 cursor-pointer transition-all ease-linear duration-300"
+										icon={s}
+										color="#F58634"
+										className="cursor-pointer"
 									/>
 								))}
+							</div>
+							<h2 className="pt-3 capitalize font-bold">
+								price {currentProduct.price}
+							</h2>
+							<button
+								className="bg-primary text-white py-2  p-4 rounded-full"
+								onClick={(e) => {
+									e.preventDefault();
+									dispatch(addProductToCart({ ...currentProduct }));
+								}}
+							>
+								ADD TO CART
+							</button>
 						</div>
 					</div>
-					<div className="pl-8">
-						<h1 className="text-4xl font-bold capitalize">
-							{currentProduct.title}
-						</h1>
-						<div className="pt-3">
-							{starGenerator(currentProduct.rating).map((s, i) => (
-								<FontAwesomeIcon
-									key={i}
-									icon={s}
-									color="#F58634"
-									className="cursor-pointer"
-								/>
+					<hr className="bg-slate-400 my-10" />
+					<div className="flex flex-col justify-center items-center">
+						<h4 className='my-4 underline'>More Like This</h4>
+						<div className="flex  justify-around items-center gap-4">
+							{categories.slice(0,3).map((category) => (
+								<Link key={category}
+									to={`/categories?category=${category}`}
+									className="text-primary capitalize font-bold border border-primary rounded-2xl px-4 py-2"
+								>
+									{category}
+								</Link>
 							))}
 						</div>
-						<h2 className="pt-3 capitalize font-bold">
-							price {currentProduct.price}
-						</h2>
-						<button
-							className="bg-primary text-white py-2  p-4 rounded-full"
-							onClick={(e) => {
-								e.preventDefault();
-								dispatch(addProductToCart({ ...currentProduct }));
-							}}
-						>
-							ADD TO CART
-						</button>
 					</div>
-					<div className='flex flex-col justify-center items-center'>
-						<h4>More Like This</h4>
-						<div className='flex  justify-around items-center'>
-							<button className='rounded-full p-2 mx-24 border border-black'>Polly Necks</button>
-							<button className='rounded-full p-2 mx-24 border border-black'>Resian Skirts</button>
-							<button className='rounded-full p-2 mx-24 border border-black'>Resian Dresses</button>
-						</div>
-					</div> 
 				</div>
 			)}
 		</div>
-			
-	
 	);
 };
 
