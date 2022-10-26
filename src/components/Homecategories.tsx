@@ -7,7 +7,6 @@ import { useAppSelector } from '../state/hooks';
 
 const Homecategories = () => {
 	const { categories } = useAppSelector((state) => state.categories);
-	console.log(categories);
 
 	return (
 		<div className="shadow p-4 mt-2 rounded-sm">
