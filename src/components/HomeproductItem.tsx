@@ -14,15 +14,15 @@ const HomeproductItem = (product: IProduct) => {
 		<div className="flex flex-col justify-between hover:shadow-lg rounded-md transition-all ease-linear duration-500 border-slate-200 border">
 			<Link
 				to={`/product/${product.id}`}
-				className="relative h-80 overflow-hidden group border-b border-slate-200"
+				className="relative h-30 w-30 overflow-hidden group border-b border-slate-200"
 			>
 				<img
 					src={product.thumbnail}
 					alt={product.title}
-					className="w-full h-full object-cover group-hover:scale-105 transition-all ease-linear duration-500"
+					className=" group-hover:scale-105 transition-all ease-linear duration-500"
 				/>
 			</Link>
-			<div className="px-2 ">
+			<div className="p-2">
 				<h2
 					className="text-md capitalize font-bold text-black 
                 "
@@ -36,7 +36,7 @@ const HomeproductItem = (product: IProduct) => {
 					$ {product.price.toFixed(2)}
 				</h2>
 			</div>
-			<div className="flex">
+			<div className="flex pt-0">
 				<button className="flex gap-2 flex-1 px-4 items-center">
 					{starGenerator(product.rating).map((star, index) => (
 						<FontAwesomeIcon icon={star} key={index} color="#F58634" />

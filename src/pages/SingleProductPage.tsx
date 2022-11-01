@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import React from 'react';
 import { addProductToCart } from '../state/slices/cartSlice';
 // eslint-disable-next-line sort-imports
-import CategoriesPage from './CategoriesPage';
 import starGenerator from '../helpers/starGenerator';
 import { useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../state/hooks';
@@ -96,16 +95,7 @@ const SingleProductPage = () => {
 					
 				</div>
 			)}
-			<div className='flex flex-col justify-center items-center'>
-				<h4>More Like This</h4>
-				<div className='flex  justify-around items-center'>
-					<button className='rounded-full p-2 mx-24 border border-black'>
-				 	   <CategoriesPage />
-					</button>
-					<button className='rounded-full p-2 mx-24 border border-black'>Resian Skirts</button>
-					<button className='rounded-full p-2 mx-24 border border-black'>Resian Dresses</button>
-				</div>
-			</div> 
+			
 		</div>
 			
 	
