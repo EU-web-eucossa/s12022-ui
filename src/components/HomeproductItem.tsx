@@ -14,12 +14,12 @@ const HomeproductItem = (product: IProduct) => {
 		<div className="flex flex-col justify-between hover:shadow-lg rounded-md transition-all ease-linear duration-500 border-slate-200 border">
 			<Link
 				to={`/product/${product.id}`}
-				className="relative h-full w-full object-cover overflow-hidden group border-b border-slate-200"
+				className="relative h-full w-full object-cover overflow-hidden group border-0 "
 			>
 				<img
 					src={product.thumbnail}
 					alt={product.title}
-					className="w-3s0 h-20 object-fill group-hover:scale-105 transition-all ease-linear duration-500"
+					className="w-30 h-20 object-fill group-hover:scale-105 transition-all ease-linear duration-500"
 				/>
 			</Link>
 			<div className="p-2">
