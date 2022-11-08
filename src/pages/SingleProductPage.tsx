@@ -32,7 +32,7 @@ const SingleProductPage = () => {
 							<img
 								src={currentProduct.thumbnail}
 								alt=""
-								className="h-96 object-cover rounded-md"
+								className="h-96 object-contain rounded-md"
 							/>
 
 							<div className="flex gap-2 w-full overflow-x-scroll no-scrollbar">
