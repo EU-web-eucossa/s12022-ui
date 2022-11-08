@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import AppRouter from './router';
 import { AxiosError } from 'axios';
+import MapRouter from 'react-router-map';
 import OfflineComponent from './components/OfflineComponent';
 import React from 'react';
 import { axiosQuery } from './api';
+import routes from './router';
 import { useAppDispatch } from './state/hooks';
 import useOnline from './hooks/useOnline';
 import {
@@ -26,15 +27,16 @@ const App = () => {
 			dispatch(loadProductsStart());
 			const response = await axiosQuery.get('/products');
 			const data = response.data;
-			dispatch(
-				loadProductsSuccess({
-					products: data.products
-				})
-			);
+			setTimeout(() => {
+				dispatch(
+					loadProductsSuccess({
+						products: data.products
+					})
+				);
+			}, 2000);
 		} catch (error: any) {
-			if (error instanceof AxiosError) 
+			if (error instanceof AxiosError)
 				dispatch(loadProductsFailure({ error: error.response?.data }));
-			
 		}
 	};
 	const fetchProductCategories = async () => {
@@ -46,11 +48,10 @@ const App = () => {
 				loadCategorySuccess({
 					categories: data
 				})
-			);	
+			);
 		} catch (error: any) {
-			if (error instanceof AxiosError) 
+			if (error instanceof AxiosError)
 				dispatch(loadCategoryFailure({ error: error.response?.data }));
-			
 		}
 	};
 	React.useEffect(() => {
@@ -58,7 +59,11 @@ const App = () => {
 		fetchProducts();
 	}, []);
 
-	return online ? <AppRouter /> : <OfflineComponent />;
+	return online ? (
+		<MapRouter routes={routes} enableTopScroll />
+	) : (
+		<OfflineComponent />
+	);
 };
 
 export default App;

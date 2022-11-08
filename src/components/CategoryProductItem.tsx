@@ -17,7 +17,7 @@ const CategoryProductItem = ({ product }: { product: IProduct }) => {
 				<img
 					src={product.thumbnail}
 					alt=""
-					className="w-full object-cover absolute h-64 -z-[1]"
+					className="w-full object-fill absolute h-64 -z-[1]"
 				/>
 				<div className="p-1 flex justify-between">
 					<FontAwesomeIcon icon={faListDots} />
@@ -31,18 +31,18 @@ const CategoryProductItem = ({ product }: { product: IProduct }) => {
 				</p>
 			</div>
 			<div className="flex justify-between items-center">
-				<div className="pl-2 flex items gap-1">
+				<div className="w-1/2 md:pl-2 flex items gap-1">
 					{starGenerator(product.rating).map((r, i) => (
 						<FontAwesomeIcon
 							icon={r}
 							key={i}
 							color="#F58634"
-							className="border-[.2px] rounded-full border-slate-300"
+							className="border-[.2px] rounded-full border-slate-300 text-sm"
 						/>
 					))}
 				</div>
 				<button
-					className="bg-primary text-white py-2 h-fit w-2/5 rounded-tl-xl"
+					className="bg-primary text-white md:py-2 h-fit w-2/5 rounded-tl-xl"
 					onClick={(e) => {
 						e.preventDefault();
 						dispatch(addProductToCart({ ...product }));
