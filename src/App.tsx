@@ -48,7 +48,7 @@ const App = () => {
 				loadCategorySuccess({
 					categories: data
 				})
-			);
+			);	
 		} catch (error: any) {
 			if (error instanceof AxiosError)
 				dispatch(loadCategoryFailure({ error: error.response?.data }));
