@@ -28,6 +28,7 @@ specifiers:
   react-dom: ^18.2.0
   react-redux: ^8.0.4
   react-router-dom: ^6.3.0
+  react-router-map: ^1.0.0
   react-toastify: ^9.0.8
   redux: ^4.2.0
   redux-persist: ^6.0.0
@@ -51,6 +52,7 @@ dependencies:
   react-dom: 18.2.0_react@18.2.0
   react-redux: 8.0.4_yfr4m6wk75wdra335rld4tkrbu
   react-router-dom: 6.4.2_biqbaboplfbrettd7655fr4n2y
+  react-router-map: 1.0.0_pabvhrceggmmmx2imbdwgld6kq
   react-toastify: 9.0.8_biqbaboplfbrettd7655fr4n2y
   redux: 4.2.0
   redux-persist: 6.0.0_react@18.2.0+redux@4.2.0
@@ -2538,6 +2540,16 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-router: 6.4.2_react@18.2.0
+    dev: false
+
+  /react-router-map/1.0.0_pabvhrceggmmmx2imbdwgld6kq:
+    resolution: {integrity: sha512-hfPpzoSHDE85BNIZ8QBu8lGdQR3+YzYuwFlLcSsevEXLzUxCRuja2NcFLgmsDfMdzISTfprQ0xIAqI0IXUhUwg==}
+    peerDependencies:
+      react: '>=16'
+      react-router-dom: '>=6'
+    dependencies:
+      react: 18.2.0
+      react-router-dom: 6.4.2_biqbaboplfbrettd7655fr4n2y
     dev: false
 
   /react-router/6.4.2_react@18.2.0:

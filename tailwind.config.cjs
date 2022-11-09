@@ -23,6 +23,19 @@ module.exports = {
 				placeholder: '#B2B2B2',
 				success: '#4CB944'
 			}
+		},
+		screens:{
+			'xs': '320px',
+			'sm': '640px',
+			'md': '768px',
+			'lg': '1024px',
+			'xl': '1280px',
+			'2xl': '1536px',
+			'3xl': '1920px',
+			'4xl': '2560px',
+			'5xl': '3840px',
+			'6xl': '7680px',
+			'7xl': '15360px',
 		}
 	},
 	plugins: [
