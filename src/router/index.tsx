@@ -10,6 +10,7 @@ import LoginPage from '../pages/LoginPage';
 import NotFound from '../pages/NotFound';
 import ProfilePage from '../pages/ProfilePage';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
+import CheckoutPage from '../pages/CheckoutPage';
 import React from 'react';
 import SignupPage from '../pages/SignupPage';
 import SingleProductPage from '../pages/SingleProductPage';
@@ -68,6 +69,12 @@ const routes: IRouteProps[] = [
 		Component: layoutWrap(BaseLayout, CartPage),
 		pathName: 'Cart',
 		urlPath: '/cart',
+		hasChildren: false
+	},
+	{
+		Component: layoutWrap(EmptyLayout, CheckoutPage),
+		pathName: 'Checkout',
+		urlPath: '/checkout',
 		hasChildren: false
 	},
 	{
