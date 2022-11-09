@@ -51,7 +51,7 @@ const SingleProductPage = () => {
 							<p>{currentProduct.description}</p>
 						</div>
 						<div className="pl-8">
-							<h1 className="text-4xl font-bold capitalize">
+							<h1 className="text-lg sm:text-md font-bold capitalize">
 								{currentProduct.title}
 							</h1>
 							<div className="pt-3">
