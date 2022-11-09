@@ -1,11 +1,8 @@
-/* eslint-disable no-mixed-spaces-and-tabs */
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IProduct } from '../interfaces/product';
 import { Link } from 'react-router-dom';
 import React from 'react';
 import { addProductToCart } from '../state/slices/cartSlice';
-// eslint-disable-next-line sort-imports
 import starGenerator from '../helpers/starGenerator';
 import { useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../state/hooks';
