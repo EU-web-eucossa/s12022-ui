@@ -90,13 +90,10 @@ const SingleProductPage = () => {
 							))}
 						</div>
 					</div>
-					
 				</div>
 			)}
 			
 		</div>
-			
-	
 	);
 };
 

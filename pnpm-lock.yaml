@@ -6,6 +6,7 @@ specifiers:
   '@fortawesome/free-regular-svg-icons': ^6.1.1
   '@fortawesome/free-solid-svg-icons': ^6.1.1
   '@fortawesome/react-fontawesome': ^0.2.0
+  '@paypal/react-paypal-js': ^7.8.1
   '@reduxjs/toolkit': ^1.8.6
   '@tailwindcss/forms': ^0.5.3
   '@types/react': ^18.0.17
@@ -42,6 +43,7 @@ dependencies:
   '@fortawesome/free-regular-svg-icons': 6.2.0
   '@fortawesome/free-solid-svg-icons': 6.2.0
   '@fortawesome/react-fontawesome': 0.2.0_6j2wdqxompc6mcokhxkpep2gqu
+  '@paypal/react-paypal-js': 7.8.1_biqbaboplfbrettd7655fr4n2y
   '@reduxjs/toolkit': 1.8.6_kuo2ie247izvzll3jejufdtq3q
   '@tailwindcss/forms': 0.5.3_tailwindcss@3.1.8
   axios: 0.27.2
@@ -569,6 +571,30 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.13.0
+
+  /@paypal/paypal-js/5.1.1:
+    resolution: {integrity: sha512-MMQ8TA048gTB43pzEOMzod8WY8hfzy+ahd7w29LtMvXduqzp7/29WxrTlsy4k6ARG6WGJ/uGqpc4+la4UZEQgw==}
+    dependencies:
+      promise-polyfill: 8.2.3
+    dev: false
+
+  /@paypal/react-paypal-js/7.8.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-+cAa0QLJUO1TUlFk/xqJsfEm6Ywtg3kvMmxf2EJcmVJDkNHc6+7Qq2o6Gt1mTn16ZG4/2uWRROeKcoXFFdNrQA==}
+    peerDependencies:
+      react: '>=16.3.0'
+      react-dom: '>=16.3.0'
+    dependencies:
+      '@paypal/paypal-js': 5.1.1
+      '@paypal/sdk-constants': 1.0.127
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /@paypal/sdk-constants/1.0.127:
+    resolution: {integrity: sha512-6T/HpO1RiQtVC/VSz1lLJJNroq9AxJbejzp+EnFoqu30lmSp9EUrogxyfGkMpZUxZNSxBJy9gCcUOgHbJ8yd3A==}
+    dependencies:
+      hi-base32: 0.5.1
+    dev: false
 
   /@reduxjs/toolkit/1.8.6_kuo2ie247izvzll3jejufdtq3q:
     resolution: {integrity: sha512-4Ia/Loc6WLmdSOzi7k5ff7dLK8CgG2b8aqpLsCAJhazAzGdp//YBUSaj0ceW6a3kDBDNRrq5CRwyCS0wBiL1ig==}
@@ -1857,6 +1883,10 @@ packages:
     resolution: {integrity: sha512-COpmrF2NOg4TBWUJ5UVyaCU2A88wEMkUPK4hNqyCkqHbxT92BbvfjoSozkAIIm6XhicGlJHhFdullInrdhwU8Q==}
     dev: false
 
+  /hi-base32/0.5.1:
+    resolution: {integrity: sha512-EmBBpvdYh/4XxsnUybsPag6VikPYnN30td+vQk+GI3qpahVEG9+gTkG0aXVxTjBqQ5T6ijbWIu77O+C5WFWsnA==}
+    dev: false
+
   /hoist-non-react-statics/3.3.2:
     resolution: {integrity: sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==}
     dependencies:
@@ -2453,6 +2483,10 @@ packages:
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
+
+  /promise-polyfill/8.2.3:
+    resolution: {integrity: sha512-Og0+jCRQetV84U8wVjMNccfGCnMQ9mGs9Hv78QFe+pSDD3gWTpz0y+1QCuxy5d/vBFuZ3iwP2eycAkvqIMPmWg==}
+    dev: false
 
   /prop-types/15.8.1:
     resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==}
