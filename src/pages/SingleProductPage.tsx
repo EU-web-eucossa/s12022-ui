@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IProduct } from '../interfaces/product';
 import { Link } from 'react-router-dom';
@@ -49,7 +48,7 @@ const SingleProductPage = () => {
 							<p>{currentProduct.description}</p>
 						</div>
 						<div className="pl-8">
-							<h1 className="text-4xl font-bold capitalize">
+							<h1 className="text-lg sm:text-md font-bold capitalize">
 								{currentProduct.title}
 							</h1>
 							<div className="pt-3">
@@ -90,9 +89,13 @@ const SingleProductPage = () => {
 							))}
 						</div>
 					</div>
+					
 				</div>
 			)}
+			
 		</div>
+			
+	
 	);
 };
 
