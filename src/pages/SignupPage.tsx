@@ -32,7 +32,7 @@ const SignupPage = () => {
 				</button>
 			</form>
 			<p className="mb-7 text-center">
-				Don't have an account?{' '}
+				Already have an account?{' '}
 				<Link to={'/login'} className="text-primary">
 					Sign in
 				</Link>

@@ -8,6 +8,7 @@ import starGenerator from '../helpers/starGenerator';
 import { useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../state/hooks';
 
+
 const SingleProductPage = () => {
 	const { id } = useParams();
 	const {
