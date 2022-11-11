@@ -23,10 +23,10 @@ export default function Paypal() {
 			quantity: item.quantity as unknown as string,
 		}
 	));
-	const payer = {
+	const payee = {
 		name: {
-			given_name: 'John',
-			surname: 'Doe'
+			given_name: 'Mike',
+			surname: 'Juma'
 		},
 		email_address: "",
 		phone: {
@@ -57,27 +57,42 @@ export default function Paypal() {
 				Pay for ${totalPrice}
 			</div>
 
-			<PayPalScriptProvider options={{"client-id":config.paypalClientId}}>
+			<PayPalScriptProvider options={{
+				'client-id':
+					'ARlD4eYBquW5PAihq6LsSchvHfLyo-7t8-P3wjxyQqVV4NjgcpfQgBkABHqssSs4m3HaA7o72_45b30v'
+			}}>
 			<PayPalButtons
-                createOrder={(data, actions) => {
-                    return actions.order.create({
-                        purchase_units: [
-                            {
-                                amount: {
-                                    value: "1.99",
-                                },
-                            },
-                        ],
-                    });
-                }}
-                onApprove={(data, actions) => {
-                    return actions.order!.capture().then((details) => {
-                        const name = details.payer.name!.given_name;
-                        alert(`Transaction completed by ${name}`);
-                    });
-                }}
-            />
+				style={{ layout: 'vertical' }}
+				createOrder={(data, actions) => {
+					console.table(data);
+
+					return actions.order.create({
+						purchase_units: [
+							{
+								amount: {
+									value: '0.01',
+									currency_code: 'USD'
+
+								},
+								payee,
+								items,
+							}
+						]
+					});
+				}}
+				onApprove={(data, actions) => {
+					console.log('Appoved', data);
+
+					return actions.order!.capture().then(function (details) {
+						console.log(details);
+
+						alert('Transaction completed by ' + details.payer.name!.given_name);
+					});
+				}}
+			/>
 			</PayPalScriptProvider>
 		</div>
 	);
 }
+
+
