@@ -51,18 +51,18 @@ const routes: IRouteProps[] = [
 		Component: layoutWrap(EmptyLayout, LoginPage),
 		pathName: 'Login',
 		hasChildren: false,
-		urlPath: '/login'
+		urlPath: '/account/sign_in'
 	},
 	{
 		Component: layoutWrap(EmptyLayout, ProfilePage),
-		pathName: 'Login',
+		pathName: 'Profile',
 		hasChildren: false,
-		urlPath: '/login'
+		urlPath: '/account/profile'
 	},
 	{
 		Component: layoutWrap(EmptyLayout, SignupPage),
 		pathName: 'Signup',
-		urlPath: '/signup',
+		urlPath: '/account/sign_up',
 		hasChildren: false
 	},
 	{
