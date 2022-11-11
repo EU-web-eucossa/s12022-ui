@@ -15,7 +15,7 @@ const Protected = (props: Props) => {
 	return isAuthenticated ? (
 		props.children
 	) : (
-		<Navigate to={'/account/sign_in'} state={{ from: path }} />
+		<Navigate to={'/account/sign_in'} state={{ from: path }} replace />
 	);
 };
 

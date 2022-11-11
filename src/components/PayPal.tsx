@@ -57,33 +57,26 @@ export default function Paypal() {
 				Pay for ${totalPrice}
 			</div>
 
-			<PayPalScriptProvider options={{"client-id":'AfzhxKSStzgkXnXh8coiIWAvKkD2e0NjwmJStpRatNhE1gjGTYLeDRRyjfQ6HHXKzGc5p8Hd93'}}>
-				<PayPalButtons
-					style={{ layout: 'vertical' }}
-					createOrder={(data, actions) => {
-						return actions.order.create({
-
-							purchase_units:
-								[],
-							intent: 'CAPTURE',
-							payer
-						})
-
-
-					}}
-					onError={(err) => {
-						console.log("Error", err);
-					}}
-
-
-
-					onApprove={(data, actions) => {
-						return actions.order!.capture().then(function (details) {
-							console.log({ details, data });
-							alert('Transaction completed by ' + details.payer.name!.given_name);
-						});
-					}}
-				/>
+			<PayPalScriptProvider options={{"client-id":config.paypalClientId}}>
+			<PayPalButtons
+                createOrder={(data, actions) => {
+                    return actions.order.create({
+                        purchase_units: [
+                            {
+                                amount: {
+                                    value: "1.99",
+                                },
+                            },
+                        ],
+                    });
+                }}
+                onApprove={(data, actions) => {
+                    return actions.order!.capture().then((details) => {
+                        const name = details.payer.name!.given_name;
+                        alert(`Transaction completed by ${name}`);
+                    });
+                }}
+            />
 			</PayPalScriptProvider>
 		</div>
 	);
