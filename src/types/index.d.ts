@@ -31,13 +31,25 @@ export type CartStateType = {
 
 type WhiteListStateType = {
 	products: IProduct[];
-}
+};
 
 export type PurchasePaypalItemType = {
-	name:string,
+	name: string;
 	unit_amount: {
-		currency_code:string,
-		value: string
-	},
-	quantity: string
-}
+		currency_code: string;
+		value: string;
+	};
+	quantity: string;
+};
+
+export type InputType = 'text' | 'password' | 'email';
+
+export type InputPropsTypes = {
+	placeholder: string;
+	type: InputType;
+	name: string;
+	value: string;
+	onChange: (
+		e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+	) => void;
+};

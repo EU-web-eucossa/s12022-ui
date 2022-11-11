@@ -72,7 +72,7 @@ const routes: IRouteProps[] = [
 		hasChildren: false
 	},
 	{
-		Component: layoutWrap(EmptyLayout, CheckoutPage),
+		Component: layoutWrap(EmptyLayout, CheckoutPage,true),
 		pathName: 'Checkout',
 		urlPath: '/checkout',
 		hasChildren: false
