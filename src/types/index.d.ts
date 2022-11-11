@@ -31,4 +31,13 @@ export type CartStateType = {
 
 type WhiteListStateType = {
 	products: IProduct[];
-};
+}
+
+export type PurchasePaypalItemType = {
+	name:string,
+	unit_amount: {
+		currency_code:string,
+		value: string
+	},
+	quantity: string
+}
