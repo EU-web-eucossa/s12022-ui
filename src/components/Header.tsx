@@ -90,8 +90,8 @@ const Header = () => {
 								isAuthenticated ? (
 									<ul >
 										{
-											loggedLinks.map((link, index) => (
-												<li key={link.name} className='block px-4 hover:bg-gray-100 rounded'>
+											loggedLinks.map((link) => (
+												<li key={link.name} className='block px-4 hover:bg-primary rounded'>
 													<Link to={link.path} className='py-2 w-full block'>{link.name}</Link>
 												</li>
 											))
@@ -107,7 +107,7 @@ const Header = () => {
 									<ul>
 										{
 											unloggedLinks.map((link) => (
-												<li key={link.name} className='block px-4 hover:bg-gray-100 rounded'>
+												<li key={link.name} className='block px-4 hover:bg-primary rounded'>
 													<Link to={link.path} className='py-2 w-full block'>{link.name}</Link>
 												</li>
 											))
