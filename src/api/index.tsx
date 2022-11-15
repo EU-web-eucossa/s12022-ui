@@ -9,8 +9,17 @@ export const apiEndpoints = {
 	categories: `${BASE_URL}/products/categories`
 };
 
+const authURL = 'https://auth-service-r5fy.onrender.com/api/v1/auth';
+
 export const axiosQuery = axios.create({
 	baseURL: BASE_URL,
+	headers: {
+		'Content-Type': 'Application/json'
+	}
+});
+
+export const authQuery=axios.create({
+	baseURL: authURL,
 	headers: {
 		'Content-Type': 'Application/json'
 	}

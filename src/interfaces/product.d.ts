@@ -1,16 +1,15 @@
 export interface IProduct {
 	featuredImage: string | undefined;
-	name: ReactNode;
-	ratings(ratings: any): unknown;
+	name: string;
+	ratings: number;
 	id: number | string;
 	title: string;
 	description: string;
 	price: number;
-	discountPercentage: number;
-	rating: number;
+	discountPercentage?: number;
 	stock: number;
-	brand: string;
+	brand?: string;
 	category: string;
-	thumbnail: string;
+	thumbnail?: string;
 	images: Array<string>;
 }

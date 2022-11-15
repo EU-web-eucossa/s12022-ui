@@ -48,7 +48,7 @@ const App = () => {
 				loadCategorySuccess({
 					categories: data
 				})
-			);	
+			);
 		} catch (error: any) {
 			if (error instanceof AxiosError)
 				dispatch(loadCategoryFailure({ error: error.response?.data }));
@@ -60,10 +60,12 @@ const App = () => {
 	}, []);
 
 	return online ? (
-		<MapRouter routes={routes} enableTopScroll />
+		<MapRouter routes={routes} topScroll />
 	) : (
 		<OfflineComponent />
 	);
 };
 
 export default App;
+
+

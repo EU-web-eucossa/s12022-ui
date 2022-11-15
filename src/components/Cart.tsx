@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 import React from 'react';
 import {
 	clearCart,
@@ -33,7 +34,11 @@ const Cart = () => {
 						{cartProducts.map((p) => (
 							<li key={p.title} className="flex gap-2 w-full">
 								<div>
-									<img src={p.thumbnail} alt="" className="w-24 h-24 mx-auto md:h-48 md:w-48 object-cover" />
+									<img
+										src={p.thumbnail}
+										alt=""
+										className="w-24 h-24 mx-auto md:h-48 md:w-48 object-cover"
+									/>
 								</div>
 								<div className="text-[12px] flex flex-col gap-1 w-full border p-1">
 									<h1 className="capitalize">{p.title}</h1>
@@ -92,7 +97,14 @@ const Cart = () => {
 						>
 							Reset cart
 						</button>
-						<button className='bg-primary text-white rounded-md px-4 capitalize'>checkout</button>
+						<Link
+							to={'/checkout'}
+							className="bg-primary text-white rounded-md px-4 capitalize"
+						>
+							<button className="font-medium rounded px-4 w-fit">
+								Checkout
+							</button>
+						</Link>
 					</div>
 				)}
 			</div>
