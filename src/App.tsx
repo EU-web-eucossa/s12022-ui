@@ -60,7 +60,7 @@ const App = () => {
 	}, []);
 
 	return online ? (
-		<MapRouter routes={routes} topScroll browserRouter  />
+		<MapRouter routes={routes} topScroll />
 	) : (
 		<OfflineComponent />
 	);
