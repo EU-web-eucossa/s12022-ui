@@ -18,8 +18,6 @@ const loggedLinks = [
 	}
 ];
 
-
-
 const Header = () => {
 	const location = useLocation();
 	const { cart: { totalQuantity }, user: { isAuthenticated } } = useAppSelector((state) => state.root);
