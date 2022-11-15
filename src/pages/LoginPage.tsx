@@ -1,15 +1,15 @@
 /* eslint-disable react/no-unescaped-entities */
+import 'react-toastify/dist/ReactToastify.css';
 import { AxiosError } from 'axios';
 import InputElement from '../components/InputElement';
-import { Link, useNavigate } from 'react-router-dom';
 import PasswordElement from '../components/PasswordElement';
 import React from 'react';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { authQuery } from '../api';
-import { useLocation } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../state/hooks';
 import { loginUser } from '../state/slices/userSlice';
+import { useLocation } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import { useAppDispatch, useAppSelector } from '../state/hooks';
 
 type UserDataInputs = {
 	email: string;
@@ -17,7 +17,7 @@ type UserDataInputs = {
 };
 
 const LoginPage = () => {
-	const { isAuthenticated } = useAppSelector(state => state.root.user)
+	const { isAuthenticated } = useAppSelector(state => state.root.user);
 	const dispatch = useAppDispatch();
 	const [loading, setLoading] = React.useState<boolean>(false);
 	const pathState = useLocation().state as unknown as {
@@ -27,7 +27,7 @@ const LoginPage = () => {
 	const [userData, setUserData] = React.useState<UserDataInputs>(
 		{} as UserDataInputs
 	);
-	const navigate = useNavigate()
+	const navigate = useNavigate();
 	const handleChange = (
 		e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
 	) => {
@@ -39,6 +39,7 @@ const LoginPage = () => {
 		e.stopPropagation();
 		if (userData.email && userData.password) {
 			setLoading(true);
+
 			try {
 				const res = await authQuery.post('/login', userData);
 				if (res.status === 200 || res.status === 201) {
@@ -48,16 +49,16 @@ const LoginPage = () => {
 						isAuthenticated: true,
 						loading: false,
 						user: res.data.user,
-					}))
-					pathState?.from ? navigate(pathState.from) : navigate('/')
+					}));
+					pathState?.from ? navigate(pathState.from) : navigate('/');
 
 				}
 
 
 			} catch (err) {
-				if (err instanceof AxiosError) {
+				if (err instanceof AxiosError) 
 					toast.error(err.response?.data.message);
-				}
+				
 			} finally {
 				setLoading(false);
 
@@ -108,13 +109,15 @@ const LoginPage = () => {
 				{loading ? <button className='cursor-not-allowed bg-gray-300 border-gray-500 py-2 rounded-md' disabled>Loading....</button> : <button className="mb-3 rounded-full bg-primary p-2" type="submit">
 					Sign In
 				</button>}
-			</form>
-			<p className="mb-7 text-center">
+				<p className="mb-7 text-center">
 				Don't have an account?{' '}
-				{<Link to={'/signup'} className="text-primary font-bold">
+					{<Link to={'/account/sign_up'} className="text-primary font-bold">
 					Sign up
-				</Link>}
-			</p>
+					</Link>}
+				</p>
+				<Link to={'/'} className='text-center underline text-blue-700'>Continue shoppping</Link>
+			</form>
+			
 		</div>
 	);
 };

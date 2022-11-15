@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import PasswordElement from '../components/PasswordElement';
 import React from 'react';
 import { authQuery } from '../api';
+import { ToastContainer, toast } from 'react-toastify';
 
 type UserDataInputs = {
 	email: string;
@@ -30,7 +31,10 @@ const SignupPage = () => {
 				const res = await authQuery.post('/register', userData);
 				console.log(res.data);
 			} catch (err) {
-				if (err instanceof AxiosError) console.log(err);
+				if (err instanceof AxiosError) {
+					console.log(err.response?.data);
+					toast.error(err.response?.data);
+				}
 			}
 		}
 	};
@@ -41,6 +45,7 @@ const SignupPage = () => {
 				className="flex flex-col mt-5 gap-4 sm:m-8 px-4 w-full bg-white p-5 md:p-12 rounded-md max-w-[40rem]"
 				onSubmit={async (e) => handleSubmit(e)}
 			>
+				<ToastContainer />
 				<div>
 					<img
 						src="/logo.svg"
@@ -76,13 +81,16 @@ const SignupPage = () => {
 				>
 					Sign Up
 				</button>
-			</form>
-			<p className="mb-7 text-center">
-				Already have an account?{' '}
-				<Link to={'/login'} className="text-primary">
-					Sign in
+				<p className="mb-7 text-center">
+					Already have an account?{' '}
+					<Link to={'/account/sign_in'} className="text-primary">
+						Sign in
+					</Link>
+				</p>
+				<Link to={'/'} className="text-center underline text-blue-700">
+					Continue shoppping
 				</Link>
-			</p>
+			</form>
 		</div>
 	);
 };

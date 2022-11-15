@@ -19,19 +19,16 @@ import layoutWrap from '../helpers/LayoutWrapper';
 const routes: IRouteProps[] = [
 	{
 		Component: layoutWrap(BaseLayout, Homepage),
-		hasChildren: false,
 		pathName: 'Home',
 		urlPath: '/'
 	},
 	{
 		Component: layoutWrap(BaseLayout, SingleProductPage),
-		hasChildren: false,
 		pathName: 'SingleProductPage',
 		urlPath: '/product/:id'
 	},
 	{
 		Component: layoutWrap(BaseLayout, CategoriesPage),
-		hasChildren: false,
 		pathName: 'categories',
 		urlPath: '/categories'
 	},
@@ -43,43 +40,36 @@ const routes: IRouteProps[] = [
 	},
 	{
 		Component: layoutWrap(BaseLayout, ContactPage),
-		hasChildren: false,
 		pathName: 'Contact',
 		urlPath: '/contact'
 	},
 	{
 		Component: layoutWrap(EmptyLayout, LoginPage),
 		pathName: 'Login',
-		hasChildren: false,
 		urlPath: '/account/sign_in'
 	},
 	{
 		Component: layoutWrap(EmptyLayout, ProfilePage),
 		pathName: 'Profile',
-		hasChildren: false,
 		urlPath: '/account/profile'
 	},
 	{
 		Component: layoutWrap(EmptyLayout, SignupPage),
 		pathName: 'Signup',
 		urlPath: '/account/sign_up',
-		hasChildren: false
 	},
 	{
 		Component: layoutWrap(BaseLayout, CartPage),
 		pathName: 'Cart',
 		urlPath: '/cart',
-		hasChildren: false
 	},
 	{
 		Component: layoutWrap(EmptyLayout, CheckoutPage,true),
 		pathName: 'Checkout',
 		urlPath: '/checkout',
-		hasChildren: false
 	},
 	{
 		Component: layoutWrap(BaseLayout, NotFound),
-		hasChildren: false,
 		pathName: 'NotFound',
 		urlPath: '*'
 	}
