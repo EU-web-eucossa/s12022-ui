@@ -10,6 +10,7 @@ import LoginPage from '../pages/LoginPage';
 import NotFound from '../pages/NotFound';
 import ProfilePage from '../pages/ProfilePage';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
+import CheckoutPage from '../pages/CheckoutPage';
 import React from 'react';
 import SignupPage from '../pages/SignupPage';
 import SingleProductPage from '../pages/SingleProductPage';
@@ -18,19 +19,16 @@ import layoutWrap from '../helpers/LayoutWrapper';
 const routes: IRouteProps[] = [
 	{
 		Component: layoutWrap(BaseLayout, Homepage),
-		hasChildren: false,
 		pathName: 'Home',
 		urlPath: '/'
 	},
 	{
 		Component: layoutWrap(BaseLayout, SingleProductPage),
-		hasChildren: false,
 		pathName: 'SingleProductPage',
 		urlPath: '/product/:id'
 	},
 	{
 		Component: layoutWrap(BaseLayout, CategoriesPage),
-		hasChildren: false,
 		pathName: 'categories',
 		urlPath: '/categories'
 	},
@@ -42,37 +40,36 @@ const routes: IRouteProps[] = [
 	},
 	{
 		Component: layoutWrap(BaseLayout, ContactPage),
-		hasChildren: false,
 		pathName: 'Contact',
 		urlPath: '/contact'
 	},
 	{
 		Component: layoutWrap(EmptyLayout, LoginPage),
 		pathName: 'Login',
-		hasChildren: false,
-		urlPath: '/login'
+		urlPath: '/account/sign_in'
 	},
 	{
 		Component: layoutWrap(EmptyLayout, ProfilePage),
-		pathName: 'Login',
-		hasChildren: false,
-		urlPath: '/login'
+		pathName: 'Profile',
+		urlPath: '/account/profile'
 	},
 	{
 		Component: layoutWrap(EmptyLayout, SignupPage),
 		pathName: 'Signup',
-		urlPath: '/signup',
-		hasChildren: false
+		urlPath: '/account/sign_up',
 	},
 	{
 		Component: layoutWrap(BaseLayout, CartPage),
 		pathName: 'Cart',
 		urlPath: '/cart',
-		hasChildren: false
+	},
+	{
+		Component: layoutWrap(EmptyLayout, CheckoutPage,true),
+		pathName: 'Checkout',
+		urlPath: '/checkout',
 	},
 	{
 		Component: layoutWrap(BaseLayout, NotFound),
-		hasChildren: false,
 		pathName: 'NotFound',
 		urlPath: '*'
 	}

@@ -6,8 +6,10 @@ specifiers:
   '@fortawesome/free-regular-svg-icons': ^6.1.1
   '@fortawesome/free-solid-svg-icons': ^6.1.1
   '@fortawesome/react-fontawesome': ^0.2.0
+  '@paypal/react-paypal-js': ^7.8.1
   '@reduxjs/toolkit': ^1.8.6
   '@tailwindcss/forms': ^0.5.3
+  '@types/node': ^18.11.9
   '@types/react': ^18.0.17
   '@types/react-dom': ^18.0.6
   '@types/react-router-dom': ^5.3.3
@@ -28,7 +30,7 @@ specifiers:
   react-dom: ^18.2.0
   react-redux: ^8.0.4
   react-router-dom: ^6.3.0
-  react-router-map: ^1.0.0
+  react-router-map: ^1.0.3
   react-toastify: ^9.0.8
   redux: ^4.2.0
   redux-persist: ^6.0.0
@@ -42,6 +44,7 @@ dependencies:
   '@fortawesome/free-regular-svg-icons': 6.2.0
   '@fortawesome/free-solid-svg-icons': 6.2.0
   '@fortawesome/react-fontawesome': 0.2.0_6j2wdqxompc6mcokhxkpep2gqu
+  '@paypal/react-paypal-js': 7.8.1_biqbaboplfbrettd7655fr4n2y
   '@reduxjs/toolkit': 1.8.6_kuo2ie247izvzll3jejufdtq3q
   '@tailwindcss/forms': 0.5.3_tailwindcss@3.1.8
   axios: 0.27.2
@@ -52,12 +55,13 @@ dependencies:
   react-dom: 18.2.0_react@18.2.0
   react-redux: 8.0.4_yfr4m6wk75wdra335rld4tkrbu
   react-router-dom: 6.4.2_biqbaboplfbrettd7655fr4n2y
-  react-router-map: 1.0.0_pabvhrceggmmmx2imbdwgld6kq
+  react-router-map: 1.0.3_pabvhrceggmmmx2imbdwgld6kq
   react-toastify: 9.0.8_biqbaboplfbrettd7655fr4n2y
   redux: 4.2.0
   redux-persist: 6.0.0_react@18.2.0+redux@4.2.0
 
 devDependencies:
+  '@types/node': 18.11.9
   '@types/react': 18.0.21
   '@types/react-dom': 18.0.6
   '@types/react-router-dom': 5.3.3
@@ -570,6 +574,30 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.13.0
 
+  /@paypal/paypal-js/5.1.1:
+    resolution: {integrity: sha512-MMQ8TA048gTB43pzEOMzod8WY8hfzy+ahd7w29LtMvXduqzp7/29WxrTlsy4k6ARG6WGJ/uGqpc4+la4UZEQgw==}
+    dependencies:
+      promise-polyfill: 8.2.3
+    dev: false
+
+  /@paypal/react-paypal-js/7.8.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-+cAa0QLJUO1TUlFk/xqJsfEm6Ywtg3kvMmxf2EJcmVJDkNHc6+7Qq2o6Gt1mTn16ZG4/2uWRROeKcoXFFdNrQA==}
+    peerDependencies:
+      react: '>=16.3.0'
+      react-dom: '>=16.3.0'
+    dependencies:
+      '@paypal/paypal-js': 5.1.1
+      '@paypal/sdk-constants': 1.0.127
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /@paypal/sdk-constants/1.0.127:
+    resolution: {integrity: sha512-6T/HpO1RiQtVC/VSz1lLJJNroq9AxJbejzp+EnFoqu30lmSp9EUrogxyfGkMpZUxZNSxBJy9gCcUOgHbJ8yd3A==}
+    dependencies:
+      hi-base32: 0.5.1
+    dev: false
+
   /@reduxjs/toolkit/1.8.6_kuo2ie247izvzll3jejufdtq3q:
     resolution: {integrity: sha512-4Ia/Loc6WLmdSOzi7k5ff7dLK8CgG2b8aqpLsCAJhazAzGdp//YBUSaj0ceW6a3kDBDNRrq5CRwyCS0wBiL1ig==}
     peerDependencies:
@@ -616,6 +644,10 @@ packages:
 
   /@types/json-schema/7.0.11:
     resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==}
+    dev: true
+
+  /@types/node/18.11.9:
+    resolution: {integrity: sha512-CRpX21/kGdzjOpFsZSkcrXMGIBWMGNIHXXBVFSH+ggkftxg+XYP20TESbh+zFvFj3EQOl5byk0HTRn1IL6hbqg==}
     dev: true
 
   /@types/prop-types/15.7.5:
@@ -1857,6 +1889,10 @@ packages:
     resolution: {integrity: sha512-COpmrF2NOg4TBWUJ5UVyaCU2A88wEMkUPK4hNqyCkqHbxT92BbvfjoSozkAIIm6XhicGlJHhFdullInrdhwU8Q==}
     dev: false
 
+  /hi-base32/0.5.1:
+    resolution: {integrity: sha512-EmBBpvdYh/4XxsnUybsPag6VikPYnN30td+vQk+GI3qpahVEG9+gTkG0aXVxTjBqQ5T6ijbWIu77O+C5WFWsnA==}
+    dev: false
+
   /hoist-non-react-statics/3.3.2:
     resolution: {integrity: sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==}
     dependencies:
@@ -2454,6 +2490,10 @@ packages:
     hasBin: true
     dev: true
 
+  /promise-polyfill/8.2.3:
+    resolution: {integrity: sha512-Og0+jCRQetV84U8wVjMNccfGCnMQ9mGs9Hv78QFe+pSDD3gWTpz0y+1QCuxy5d/vBFuZ3iwP2eycAkvqIMPmWg==}
+    dev: false
+
   /prop-types/15.8.1:
     resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==}
     dependencies:
@@ -2542,8 +2582,8 @@ packages:
       react-router: 6.4.2_react@18.2.0
     dev: false
 
-  /react-router-map/1.0.0_pabvhrceggmmmx2imbdwgld6kq:
-    resolution: {integrity: sha512-hfPpzoSHDE85BNIZ8QBu8lGdQR3+YzYuwFlLcSsevEXLzUxCRuja2NcFLgmsDfMdzISTfprQ0xIAqI0IXUhUwg==}
+  /react-router-map/1.0.3_pabvhrceggmmmx2imbdwgld6kq:
+    resolution: {integrity: sha512-ZjWOtPU7kC5XnGQtW91IORtya2He1u1Kv8KK6H99jRHdchSmwDyfvdcxhCwB21ggiBVwc1bMGsNfSVABkAXcBg==}
     peerDependencies:
       react: '>=16'
       react-router-dom: '>=6'
