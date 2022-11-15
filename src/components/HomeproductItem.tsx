@@ -38,7 +38,7 @@ const HomeproductItem = (product: IProduct) => {
 			</div>
 			<div className="flex gap-2">
 				<button className="flex w-1/2 md:w-2/3 gap-2 flex-1 px-4 items-center">
-					{starGenerator(product.rating).map((star, index) => (
+					{starGenerator(product.ratings).map((star, index) => (
 						<FontAwesomeIcon icon={star} key={index} color="#F58634" className='text-[10px] sm:text-md'/>
 					))}
 				</button>

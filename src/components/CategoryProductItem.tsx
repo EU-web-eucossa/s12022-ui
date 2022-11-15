@@ -32,7 +32,7 @@ const CategoryProductItem = ({ product }: { product: IProduct }) => {
 			</div>
 			<div className="flex justify-between items-center">
 				<div className="w-1/2 md:pl-2 flex items gap-1">
-					{starGenerator(product.rating).map((r, i) => (
+					{starGenerator(product.ratings).map((r, i) => (
 						<FontAwesomeIcon
 							icon={r}
 							key={i}

@@ -53,7 +53,7 @@ const SingleProductPage = () => {
 								{currentProduct.title}
 							</h1>
 							<div className="pt-3">
-								{starGenerator(currentProduct.rating).map((s, i) => (
+								{starGenerator(currentProduct.ratings).map((s, i) => (
 									<FontAwesomeIcon
 										key={i}
 										icon={s}
