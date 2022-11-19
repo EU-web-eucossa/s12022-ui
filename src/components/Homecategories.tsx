@@ -14,7 +14,7 @@ const Homecategories = () => {
 					View all categories
 				</Link>
 			</div>
-			<div className="flex flex-wrap gap-4 justify-between">
+			<div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-6">
 				{categories.length &&
 					categories.map((category) => (
 						<HomecategoryItem key={category.name} {...category} />
