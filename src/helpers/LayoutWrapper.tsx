@@ -9,7 +9,11 @@ type Lmap = (
 		children: JSX.Element;
 	}>,
 	Component: React.FC | React.ElementType,
-	isProtected?: boolean
+	isProtected?:
+		| boolean
+		| {
+				role: string;
+		}
 ) => JSX.Element;
 
 const layoutWrap: Lmap = (
@@ -17,10 +21,12 @@ const layoutWrap: Lmap = (
 	Component: React.FC | React.ElementType,
 	isProtected = false
 ) => {
+	const { role } = isProtected as { role: string };
+
 	return (
 		<LayoutContainer>
 			{isProtected ? (
-				<Protected>
+				<Protected role={role ? role : ''}>
 					<Component />
 				</Protected>
 			) : (

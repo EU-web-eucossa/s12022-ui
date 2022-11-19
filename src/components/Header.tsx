@@ -2,7 +2,7 @@
  * @ Author: Felix Orinda
  * @ Create Time: 2022-11-15 11:22:06
  * @ Modified by: Felix Orinda
- * @ Modified time: 2022-11-19 05:56:42
+ * @ Modified time: 2022-11-19 12:42:28
  * @ Description:
  */
 
@@ -16,18 +16,22 @@ import { useLocation } from 'react-router-dom';
 import {
 	faSearch,
 	faShoppingCart,
-	faUser,
+	faUser
 } from '@fortawesome/free-solid-svg-icons';
 import { useAppDispatch, useAppSelector } from '../state/hooks';
 
 const unloggedLinks = [
-	{ name: 'Sign in', path: '/account/sign_in' },
-	{ name: 'Sign up', path: '/account/sign_up' }
+	{ name: 'Sign in', path: '/account/sign-in' },
+	{ name: 'Sign up', path: '/account/sign-up' }
 ];
 const loggedLinks = [
 	{
 		name: 'Account',
-		path: '/account'
+		path: '/account/profile',
+	},
+	{
+		name: 'Dashboard',
+		path: '/admin/dashboard'
 	}
 ];
 
@@ -36,7 +40,7 @@ const Header = () => {
 	const dispatch = useAppDispatch();
 	const {
 		cart: { totalQuantity },
-		user: { isAuthenticated }
+		user: { isAuthenticated, user }
 	} = useAppSelector((state) => state.root);
 	const [cartOpen, setCartOpen] = React.useState<boolean>(false);
 	const closeOnWindowClick = () => {
@@ -97,13 +101,24 @@ const Header = () => {
 					</div>
 					<div className="group relative z-[2000]" tabIndex={0}>
 						<button className="border rounded-full">
-							<FontAwesomeIcon
-								icon={faUser}
-								color="white"
-								className="text-md text-black h-8 w-8 p-1"
-							/>
+							{user?.profilePic ? (
+								<img
+									src={user.profilePic}
+									alt={user.email}
+									className="h-12 w-12 object-cover rounded-full"
+								/>
+							) : (
+								<FontAwesomeIcon
+									icon={faUser}
+									color="white"
+									className="text-md text-black h-8 w-8 p-1"
+								/>
+							)}
 						</button>
 						<div className="hidden top-[calc(100%_+_10px)] h-fit min-w-[200px] py-4 px-2 rounded shadow absolute -right-4 z-[2000] bg-white group-hover:block transition-all ease-linear duration-200 group-hover:top-[100%]">
+							<h2 className="text-center bg-slate-300">
+								Logged in as {user?.name}
+							</h2>
 							{isAuthenticated ? (
 								<ul>
 									{loggedLinks.map((link) => (

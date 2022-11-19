@@ -37,13 +37,12 @@ const SignupPage = () => {
 				toast.success(res.data.user.message);
 				setSuccess(true);
 				setTimeout(() => {
-					navigate('/account/sign_in');
+					navigate('/account/sign-in');
 				}, 2000);
 			} catch (err) {
-				if (err instanceof AxiosError) {
-					console.log(err.response?.data);
+				if (err instanceof AxiosError) 
 					toast.error(err.response?.data);
-				}
+				
 			} finally {
 				setLoading(false);
 			}
@@ -106,7 +105,7 @@ const SignupPage = () => {
 					</button>
 					<p className="mb-7 text-center">
 						Already have an account?{' '}
-						<Link to={'/account/sign_in'} className="text-primary">
+						<Link to={'/account/sign-in'} className="text-primary">
 							Sign in
 						</Link>
 					</p>

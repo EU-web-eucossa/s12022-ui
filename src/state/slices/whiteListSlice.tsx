@@ -1,4 +1,4 @@
-import { IProduct } from '../../types';
+import { ProductEntityType } from '../../types';
 import { WhiteListStateType } from '../../types';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
@@ -10,7 +10,7 @@ const productWhitelistSlice = createSlice({
 	name: 'whitelist',
 	initialState,
 	reducers: {
-		addProductToWhitelist: (state, action: PayloadAction<IProduct>) => {
+		addProductToWhitelist: (state, action: PayloadAction<ProductEntityType>) => {
 			state.products = state.products.find(
 				(p) =>
 					p.id ===

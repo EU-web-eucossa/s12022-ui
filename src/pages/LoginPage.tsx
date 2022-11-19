@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react/no-unescaped-entities */
 import 'react-toastify/dist/ReactToastify.css';
 import { AxiosError } from 'axios';
@@ -6,10 +7,10 @@ import PasswordElement from '../components/PasswordElement';
 import React from 'react';
 import { authQuery } from '../api';
 import { loginUser } from '../state/slices/userSlice';
+import { useAppDispatch } from '../state/hooks';
 import { useLocation } from 'react-router-dom';
 import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
-import { useAppDispatch, useAppSelector } from '../state/hooks';
 
 type UserDataInputs = {
 	email: string;
@@ -17,7 +18,6 @@ type UserDataInputs = {
 };
 
 const LoginPage = () => {
-	const { isAuthenticated } = useAppSelector((state) => state.root.user);
 	const dispatch = useAppDispatch();
 	const [loading, setLoading] = React.useState<boolean>(false);
 	const pathState = useLocation().state as unknown as {
@@ -119,7 +119,7 @@ const LoginPage = () => {
 				<p className="mb-7 text-center">
 					Don't have an account?{' '}
 					{
-						<Link to={'/account/sign_up'} className="text-primary font-bold">
+						<Link to={'/account/sign-up'} className="text-primary font-bold">
 							Sign up
 						</Link>
 					}

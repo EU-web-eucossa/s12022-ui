@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import HomecategoryItem from './HomecategoryItem';
+import HomecategoryItem from './HomeCategoryItem';
 import { Link } from 'react-router-dom';
 import React from 'react';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
@@ -7,7 +7,6 @@ import { useAppSelector } from '../state/hooks';
 
 const Homecategories = () => {
 	const { categories } = useAppSelector((state) => state.categories);
-	console.log('categories', categories);
 
 	return (
 		<div className="shadow p-4 mt-2 rounded-sm">

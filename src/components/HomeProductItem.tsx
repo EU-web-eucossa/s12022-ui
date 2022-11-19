@@ -1,14 +1,22 @@
+/**
+ * @ Author: Felix Orinda
+ * @ Create Time: 2022-11-15 11:22:06
+ * @ Modified by: Felix Orinda
+ * @ Modified time: 2022-11-19 14:59:01
+ * @ Description:
+ */
+
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { IProduct } from '../types';
 import { Link } from 'react-router-dom';
+import { ProductEntityType } from '../types';
 import React from 'react';
 import { addProductToCart } from '../state/slices/cartSlice';
 import { faAdd } from '@fortawesome/free-solid-svg-icons';
 import starGenerator from '../helpers/starGenerator';
 import { useAppDispatch } from '../state/hooks';
 
-const HomeproductItem = (product: IProduct) => {
+const HomeProductItem = (product: ProductEntityType) => {
 	const dispatch = useAppDispatch();
 	// load image component
 	const imageRef = React.useRef<HTMLImageElement>(null);
@@ -16,7 +24,7 @@ const HomeproductItem = (product: IProduct) => {
 	React.useEffect(() => {
 		// load image and once loaded, set the imageRef to the image
 		const image = new Image();
-		image.src = product.thumbnail!;
+		image.src = product.featuredImage!;
 		image.onload = () => {
 			if (imageRef.current) 
 				imageRef.current.src = image.src;
@@ -25,15 +33,15 @@ const HomeproductItem = (product: IProduct) => {
 	}, []);
 
 	return (
-		<div className="flex flex-col justify-between hover:shadow-lg rounded-md transition-all ease-linear duration-500 border-slate-200 border">
+		<div className="flex flex-col justify-between hover:shadow-lg rounded-md transition-all ease-linear duration-500 border-slate-200 border max-w-[25rem]">
 			<Link
-				to={`/product/${product.id}`}
+				to={`/product/${product._id}`}
 				className="relative h-full w-full object-cover overflow-hidden group border-0 "
 			>
 				<img
 					ref={imageRef}
-					src={product.thumbnail}
-					alt={product.title}
+					src={product.featuredImage}
+					alt={product.name}
 					className="h-full mx-auto object-contain group-hover:scale-105 transition-all ease-linear duration-500"
 				/>
 			</Link>
@@ -42,7 +50,7 @@ const HomeproductItem = (product: IProduct) => {
 					className="text-sm sm:text-md capitalize font-bold text-black 
                 "
 				>
-					{product.title}
+					{product.name}
 				</h2>
 				<h2
 					className="sm:text-lg font-medium text-black
@@ -71,6 +79,6 @@ const HomeproductItem = (product: IProduct) => {
 	);
 };
 
-export default HomeproductItem;
+export default HomeProductItem;
 
 

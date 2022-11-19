@@ -2,7 +2,7 @@
  * @ Author: Felix Orinda
  * @ Create Time: 2022-11-15 11:22:06
  * @ Modified by: Felix Orinda
- * @ Modified time: 2022-11-19 05:38:59
+ * @ Modified time: 2022-11-19 15:05:53
  * @ Description:
  */
 
@@ -43,7 +43,7 @@ const Cart = () => {
 							<li key={p.title} className="flex gap-2 w-full">
 								<div>
 									<img
-										src={p.thumbnail}
+										src={p.featuredImage}
 										alt=""
 										className="w-24 h-24 mx-auto md:h-48 md:w-48 object-cover"
 									/>

@@ -1,7 +1,7 @@
 /* eslint-disable indent */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { CartStateType } from '../../types';
-import { IProduct } from '../../types';
+import { ProductEntityType } from '../../types';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 const initialState: CartStateType = {
 	cartProducts: [],
@@ -15,13 +15,13 @@ const cartSlice = createSlice({
 	reducers: {
 		addProductToCart: (
 			state: CartStateType,
-			action: PayloadAction<IProduct>
+			action: PayloadAction<ProductEntityType>
 		) => {
 			state.cartProducts = state.cartProducts.find(
-				(p) => p.id === action.payload.id
+				(p) => p.id === action.payload._id
 			)
 				? state.cartProducts.map((p) =>
-						p.id === action.payload.id ? { ...p, quantity: p.quantity + 1 } : p
+						p.id === action.payload._id ? { ...p, quantity: p.quantity + 1 } : p
 				)
 				: [...state.cartProducts, { ...action.payload, quantity: 1 }];
 			state.totalPrice = state.cartProducts.reduce(

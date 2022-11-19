@@ -1,8 +1,16 @@
+/**
+ * @ Author: Felix Orinda
+ * @ Create Time: 2022-11-10 13:55:28
+ * @ Modified by: Felix Orinda
+ * @ Modified time: 2022-11-19 14:48:21
+ * @ Description:
+ */
+
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import CategoryProductItem from '../components/CategoryProductItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { IProduct } from '../types';
 import { Link } from 'react-router-dom';
+import { ProductEntityType } from '../types';
 import React from 'react';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { useAppSelector } from '../state/hooks';
@@ -15,7 +23,7 @@ const CategoriesPage = () => {
 		products: { products },
 		categories: { categories }
 	} = useAppSelector((state) => state);
-	const [filteredProducts, setFilteredProducts] = React.useState<IProduct[]>(
+	const [filteredProducts, setFilteredProducts] = React.useState<ProductEntityType[]>(
 		[]
 	);
 	const getCategoryFromUrl = (url: string) => {
@@ -89,7 +97,7 @@ const CategoriesPage = () => {
 					</div>
 				) : (
 					filteredProducts.map((p) => (
-						<CategoryProductItem key={p.title} product={p} />
+						<CategoryProductItem key={p.name} product={p} />
 					))
 				)}
 			</div>

@@ -1,25 +1,24 @@
-import { IProduct } from '../interfaces/product';
+/* eslint-disable @typescript-eslint/naming-convention */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { ProductEntityType } from '../interfaces/product';
 
 export type ProductsStateType = {
-	products: IProduct[];
+	products: ProductEntityType[];
 	loading: boolean;
 	error: string | null;
 };
 
-export interface IProduct {
-	featuredImage: string | undefined;
+export interface ProductEntityType {
 	name: string;
-	ratings: number;
-	id: number | string;
-	title: string;
-	description: string;
+	category: any;
 	price: number;
-	discountPercentage?: number;
-	stock: number;
-	brand?: string;
-	category: string;
-	thumbnail?: string;
+	inStock: boolean;
+	featuredImage: string;
 	images: Array<string>;
+	ratings: number;
+	quantity: number;
+	description: string;
+	_id?: string;
 }
 
 export type ProductCategoriesStateType = {
@@ -28,15 +27,22 @@ export type ProductCategoriesStateType = {
 	error: string | null;
 };
 
+type UserType = {
+	email: string;
+	name: string;
+	role: string;
+	profilePic?: string;
+};
+
 export type UserStateType = {
-	user: IUser | null;
+	user: UserType | null;
 	isAuthenticated: boolean;
 	loading: boolean;
 	error: string | null;
 	token: string | null;
 };
 
-type CartProductType = IProduct & {
+type CartProductType = ProductEntityType & {
 	quantity: number;
 };
 
@@ -47,7 +53,7 @@ export type CartStateType = {
 };
 
 type WhiteListStateType = {
-	products: IProduct[];
+	products: ProductEntityType[];
 };
 
 export type PurchasePaypalItemType = {
@@ -71,9 +77,9 @@ export type InputPropsTypes = {
 	) => void;
 };
 
-
 export type ProductcategoryType = {
 	name: string;
 	description: string;
 	image: string;
+	_id?: string;
 };

@@ -1,7 +1,15 @@
+/**
+ * @ Author: Felix Orinda
+ * @ Create Time: 2022-11-15 11:22:06
+ * @ Modified by: Felix Orinda
+ * @ Modified time: 2022-11-19 15:04:45
+ * @ Description:
+ */
+
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { IProduct } from '../types';
 import { Link } from 'react-router-dom';
+import { ProductEntityType } from '../types';
 import React from 'react';
 import { addProductToCart } from '../state/slices/cartSlice';
 import starGenerator from '../helpers/starGenerator';
@@ -15,11 +23,11 @@ const SingleProductPage = () => {
 		products: { products },
 		categories: { categories }
 	} = useAppSelector((state) => state);
-	const [currentProduct, setCurrentProdut] = React.useState<IProduct | null>(
+	const [currentProduct, setCurrentProdut] = React.useState<ProductEntityType | null>(
 		null
 	);
 	React.useEffect(() => {
-		const p = products.find((p) => p.id === Number(id)!);
+		const p = products.find((p) => p._id === id!);
 		setCurrentProdut(p!);
 	}, [products.length]);
 	const dispatch = useAppDispatch();
@@ -31,7 +39,7 @@ const SingleProductPage = () => {
 					<div className="grid  grid-cols-1 md:grid-cols-2">
 						<div className="flex flex-col gap-4">
 							<img
-								src={currentProduct.thumbnail}
+								src={currentProduct.featuredImage}
 								alt=""
 								className="h-96 object-contain rounded-md"
 							/>
@@ -51,7 +59,7 @@ const SingleProductPage = () => {
 						</div>
 						<div className="pl-8">
 							<h1 className="text-lg sm:text-md font-bold capitalize">
-								{currentProduct.title}
+								{currentProduct.name}
 							</h1>
 							<div className="pt-3">
 								{starGenerator(currentProduct.ratings).map((s, i) => (

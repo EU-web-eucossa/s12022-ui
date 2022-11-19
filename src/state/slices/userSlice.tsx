@@ -4,7 +4,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 const initialState: UserStateType = {
 	isAuthenticated: false,
-	user: undefined,
+	user: null,
 	token: null,
 	loading: false,
 	error: null

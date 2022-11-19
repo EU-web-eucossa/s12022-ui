@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { AxiosError } from 'axios';
-import { ProductcategoryType } from '../types';
+import { ProductcategoryType } from '../../types';
 import React from 'react';
-import { axiosQuery } from '../api';
+import { axiosQuery } from '../../api';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 
@@ -44,7 +45,7 @@ const AddCategory = () => {
 			} finally {
 				setLoading(false);
 			}
-            
+
 			return;
 		}
 		toast.error('Please fill all the fields');
@@ -52,44 +53,50 @@ const AddCategory = () => {
 
 	return (
 		<div className="w-full ">
-			<form
-				className="w-full p-8 shadow bg-white rounded"
-				onSubmit={(e) => {
-					handleSubmit(e);
-				}}
-			>
-				<ToastContainer />
-				<h1 className="text-center font-bold my-5">Add new Item category</h1>
-				<div className="flex flex-col gap-3">
-					{Object.keys(catagoryData).map((key, index) => {
-						return (
-							<div key={index} className="flex flex-col w-full">
-								<label htmlFor={key} className="capitalize font-medium">
-									{key}
-								</label>
-								<input
-									type={key === 'image' ? 'url' : 'text'}
-									placeholder={
-										key === 'image' ? 'https://example.com/image.png' : key
-									}
-									name={key}
-									id={key}
-									value={catagoryData[key]}
-									onChange={handleInputChange}
-									className="border border-gray-300 rounded-md p-2 w-full focus:ring-0 focus:border-[1px]"
-								/>
-							</div>
-						);
-					})}
+			<ToastContainer />
+			{success ? (
+				<div className="text-green-500 text-center p-10">
+					Category added successfully redirecting....
 				</div>
-				<button
-					className="bg-primary my-4 p-2 border-none rounded w-full disabled:cursor-not-allowed disabled:opacity-50"
-					type="submit"
-					disabled={loading}
+			) : (
+				<form
+					className="w-full p-8 shadow bg-white rounded"
+					onSubmit={(e) => {
+						handleSubmit(e);
+					}}
 				>
-					Add product
-				</button>
-			</form>
+					<h1 className="text-center font-bold my-5">Add new Item category</h1>
+					<div className="flex flex-col gap-3">
+						{Object.keys(catagoryData).map((key, index) => {
+							return (
+								<div key={index} className="flex flex-col w-full">
+									<label htmlFor={key} className="capitalize font-medium">
+										{key}
+									</label>
+									<input
+										type={key === 'image' ? 'url' : 'text'}
+										placeholder={
+											key === 'image' ? 'https://example.com/image.png' : key
+										}
+										name={key}
+										id={key}
+										value={catagoryData[key]}
+										onChange={handleInputChange}
+										className="border border-gray-300 rounded-md p-2 w-full focus:ring-0 focus:border-[1px]"
+									/>
+								</div>
+							);
+						})}
+					</div>
+					<button
+						className="bg-primary my-4 p-2 border-none rounded w-full disabled:cursor-not-allowed disabled:opacity-50"
+						type="submit"
+						disabled={loading}
+					>
+						Add Category
+					</button>
+				</form>
+			)}
 		</div>
 	);
 };

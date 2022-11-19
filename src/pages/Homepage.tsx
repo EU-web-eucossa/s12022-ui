@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import HomeProductCategoriesRow from '../components/HomeProductCategoriesRow';
 import Homecategories from '../components/Homecategories';
 import ProductsLoader from '../components/ProductsLoader';
@@ -10,8 +11,6 @@ const Homepage = () => {
 		products: { products,loading }
 	} = useAppSelector((state) => state);
 
-	console.log('categories home', categories);
-	
 	return loading ? (
 		<ProductsLoader/>
 	) : (
@@ -23,7 +22,7 @@ const Homepage = () => {
 					categories.map((category) => (
 						<HomeProductCategoriesRow
 							key={category.name}
-							category={category.name}
+							category={category}
 							products={products}
 						/>
 					))}

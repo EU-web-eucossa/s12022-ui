@@ -1,22 +1,21 @@
 import AboutPage from '../pages/AboutPage';
+import AddCategory from '../pages/Admin/AddCategory';
+import Addproduct from '../pages/Admin/AddProduct';
 import BaseLayout from '../layouts/BaseLayout';
 import CartPage from '../pages/CartPage';
 import CategoriesPage from '../pages/CategoriesPage';
+import CategoryList from '../pages/Admin/CategoryList';
+import CheckoutPage from '../pages/CheckoutPage';
 import ContactPage from '../pages/ContactPage';
+import DashBoard from '../pages/Admin/DashBoard';
+import DashSummary from '../pages/Admin/DashSummary';
 import EmptyLayout from '../layouts/EmptyLayout';
 import Homepage from '../pages/Homepage';
 import { IRouteProps } from 'react-router-map/dist/types';
 import LoginPage from '../pages/LoginPage';
 import NotFound from '../pages/NotFound';
+import ProductList from '../pages/Admin/ProductList';
 import ProfilePage from '../pages/ProfilePage';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import AddCategory from '../pages/AddCategory';
-import Addproduct from '../pages/Addproduct';
-import CategoryList from '../pages/CategoryList';
-import CheckoutPage from '../pages/CheckoutPage';
-import DashBoard from '../pages/DashBoard';
-import DashSummary from '../pages/DashSummary';
-import ProductList from '../pages/ProductList';
 import React from 'react';
 import SignupPage from '../pages/SignupPage';
 import SingleProductPage from '../pages/SingleProductPage';
@@ -75,7 +74,7 @@ const routes: IRouteProps[] = [
 		urlPath: '/checkout'
 	},
 	{
-		Component: layoutWrap(EmptyLayout, DashBoard, true),
+		Component: layoutWrap(EmptyLayout, DashBoard, { role: 'admin' }),
 		pathName: 'Admin Dashboard',
 		urlPath: '/admin/dashboard',
 		nestedComponents: [
@@ -103,6 +102,11 @@ const routes: IRouteProps[] = [
 				Component: layoutWrap(EmptyLayout, ProductList),
 				pathName: 'Product List',
 				urlPath: '/admin/dashboard/product-list'
+			},
+			{
+				Component: layoutWrap(EmptyLayout, ProfilePage),
+				pathName: 'Admin Profile',
+				urlPath: '/admin/dashboard/profile'
 			},
 			{
 				Component: layoutWrap(EmptyLayout, () => (

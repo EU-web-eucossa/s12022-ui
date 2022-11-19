@@ -1,31 +1,43 @@
+/**
+ * @ Author: Felix Orinda
+ * @ Create Time: 2022-11-10 13:55:28
+ * @ Modified by: Felix Orinda
+ * @ Modified time: 2022-11-19 14:55:52
+ * @ Description:
+ */
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import HomeproductItem from './HomeproductItem';
-import { IProduct } from '../types';
+import HomeproductItem from './HomeProductItem';
 import { Link } from 'react-router-dom';
 import React from 'react';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { ProductEntityType, ProductcategoryType } from '../types';
 
 const HomeProductCategoriesRow = ({
 	category,
 	products
 }: {
-	category: string;
-	products: IProduct[];
+	category: ProductcategoryType;
+	products: ProductEntityType[];
 }) => {
-	const [filteredProducts, setFilteredProducts] = React.useState<IProduct[]>(
-		[]
-	);
+	const [filteredProducts, setFilteredProducts] = React.useState<
+		ProductEntityType[]
+	>([]);
 	const [categoryName, setCategoryName] = React.useState<string>('');
 
 	React.useEffect(() => {
-		setCategoryName(category);
+		setCategoryName(category.name);
 		if (products.length) {
 			const filtered = products.filter((product) => {
-				return product.category === category;
+				console.log(product.category, category.name);
+				
+				return product.category === category._id;
 			});
 			setFilteredProducts(filtered);
 		}
 	}, [products, category]);
+
+	console.log(filteredProducts, categoryName, category);
 
 	return filteredProducts.length > 0 ? (
 		<div className="shadow-lg">
@@ -44,8 +56,8 @@ const HomeProductCategoriesRow = ({
 				</Link>
 			</div>
 			<div className="w-full  md:p-4 grid grid-cols xs:grid-cols-2 sm:grid-cols-3  md:grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-2">
-				{filteredProducts.slice(0,4).map((product) => (
-					<HomeproductItem key={product.title} {...product} />
+				{filteredProducts.slice(0, 4).map((product) => (
+					<HomeproductItem key={product.name} {...product} />
 				))}
 			</div>
 		</div>
