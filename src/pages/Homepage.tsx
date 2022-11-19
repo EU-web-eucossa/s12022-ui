@@ -10,6 +10,8 @@ const Homepage = () => {
 		products: { products,loading }
 	} = useAppSelector((state) => state);
 
+	console.log('categories home', categories);
+	
 	return loading ? (
 		<ProductsLoader/>
 	) : (
@@ -17,11 +19,11 @@ const Homepage = () => {
 			<Homecategories />
 			<div className="flex flex-col gap-6">
 				{categories.length &&
-					products.length &&
+					// products.length &&
 					categories.map((category) => (
 						<HomeProductCategoriesRow
-							key={category}
-							category={category}
+							key={category.name}
+							category={category.name}
 							products={products}
 						/>
 					))}

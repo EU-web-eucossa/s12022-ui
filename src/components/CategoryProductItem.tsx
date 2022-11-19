@@ -2,12 +2,12 @@
  * @ Author: Felix Orinda
  * @ Create Time: 2022-11-10 13:55:28
  * @ Modified by: Felix Orinda
- * @ Modified time: 2022-11-19 05:39:04
+ * @ Modified time: 2022-11-19 07:16:10
  * @ Description:
  */
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { IProduct } from '../interfaces/product';
+import { IProduct } from '../types';
 import { Link } from 'react-router-dom';
 import React from 'react';
 import { addProductToCart } from '../state/slices/cartSlice';

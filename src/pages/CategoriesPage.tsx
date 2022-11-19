@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import CategoryProductItem from '../components/CategoryProductItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { IProduct } from '../interfaces/product';
+import { IProduct } from '../types';
 import { Link } from 'react-router-dom';
 import React from 'react';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
@@ -63,10 +63,10 @@ const CategoriesPage = () => {
 							<option
 								key={category}
 								className={`text-sm text-gray-500 hover:text-gray-700 text-ellipsis ${
-									selectedCategory === category ? 'text-gray-700' : ''
+									selectedCategory.name === category ? 'text-gray-700' : ''
 								}`}
 							>
-								{selectedCategory}
+								{selectedCategory.name}
 							</option>
 						))}
 					</select>

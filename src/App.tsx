@@ -26,14 +26,10 @@ const App = () => {
 		try {
 			dispatch(loadProductsStart());
 			const response = await axiosQuery.get('/products');
-			const data = response.data;
-			setTimeout(() => {
-				dispatch(
-					loadProductsSuccess({
-						products: data.products
-					})
-				);
-			}, 2000);
+			const data = response.data.products;
+			data && data.length
+				? dispatch(loadProductsSuccess(data))
+				: dispatch(loadProductsSuccess([])); //
 		} catch (error: any) {
 			if (error instanceof AxiosError)
 				dispatch(loadProductsFailure({ error: error.response?.data }));
@@ -42,13 +38,13 @@ const App = () => {
 	const fetchProductCategories = async () => {
 		try {
 			dispatch(loadCategoryStart());
-			const response = await axiosQuery.get('/products/categories');
-			const data = response.data;
-			dispatch(
-				loadCategorySuccess({
-					categories: data
-				})
-			);
+			const response = await axiosQuery.get('/categories');
+			const data = response.data.categories;
+			data
+				? dispatch(loadCategorySuccess(data))
+				: dispatch(loadCategoryFailure({ error: 'No categories found' }));
+
+			dispatch(loadCategorySuccess(data));
 		} catch (error: any) {
 			if (error instanceof AxiosError)
 				dispatch(loadCategoryFailure({ error: error.response?.data }));
@@ -67,5 +63,3 @@ const App = () => {
 };
 
 export default App;
-
-

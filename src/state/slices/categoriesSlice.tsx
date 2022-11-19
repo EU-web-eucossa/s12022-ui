@@ -1,6 +1,14 @@
+/**
+ * @ Author: Felix Orinda
+ * @ Create Time: 2022-11-10 13:55:28
+ * @ Modified by: Felix Orinda
+ * @ Modified time: 2022-11-19 07:33:13
+ * @ Description:
+ */
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ProductCategoriesStateType } from '../../types';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { ProductCategoriesStateType, ProductcategoryType } from '../../types';
 
 const initialState: ProductCategoriesStateType = {
 	categories: [],
@@ -18,9 +26,9 @@ const categoriesSlice = createSlice({
 		},
 		loadCategorySuccess: (
 			state,
-			action: PayloadAction<Pick<ProductCategoriesStateType, 'categories'>>
+			action: PayloadAction<ProductcategoryType[]>
 		) => {
-			state.categories = action.payload.categories;
+			state.categories = action.payload;
 			state.loading = false;
 			state.error = null;
 		},

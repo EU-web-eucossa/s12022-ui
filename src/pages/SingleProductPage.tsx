@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { IProduct } from '../interfaces/product';
+import { IProduct } from '../types';
 import { Link } from 'react-router-dom';
 import React from 'react';
 import { addProductToCart } from '../state/slices/cartSlice';
@@ -82,11 +82,11 @@ const SingleProductPage = () => {
 						<h4 className='my-4 underline'>More Like This</h4>
 						<div className="flex  justify-around items-center gap-4">
 							{categories.slice(0,3).map((category) => (
-								<Link key={category}
+								<Link key={category.name}
 									to={`/categories?category=${category}`}
 									className="text-primary capitalize font-bold border border-primary rounded-2xl px-4 py-2"
 								>
-									{category}
+									{category.name}
 								</Link>
 							))}
 						</div>

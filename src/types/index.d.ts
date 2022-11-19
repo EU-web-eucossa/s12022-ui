@@ -6,8 +6,24 @@ export type ProductsStateType = {
 	error: string | null;
 };
 
+export interface IProduct {
+	featuredImage: string | undefined;
+	name: string;
+	ratings: number;
+	id: number | string;
+	title: string;
+	description: string;
+	price: number;
+	discountPercentage?: number;
+	stock: number;
+	brand?: string;
+	category: string;
+	thumbnail?: string;
+	images: Array<string>;
+}
+
 export type ProductCategoriesStateType = {
-	categories: string[];
+	categories: ProductcategoryType[];
 	loading: boolean;
 	error: string | null;
 };
@@ -53,4 +69,11 @@ export type InputPropsTypes = {
 	onChange: (
 		e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
 	) => void;
+};
+
+
+export type ProductcategoryType = {
+	name: string;
+	description: string;
+	image: string;
 };

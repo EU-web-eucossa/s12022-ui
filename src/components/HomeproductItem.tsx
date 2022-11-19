@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { IProduct } from '../interfaces/product';
+import { IProduct } from '../types';
 import { Link } from 'react-router-dom';
 import React from 'react';
 import { addProductToCart } from '../state/slices/cartSlice';
@@ -9,6 +10,19 @@ import { useAppDispatch } from '../state/hooks';
 
 const HomeproductItem = (product: IProduct) => {
 	const dispatch = useAppDispatch();
+	// load image component
+	const imageRef = React.useRef<HTMLImageElement>(null);
+
+	React.useEffect(() => {
+		// load image and once loaded, set the imageRef to the image
+		const image = new Image();
+		image.src = product.thumbnail!;
+		image.onload = () => {
+			if (imageRef.current) 
+				imageRef.current.src = image.src;
+			
+		};
+	}, []);
 
 	return (
 		<div className="flex flex-col justify-between hover:shadow-lg rounded-md transition-all ease-linear duration-500 border-slate-200 border">
@@ -17,6 +31,7 @@ const HomeproductItem = (product: IProduct) => {
 				className="relative h-full w-full object-cover overflow-hidden group border-0 "
 			>
 				<img
+					ref={imageRef}
 					src={product.thumbnail}
 					alt={product.title}
 					className="h-full mx-auto object-contain group-hover:scale-105 transition-all ease-linear duration-500"

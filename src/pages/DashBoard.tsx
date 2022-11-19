@@ -2,7 +2,7 @@
  * @ Author: Felix Orinda
  * @ Create Time: 2022-11-19 05:37:40
  * @ Modified by: Felix Orinda
- * @ Modified time: 2022-11-19 06:40:20
+ * @ Modified time: 2022-11-19 06:59:55
  * @ Description:
  */
 
@@ -41,8 +41,8 @@ const sidebar = [
 ];
 const DashBoard = () => {
 	return (
-		<div className="flex">
-			<div className="flex flex-col justify-between gap-4 border-r border-primary text-black px-4">
+		<div className="flex w-full">
+			<div className="flex flex-col justify-between gap-4 border-r border-primary text-black px-4 w-fit">
 				<div>
 					<div>
 						<Link to="/">
@@ -73,7 +73,7 @@ const DashBoard = () => {
 					<button>Logout</button>
 				</div>
 			</div>
-			<div>
+			<div className='flex-1'>
 				<Outlet />
 			</div>
 		</div>

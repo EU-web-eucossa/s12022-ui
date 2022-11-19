@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ProductsStateType } from '../../types';
+import { IProduct, ProductsStateType } from '../../types';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 const initialState: ProductsStateType = {
@@ -18,9 +18,9 @@ const productsSlice = createSlice({
 		},
 		loadProductsSuccess: (
 			state,
-			action: PayloadAction<Pick<ProductsStateType, 'products'>>
+			action: PayloadAction<IProduct[]>
 		) => {
-			state.products = action.payload.products;
+			state.products = action.payload;
 			state.loading = false;
 			state.error = null;
 		},

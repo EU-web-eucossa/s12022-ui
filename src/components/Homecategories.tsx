@@ -7,6 +7,7 @@ import { useAppSelector } from '../state/hooks';
 
 const Homecategories = () => {
 	const { categories } = useAppSelector((state) => state.categories);
+	console.log('categories', categories);
 
 	return (
 		<div className="shadow p-4 mt-2 rounded-sm">
@@ -17,9 +18,9 @@ const Homecategories = () => {
 				</Link>
 			</div>
 			<div className="flex gap-4 overflow-x-scroll no-scrollbar">
-				{categories &&
+				{categories.length &&
 					categories.map((category) => (
-						<HomecategoryItem key={category} title={category} />
+						<HomecategoryItem key={category.name} {...category} />
 					))}
 			</div>
 		</div>

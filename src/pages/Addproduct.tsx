@@ -6,7 +6,7 @@ const Addproduct = () => {
 			<div>
 				<form action="flex flex-col md:flex-row">
 					<div>
-						<label for="name">Name</label>
+						<label htmlFor="name">Name</label>
 					</div>
 					<div></div>
 				</form>
