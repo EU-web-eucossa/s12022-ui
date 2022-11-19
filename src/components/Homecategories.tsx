@@ -1,8 +1,6 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import HomecategoryItem from './HomeCategoryItem';
 import { Link } from 'react-router-dom';
 import React from 'react';
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { useAppSelector } from '../state/hooks';
 
 const Homecategories = () => {
