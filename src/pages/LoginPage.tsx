@@ -42,7 +42,6 @@ const LoginPage = () => {
 
 			try {
 				const res = await authQuery.post('/login', userData);
-				console.log(res.data);
 
 				if (res.status === 200 || res.status === 201) {
 					toast.success('Logged in successfully');

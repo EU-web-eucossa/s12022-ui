@@ -4,7 +4,7 @@
  * @ Author: Felix Orinda
  * @ Create Time: 2022-11-19 06:15:42
  * @ Modified by: Felix Orinda
- * @ Modified time: 2022-11-19 15:02:09
+ * @ Modified time: 2022-11-19 19:27:50
  * @ Description:
  */
 
@@ -14,6 +14,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ProductEntityType } from '../../types';
 import React from 'react';
 import { axiosQuery } from '../../api';
+import extractValidLinks from '../../helpers/extractValidLinks';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { useAppSelector } from '../../state/hooks';
 import { useNavigate } from 'react-router-dom';
@@ -103,8 +104,6 @@ const Addproduct = () => {
 		try {
 			const res = await axiosQuery.post('/products/add', productData);
 			if (res.status === 200 || res.status === 201) {
-				console.log(res.data);
-
 				toast.success('Product added successfully');
 				setSuccess(true);
 				setTimeout(() => {
@@ -112,11 +111,9 @@ const Addproduct = () => {
 				}, 2000);
 			}
 		} catch (err) {
-			if (err instanceof AxiosError) {
-				console.log(err.response);
-
+			if (err instanceof AxiosError) 
 				toast.error(err.response?.data.message);
-			}
+			
 		} finally {
 			setLoading(false);
 		}
@@ -127,13 +124,7 @@ const Addproduct = () => {
 		const newImages = productData.images.filter((_, i) => i !== index);
 		setProductData((initial) => ({ ...initial, images: newImages }));
 	};
-	const extractValidLinks = (links: string) => {
-		// Extract valid links using regex and return an array of links
-		const regex = /https?:\/\/[^\s]+/g;
-		const validLinks = links.match(regex);
 
-		return validLinks ? validLinks.toString().split(',') : [];
-	};
 
 	return (
 		<div className="w-full ">

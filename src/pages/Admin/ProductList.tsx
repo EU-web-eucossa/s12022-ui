@@ -3,7 +3,7 @@
  * @ Author: Felix Orinda
  * @ Create Time: 2022-11-19 06:21:45
  * @ Modified by: Felix Orinda
- * @ Modified time: 2022-11-19 15:26:29
+ * @ Modified time: 2022-11-19 19:35:45
  * @ Description:
  */
 
@@ -122,7 +122,6 @@ const ProductList = () => {
 	React.useEffect(() => {
 		fetchproducts();
 	}, [page]);
-	console.log(products);
 
 	return (
 		<div>
@@ -132,7 +131,7 @@ const ProductList = () => {
 				<div>
 					<div className="overflow-x-scroll">
 						<Table
-							className="w-full border-collapse border-2 shadow p-2 text-left overflow-x-scroll"
+							className=" table-fixed w-full border-collapse border-2 shadow p-2 text-left overflow-x-scroll"
 							columns={cols}
 							rows={products}
 						/>

@@ -29,15 +29,12 @@ const HomeProductCategoriesRow = ({
 		setCategoryName(category.name);
 		if (products.length) {
 			const filtered = products.filter((product) => {
-				console.log(product.category, category.name);
 				
 				return product.category === category._id;
 			});
 			setFilteredProducts(filtered);
 		}
 	}, [products, category]);
-
-	console.log(filteredProducts, categoryName, category);
 
 	return filteredProducts.length > 0 ? (
 		<div className="shadow-lg">

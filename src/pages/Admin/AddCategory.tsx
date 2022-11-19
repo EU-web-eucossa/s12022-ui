@@ -3,6 +3,7 @@ import { AxiosError } from 'axios';
 import { ProductcategoryType } from '../../types';
 import React from 'react';
 import { axiosQuery } from '../../api';
+import extractValidLinks from '../../helpers/extractValidLinks';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 
@@ -19,35 +20,35 @@ const AddCategory = () => {
 	} as ProductcategoryType);
 	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = e.target;
+		if (name === 'image') {
+			const link = extractValidLinks(value)[0];
+			setCatagoryData({ ...catagoryData, [name]: link });
+
+			return;
+		}
 		setCatagoryData((initial) => ({ ...initial, [name]: value }));
 	};
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		e.stopPropagation();
-		if (catagoryData.name && catagoryData.description && catagoryData.image) {
-			setLoading(true);
 
-			try {
-				const res = await axiosQuery.post('/categories/add', catagoryData);
-				if (res.status === 200 || res.status === 201) {
-					toast.success('Category added successfully');
-					setSuccess(true);
-					setTimeout(() => {
-						navigate('/admin/dashboard/category-list');
-					}, 2000);
-				}
-			} catch (err) {
-				if (err instanceof AxiosError) {
-					console.log(err.response);
-
-					toast.error(err.response?.data.message);
-				}
-			} finally {
-				setLoading(false);
+		try {
+			const res = await axiosQuery.post('/categories/add', catagoryData);
+			if (res.status === 200 || res.status === 201) {
+				toast.success('Category added successfully');
+				setSuccess(true);
+				setTimeout(() => {
+					navigate('/admin/dashboard/category-list');
+				}, 2000);
 			}
-
-			return;
+		} catch (err) {
+			if (err instanceof AxiosError) 
+				toast.error(err.response?.data.message);
+			
+		} finally {
+			setLoading(false);
 		}
+
 		toast.error('Please fill all the fields');
 	};
 
@@ -87,6 +88,15 @@ const AddCategory = () => {
 								</div>
 							);
 						})}
+					</div>
+					<div>
+						{catagoryData.image && (
+							<img
+								src={catagoryData.image}
+								alt="category"
+								className="w-20 h-20 object-cover rounded-md"
+							/>
+						)}
 					</div>
 					<button
 						className="bg-primary my-4 p-2 border-none rounded w-full disabled:cursor-not-allowed disabled:opacity-50"

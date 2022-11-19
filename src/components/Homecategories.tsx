@@ -10,13 +10,13 @@ const Homecategories = () => {
 
 	return (
 		<div className="shadow p-4 mt-2 rounded-sm">
-			<div className="flex justify-between py-2 ">
-				<h2 className="text-xl font-bold">Categories</h2>
-				<Link to={'/categories'} className="capitalize">
-					view all <FontAwesomeIcon icon={faChevronRight} />
+			<div className="flex justify-center text-blue-700 underline font-bold py-2 ">
+				{/* <h2 className="text-xl font-bold">Categories</h2> */}
+				<Link to={'/categories'} className="capitalize text-center">
+					View all categories
 				</Link>
 			</div>
-			<div className="flex gap-4 overflow-x-scroll no-scrollbar">
+			<div className="flex flex-wrap gap-4 justify-between">
 				{categories.length &&
 					categories.map((category) => (
 						<HomecategoryItem key={category.name} {...category} />

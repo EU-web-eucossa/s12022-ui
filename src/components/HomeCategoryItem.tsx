@@ -2,7 +2,7 @@
  * @ Author: Felix Orinda
  * @ Create Time: 2022-11-10 13:55:28
  * @ Modified by: Felix Orinda
- * @ Modified time: 2022-11-19 14:58:16
+ * @ Modified time: 2022-11-19 19:55:33
  * @ Description:
  */
 
@@ -27,14 +27,14 @@ const HomecategoryItem = (props: ProductcategoryType) => {
 
 	return (
 		<Link to={`/categories?category=${props.name}`} className="min-w-[10rem] group overflow-hidden hover:shadow-md transition-all duration-500 ease-linear hover:border">
-			<div className="flex flex-col gap-2 group">
+			<div className="flex flex-col gap-2 group justify-center items-center">
 				<img
 					ref={imageRef}
 					src="/product.webp"
 					alt=""
-					className="w-40 h-40 object-cover rounded-md group-hover:scale-105 transition-all ease-linear duration-300"
+					className="w-32 h-32 object-cover rounded-md group-hover:scale-105 transition-all ease-linear duration-300"
 				/>
-				<div className="text-center capitalize text-black font-bold">
+				<div className="text-sm text-center capitalize text-black font-medium">
 					{props.name}
 				</div>
 			</div>
