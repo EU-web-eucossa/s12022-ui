@@ -1,7 +1,7 @@
 /* eslint-disable indent */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { CartStateType } from '../../types';
-import { IProduct } from '../../interfaces/product';
+import { IProduct } from '../../types';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 const initialState: CartStateType = {
 	cartProducts: [],

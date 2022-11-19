@@ -1,4 +1,4 @@
-import { IProduct } from '../../interfaces/product';
+import { IProduct } from '../../types';
 import { WhiteListStateType } from '../../types';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
