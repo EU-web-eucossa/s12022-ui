@@ -2,7 +2,7 @@
  * @ Author: Felix Orinda
  * @ Create Time: 2022-11-15 11:22:06
  * @ Modified by: Felix Orinda
- * @ Modified time: 2022-11-19 05:54:02
+ * @ Modified time: 2022-11-19 05:56:42
  * @ Description:
  */
 
@@ -11,14 +11,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import React from 'react';
 import { faBell } from '@fortawesome/free-regular-svg-icons';
-import { useAppDispatch, useAppSelector } from '../state/hooks';
+import { logoutUser } from '../state/slices/userSlice';
 import { useLocation } from 'react-router-dom';
 import {
 	faSearch,
 	faShoppingCart,
-	faUser
+	faUser,
 } from '@fortawesome/free-solid-svg-icons';
-import { logoutUser } from '../state/slices/userSlice';
+import { useAppDispatch, useAppSelector } from '../state/hooks';
 
 const unloggedLinks = [
 	{ name: 'Sign in', path: '/account/sign_in' },

@@ -1,10 +1,10 @@
 /* eslint-disable react/no-unescaped-entities */
 import { AxiosError } from 'axios';
 import InputElement from '../components/InputElement';
-import { Link, useNavigate } from 'react-router-dom';
 import PasswordElement from '../components/PasswordElement';
 import React from 'react';
 import { authQuery } from '../api';
+import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 
 type UserDataInputs = {

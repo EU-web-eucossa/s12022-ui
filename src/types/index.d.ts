@@ -17,6 +17,7 @@ export type UserStateType = {
 	isAuthenticated: boolean;
 	loading: boolean;
 	error: string | null;
+	token: string | null;
 };
 
 type CartProductType = IProduct & {

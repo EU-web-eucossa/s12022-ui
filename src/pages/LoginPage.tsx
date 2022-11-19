@@ -17,7 +17,7 @@ type UserDataInputs = {
 };
 
 const LoginPage = () => {
-	const { isAuthenticated } = useAppSelector(state => state.root.user);
+	const { isAuthenticated } = useAppSelector((state) => state.root.user);
 	const dispatch = useAppDispatch();
 	const [loading, setLoading] = React.useState<boolean>(false);
 	const pathState = useLocation().state as unknown as {
@@ -42,26 +42,24 @@ const LoginPage = () => {
 
 			try {
 				const res = await authQuery.post('/login', userData);
+				console.log(res.data);
+
 				if (res.status === 200 || res.status === 201) {
 					toast.success('Logged in successfully');
-					dispatch(loginUser({
-						error: null,
-						isAuthenticated: true,
-						loading: false,
-						user: res.data.user,
-					}));
-					pathState?.from ? navigate(pathState.from) : navigate('/');
-
+					dispatch(
+						loginUser({
+							user: {} as any,
+							token: res.data.user.token
+						})
+					);
+					setTimeout(() => {
+						pathState?.from ? navigate(pathState.from) : navigate('/');
+					}, 2000);
 				}
-
-
 			} catch (err) {
-				if (err instanceof AxiosError) 
-					toast.error(err.response?.data.message);
-				
+				if (err instanceof AxiosError) toast.error(err.response?.data.message);
 			} finally {
 				setLoading(false);
-
 			}
 		}
 	};
@@ -83,7 +81,7 @@ const LoginPage = () => {
 					/>
 				</div>
 				<InputElement
-					placeholder={'User Name/Email'}
+					placeholder={'Email'}
 					type={'email'}
 					name={'email'}
 					onChange={handleChange}
@@ -106,18 +104,30 @@ const LoginPage = () => {
 					/>
 					<label htmlFor="vehicle3"> Remember Me</label>
 				</div>
-				{loading ? <button className='cursor-not-allowed bg-gray-300 border-gray-500 py-2 rounded-md' disabled>Loading....</button> : <button className="mb-3 rounded-full bg-primary p-2" type="submit">
-					Sign In
-				</button>}
+				{loading ? (
+					<button
+						className="cursor-not-allowed bg-gray-300 border-gray-500 py-2 rounded-md"
+						disabled
+					>
+						Loading....
+					</button>
+				) : (
+					<button className="mb-3 rounded-full bg-primary p-2" type="submit">
+						Sign In
+					</button>
+				)}
 				<p className="mb-7 text-center">
-				Don't have an account?{' '}
-					{<Link to={'/account/sign_up'} className="text-primary font-bold">
-					Sign up
-					</Link>}
+					Don't have an account?{' '}
+					{
+						<Link to={'/account/sign_up'} className="text-primary font-bold">
+							Sign up
+						</Link>
+					}
 				</p>
-				<Link to={'/'} className='text-center underline text-blue-700'>Continue shoppping</Link>
+				<Link to={'/'} className="text-center underline text-blue-700">
+					Continue shoppping
+				</Link>
 			</form>
-			
 		</div>
 	);
 };
