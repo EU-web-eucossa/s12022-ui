@@ -1,7 +1,15 @@
+/**
+ * @ Author: Felix Orinda
+ * @ Create Time: 2022-11-15 11:22:06
+ * @ Modified by: Felix Orinda
+ * @ Modified time: 2022-11-19 05:38:49
+ * @ Description:
+ */
+
 import axios from 'axios';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/naming-convention
-const BASE_URL = 'https://dummyjson.com';
+const BASE_URL = 'https://eucossa-bc.herokuapp.com/api/v1';
 
 export const apiEndpoints = {
 	products: `${BASE_URL}/products`,
