@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { CatCounter } from '../../hooks/CatCounter';
 import DashBoardCard from './components/DashBoardCard';
 import { ProductcategoryType } from '../../types';
