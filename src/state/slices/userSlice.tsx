@@ -1,3 +1,11 @@
+/**
+ * @ Author: Felix Orinda
+ * @ Create Time: 2022-11-10 13:55:28
+ * @ Modified by: Felix Orinda
+ * @ Modified time: 2022-11-20 11:09:03
+ * @ Description:
+ */
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { UserStateType } from '../../types';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';

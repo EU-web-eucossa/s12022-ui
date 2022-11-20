@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ProductEntityType } from '../interfaces/product';
 
 export type ProductsStateType = {
 	products: ProductEntityType[];
@@ -8,7 +7,7 @@ export type ProductsStateType = {
 	error: string | null;
 };
 
-export interface ProductEntityType {
+export type ProductEntityType = {
 	name: string;
 	category: any;
 	price: number;
@@ -18,8 +17,8 @@ export interface ProductEntityType {
 	ratings: number;
 	quantity: number;
 	description: string;
-	_id?: string;
-}
+	_id: string;
+};
 
 export type ProductCategoriesStateType = {
 	categories: ProductcategoryType[];

@@ -40,7 +40,7 @@ const Cart = () => {
 				{totalQuantity > 0 ? (
 					<ul className="flex flex-col gap-1 max-h-[18rem] overflow-y-scroll scroll-bar py-4 border px-1">
 						{cartProducts.map((p) => (
-							<li key={p.title} className="flex gap-2 w-full">
+							<li key={p.name} className="flex gap-2 w-full">
 								<div>
 									<img
 										src={p.featuredImage}
@@ -49,7 +49,7 @@ const Cart = () => {
 									/>
 								</div>
 								<div className="text-[12px] flex flex-col gap-1 w-full border p-1">
-									<h1 className="capitalize">{p.title}</h1>
+									<h1 className="capitalize">{p.name}</h1>
 									<p>Quatity {p.quantity}</p>
 									<p>Unit price ${p.price.toFixed(2)}</p>
 									<p>Total $ {(p.price * p.quantity).toFixed(2)}</p>
@@ -61,7 +61,7 @@ const Cart = () => {
 												e.preventDefault();
 												dispatch(
 													increaseProductQuantity({
-														id: p.id
+														_id: p._id
 													})
 												);
 											}}
@@ -73,7 +73,7 @@ const Cart = () => {
 												e.preventDefault();
 												dispatch(
 													removeProductFromCart({
-														id: p.id
+														_id: p._id
 													})
 												);
 											}}

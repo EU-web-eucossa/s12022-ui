@@ -1,3 +1,11 @@
+/**
+ * @ Author: Felix Orinda
+ * @ Create Time: 2022-11-10 13:55:28
+ * @ Modified by: Felix Orinda
+ * @ Modified time: 2022-11-20 11:08:54
+ * @ Description:
+ */
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { ProductEntityType, ProductsStateType } from '../../types';

@@ -1,3 +1,11 @@
+/**
+ * @ Author: Felix Orinda
+ * @ Create Time: 2022-11-10 13:55:28
+ * @ Modified by: Felix Orinda
+ * @ Modified time: 2022-11-20 11:09:29
+ * @ Description:
+ */
+
 import { ProductEntityType } from '../../types';
 import { WhiteListStateType } from '../../types';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
@@ -13,8 +21,8 @@ const productWhitelistSlice = createSlice({
 		addProductToWhitelist: (state, action: PayloadAction<ProductEntityType>) => {
 			state.products = state.products.find(
 				(p) =>
-					p.id ===
-					p.id
+					p._id ===
+					p._id
 			)
 				? state.products
 				: [...state.products, action.payload];
@@ -25,7 +33,7 @@ const productWhitelistSlice = createSlice({
 		) => {
 			state.products = state.products.filter(
 				(p) =>
-					p.id !==
+					p._id !==
 					action.payload.id
 			);
 		}

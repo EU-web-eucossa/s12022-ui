@@ -1,3 +1,11 @@
+/**
+ * @ Author: Felix Orinda
+ * @ Create Time: 2022-11-10 13:55:28
+ * @ Modified by: Felix Orinda
+ * @ Modified time: 2022-11-20 11:08:36
+ * @ Description:
+ */
+
 /* eslint-disable indent */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { CartStateType } from '../../types';
@@ -18,10 +26,10 @@ const cartSlice = createSlice({
 			action: PayloadAction<ProductEntityType>
 		) => {
 			state.cartProducts = state.cartProducts.find(
-				(p) => p.id === action.payload._id
+				(p) => p._id === action.payload._id
 			)
 				? state.cartProducts.map((p) =>
-						p.id === action.payload._id ? { ...p, quantity: p.quantity + 1 } : p
+						p._id === action.payload._id ? { ...p, quantity: p.quantity + 1 } : p
 				)
 				: [...state.cartProducts, { ...action.payload, quantity: 1 }];
 			state.totalPrice = state.cartProducts.reduce(
@@ -30,9 +38,9 @@ const cartSlice = createSlice({
 			);
 			state.totalQuantity = state.cartProducts.length;
 		},
-		increaseProductQuantity: (state, action: PayloadAction<{ id: number|string }>) => {
+		increaseProductQuantity: (state, action: PayloadAction<{ _id: number|string }>) => {
 			state.cartProducts = state.cartProducts.map((p) =>
-				p.id === action.payload.id ? { ...p, quantity: p.quantity + 1 } : p
+				p._id === action.payload._id ? { ...p, quantity: p.quantity + 1 } : p
 			);
 			state.totalPrice = state.cartProducts.reduce(
 				(acc, p) => acc + p.price * p.quantity,
@@ -40,9 +48,9 @@ const cartSlice = createSlice({
 			);
 			state.totalQuantity = state.cartProducts.length;
 		},
-		removeProductFromCart: (state, action: PayloadAction<{ id: string|number }>) => {
+		removeProductFromCart: (state, action: PayloadAction<{ _id: string|number }>) => {
 			state.cartProducts = state.cartProducts.filter(
-				(product) => product.id !== action.payload.id
+				(product) => product._id !== action.payload._id
 			);
 			state.totalPrice = state.cartProducts.reduce(
 				(acc, p) => acc + p.price * p.quantity,
