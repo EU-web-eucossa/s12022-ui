@@ -4,13 +4,14 @@
  * @ Author: Felix Orinda
  * @ Create Time: 2022-11-19 06:15:42
  * @ Modified by: Felix Orinda
- * @ Modified time: 2022-11-19 19:27:50
+ * @ Modified time: 2022-11-20 10:40:34
  * @ Description:
  */
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { AxiosError } from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import FullScreenLoader from '../../components/FullScreenLoader';
 import { ProductEntityType } from '../../types';
 import React from 'react';
 import { axiosQuery } from '../../api';
@@ -111,9 +112,7 @@ const Addproduct = () => {
 				}, 2000);
 			}
 		} catch (err) {
-			if (err instanceof AxiosError) 
-				toast.error(err.response?.data.message);
-			
+			if (err instanceof AxiosError) toast.error(err.response?.data.message);
 		} finally {
 			setLoading(false);
 		}
@@ -125,7 +124,6 @@ const Addproduct = () => {
 		setProductData((initial) => ({ ...initial, images: newImages }));
 	};
 
-
 	return (
 		<div className="w-full ">
 			<ToastContainer />
@@ -133,6 +131,8 @@ const Addproduct = () => {
 				<div className="text-green-500 text-center p-10">
 					Product added successfully redirecting....
 				</div>
+			) : loading ? (
+				<FullScreenLoader />
 			) : (
 				<form
 					className="w-full p-8 shadow bg-white rounded"
@@ -195,7 +195,7 @@ const Addproduct = () => {
 								required: true,
 								onChange: handleInputChange
 							})}
-							<label htmlFor="inStock" className='flex items-center'>
+							<label htmlFor="inStock" className="flex items-center">
 								<input
 									type="checkbox"
 									name="inStock"
@@ -207,7 +207,8 @@ const Addproduct = () => {
 											inStock: e.target.checked
 										}));
 									}}
-								/><span className="ml-2">In Stock</span>
+								/>
+								<span className="ml-2">In Stock</span>
 							</label>
 						</div>
 						{/* Number fields */}

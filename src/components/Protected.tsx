@@ -2,11 +2,12 @@
  * @ Author: Felix Orinda
  * @ Create Time: 2022-11-15 11:22:06
  * @ Modified by: Felix Orinda
- * @ Modified time: 2022-11-19 12:18:59
+ * @ Modified time: 2022-11-20 10:49:17
  * @ Description:
  */
 
 import { AxiosError } from 'axios';
+import FullScreenLoader from './FullScreenLoader';
 import { Navigate } from 'react-router-dom';
 import React from 'react';
 import { UserType } from '../types';
@@ -17,7 +18,6 @@ import { useAppDispatch, useAppSelector } from '../state/hooks';
 
 type Props = {
 	children: JSX.Element;
-	role?: string;
 };
 
 const Protected = (props: Props) => {
@@ -27,9 +27,10 @@ const Protected = (props: Props) => {
 	const user = prop.user as UserType;
 	const dispatch = useAppDispatch();
 	const path = useLocation().pathname;
-	const [loading, setLoading] = React.useState(true);
+	const [loading, setLoading] = React.useState(false);
 	const fetchUserProfile = async () => {
 		try {
+			setLoading(true);
 			const response = await authQuery.get('/profile', {
 				// withCredentials: true,
 				headers: {
@@ -53,21 +54,19 @@ const Protected = (props: Props) => {
 		}
 	};
 	React.useEffect(() => {
-		fetchUserProfile();
+		isAuthenticated && fetchUserProfile();
 	}, []);
 	console.log('user', user);
 
 	return loading ? (
-		<div>Loading....</div>
-	) : isAuthenticated === true ? (
-		props.role?.toLowerCase() === user.role.toLowerCase() ? (
+		<FullScreenLoader />
+	) : loading === false ? (
+		isAuthenticated === true ? (
 			props.children
 		) : (
-			<Navigate to="/" />
+			<Navigate to={'/account/sign-in'} state={{ from: path }} replace />
 		)
-	) : (
-		<Navigate to={'/account/sign-in'} state={{ from: path }} replace />
-	);
+	) : null;
 };
 
 export default Protected;

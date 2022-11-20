@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { AxiosError } from 'axios';
+import FullScreenLoader from '../../components/FullScreenLoader';
 import { ProductcategoryType } from '../../types';
 import React from 'react';
 import { axiosQuery } from '../../api';
@@ -42,9 +43,7 @@ const AddCategory = () => {
 				}, 2000);
 			}
 		} catch (err) {
-			if (err instanceof AxiosError) 
-				toast.error(err.response?.data.message);
-			
+			if (err instanceof AxiosError) toast.error(err.response?.data.message);
 		} finally {
 			setLoading(false);
 		}
@@ -59,6 +58,8 @@ const AddCategory = () => {
 				<div className="text-green-500 text-center p-10">
 					Category added successfully redirecting....
 				</div>
+			) : loading ? (
+				<FullScreenLoader />
 			) : (
 				<form
 					className="w-full p-8 shadow bg-white rounded"

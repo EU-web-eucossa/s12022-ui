@@ -3,7 +3,7 @@
  * @ Author: Felix Orinda
  * @ Create Time: 2022-11-19 06:21:45
  * @ Modified by: Felix Orinda
- * @ Modified time: 2022-11-19 19:35:45
+ * @ Modified time: 2022-11-19 20:55:26
  * @ Description:
  */
 
@@ -13,83 +13,88 @@ import Table from '../../components/Table';
 import { axiosQuery } from '../../api';
 import { loadProductsSuccess } from '../../state/slices/productsSlice';
 import moment from 'moment';
-import { useAppDispatch } from '../../state/hooks';
+import { useAppDispatch, useAppSelector } from '../../state/hooks';
 
-const cols = [
-	{
-		columnName: 'image',
-		customElement: true,
-		id: 'image',
-		title: 'Image',
-		element: ({ data }:any) => (
-			<div className="relative">
-				<img
-					src={data.featuredImage}
-					alt={data.name}
-					className="w-30 h-20 rounded-full object-cover"
-				/>
-			</div>
-		)
-	},
-	{
-		columnName: 'category',
-		customElement: false,
-		id: 'Category',
-		title: 'Category Name'
-	},
-	{
-		columnName: 'quantity',
-		customElement: true,
-		id: 'Category',
-		title: 'Quantity Name',
-		element: ({ data }: any) => (
-			<div className="relative">{data.quantity.low}</div>
-		)
-	},
-	{
-		columnName: 'name',
-		customElement: false,
-		id: 'name',
-		title: 'Product Name'
-	},
-	{
-		columnName: 'inStock',
-		customElement: true,
-		id: 'Stock',
-		title: 'In stock',
-		element: ({ data }:any) => (
-			<div className="relative">{data.inStock ? 'Yes' : 'No'}</div>
-		)
-	},
-	{
-		columnName: 'createdAt',
-		customElement: true,
-		id: 'Created At',
-		title: 'Created at',
-		element: ({ data }:any) => <div>{moment(data.createdAt).format('LL')}</div>
-	},
-	{
-		columnName: 'updatedAt',
-		customElement: false,
-		id: 'Updated at',
-		title: 'Updated at',
-		element: ({ data }:any) => <div>{moment(data.updatedAt).format('LL')}</div>
-	},
-	{
-		columnName: '_id',
-		customElement: false,
-		id: '_id',
-		title: 'UID'
-	}
-];
 const ProductList = () => {
+	const cols = [
+		{
+			columnName: 'name',
+			customElement: false,
+			id: 'name',
+			title: 'Product Name'
+		},
+		{
+			columnName: 'image',
+			customElement: true,
+			id: 'image',
+			title: 'Image',
+			element: ({ data }: any) => (
+				<div className="relative">
+					<img
+						src={data.featuredImage}
+						alt={data.name}
+						className="w-30 h-30 object-cover"
+					/>
+				</div>
+			)
+		},
+		{
+			columnName: 'category',
+			customElement: true,
+
+			id: 'Category',
+			title: 'Category',
+			element: ({ data }: any) => (
+				<div>
+					{categories
+						.filter((category: any) => category._id === data.category)
+						.map((category: any) => category.name)}
+				</div>
+			)
+		},
+		{
+			columnName: 'quantity',
+			customElement: true,
+			id: 'Category',
+			title: 'Quantity Name',
+			element: ({ data }: any) => (
+				<div className="relative">{data.quantity.low}</div>
+			)
+		},
+		{
+			columnName: 'inStock',
+			customElement: true,
+			id: 'Stock',
+			title: 'In stock',
+			element: ({ data }: any) => (
+				<div className="relative">
+					{data.inStock ? (
+						<div className="bg-green-600 text-white w-fit px-2 rounded-md	">
+							Yes
+						</div>
+					) : (
+						'No'
+					)}
+				</div>
+			)
+		},
+		{
+			columnName: 'createdAt',
+			customElement: true,
+			id: 'Created At',
+			title: 'Created at',
+			element: ({ data }: any) => (
+				<div>{moment(data.createdAt).format('LL')}</div>
+			)
+		}
+	];
 	const [products, setProducts] = React.useState<ProductEntityType[]>([]);
 	const [loading, setLoading] = React.useState<boolean>(false);
 	const [page, setPage] = React.useState<number>(1);
 	const [totalPages, setTotalPages] = React.useState<number>(1);
 	const [limit, setLimit] = React.useState<number>(20);
 	const [totalItems, setTotalItems] = React.useState<number>(0);
-	// const { categories } = useAppSelector((state) => state.categories);
+	const { categories } = useAppSelector((state) => state.categories);
 	const dispatch = useAppDispatch();
 
 	const fetchproducts = async () => {

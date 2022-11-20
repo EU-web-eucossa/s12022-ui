@@ -1,3 +1,11 @@
+/**
+ * @ Author: Felix Orinda
+ * @ Create Time: 2022-11-10 13:55:28
+ * @ Modified by: Felix Orinda
+ * @ Modified time: 2022-11-20 10:55:35
+ * @ Description:
+ */
+
 import HomecategoryItem from './HomeCategoryItem';
 import { Link } from 'react-router-dom';
 import React from 'react';
@@ -14,7 +22,7 @@ const Homecategories = () => {
 					View all categories
 				</Link>
 			</div>
-			<div className="bg-slate-200 grid p-2 gap-2 grid-cols-[repeat(auto-fit,minmax(8rem,1fr))] sm:grid-cols-[repeat(auto-fit,minmax(10rem,1fr))]">
+			<div className="bg-slate-200 grid p-2 gap-2 grid-cols-[repeat(auto-fit,minmax(8rem,1fr))] sm:grid-cols-[repeat(auto-fit,minmax(10rem,1fr))] md:grid-cols-[repeat(auto-fit,minmax(12rem,1fr))]">
 				{categories.length &&
 					categories.map((category) => (
 						<HomecategoryItem key={category.name} {...category} />

@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import { AxiosError } from 'axios';
+import FullScreenLoader from '../components/FullScreenLoader';
 import InputElement from '../components/InputElement';
 import PasswordElement from '../components/PasswordElement';
 import React from 'react';
@@ -40,9 +41,7 @@ const SignupPage = () => {
 					navigate('/account/sign-in');
 				}, 2000);
 			} catch (err) {
-				if (err instanceof AxiosError) 
-					toast.error(err.response?.data);
-				
+				if (err instanceof AxiosError) toast.error(err.response?.data);
 			} finally {
 				setLoading(false);
 			}
@@ -54,11 +53,14 @@ const SignupPage = () => {
 
 	return (
 		<div className="flex justify-center items-center mt-10 flex-col h-full">
-			{success ? (
-				<div className='h-full w-full flex items-center justify-center gap-3 flex-col'>
+			{success && (
+				<div className="h-full w-full flex items-center justify-center gap-3 flex-col">
 					<h1 className="text-2xl font-bold">Account Created</h1>
 					<p className="text-gray-500">Redirecting to login page...</p>
 				</div>
+			)}
+			{loading ? (
+				<FullScreenLoader />
 			) : (
 				<form
 					className="flex flex-col mt-5 gap-4 sm:m-8 px-4 w-full bg-white p-5 md:p-12 rounded-md max-w-[40rem]"

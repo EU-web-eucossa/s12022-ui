@@ -2,10 +2,11 @@
  * @ Author: Felix Orinda
  * @ Create Time: 2022-11-19 06:21:37
  * @ Modified by: Felix Orinda
- * @ Modified time: 2022-11-19 15:27:25
+ * @ Modified time: 2022-11-20 10:40:59
  * @ Description:
  */
 
+import FullScreenLoader from '../../components/FullScreenLoader';
 import { ProductcategoryType } from '../../types';
 import React from 'react';
 import Table from '../../components/Table';
@@ -56,7 +57,7 @@ const CategoryList = () => {
 	return (
 		<div>
 			{loading ? (
-				<div>Loading...</div>
+				<FullScreenLoader />
 			) : (
 				<div>
 					<div className="overflow-x-scroll">
@@ -69,7 +70,7 @@ const CategoryList = () => {
 									id: 'image',
 									title: 'Image',
 									element: ({ data }) => (
-										<div className='relative'>
+										<div className="relative">
 											<img
 												src={data.image}
 												alt={data.name}

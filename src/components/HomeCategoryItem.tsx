@@ -2,7 +2,7 @@
  * @ Author: Felix Orinda
  * @ Create Time: 2022-11-10 13:55:28
  * @ Modified by: Felix Orinda
- * @ Modified time: 2022-11-19 20:18:49
+ * @ Modified time: 2022-11-19 20:23:06
  * @ Description:
  */
 
@@ -26,13 +26,13 @@ const HomecategoryItem = (props: ProductcategoryType) => {
 	}, []);
 
 	return (
-		<Link to={`/categories?category=${props.name}`} className="min-w-[10rem] group overflow-hidden hover:shadow-md transition-all bg-white duration-500 ease-linear">
+		<Link to={`/categories?category=${props.name}`} className="min-w-[10rem] group overflow-hidden hover:shadow-md transition-all bg-white duration-500 ease-linear py-2">
 			<div className="flex flex-col gap-2 group justify-center items-center overflow-hidden">
 				<img
 					ref={imageRef}
 					src="/product.webp"
 					alt=""
-					className="w-full h-40 object-cover rounded-md transition-all ease-linear duration-300"
+					className="w-full h-40 object-contain rounded-md transition-all ease-linear duration-300"
 				/>
 				<div className="text-sm text-center capitalize py-1 text-black font-medium">
 					{props.name}

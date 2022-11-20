@@ -3,6 +3,7 @@
 
 import Protected from '../components/Protected';
 import React from 'react';
+import RoleProtected from '../components/AdminProtected';
 
 type Lmap = (
 	LayoutContainer: React.FC<{
@@ -21,17 +22,17 @@ const layoutWrap: Lmap = (
 	Component: React.FC | React.ElementType,
 	isProtected = false
 ) => {
-	const { role } = isProtected as { role: string };
-
-	return (
+	return typeof isProtected === 'boolean' ? (
 		<LayoutContainer>
-			{isProtected ? (
-				<Protected role={role ? role : ''}>
+			{isProtected ? <Protected>{<Component />}</Protected> : <Component />}
+		</LayoutContainer>
+	) : (
+		<LayoutContainer>
+			<Protected>
+				<RoleProtected role={isProtected.role}>
 					<Component />
-				</Protected>
-			) : (
-				<Component />
-			)}
+				</RoleProtected>
+			</Protected>
 		</LayoutContainer>
 	);
 };
