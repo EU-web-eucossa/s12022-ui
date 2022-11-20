@@ -2,7 +2,7 @@
  * @ Author: Felix Orinda
  * @ Create Time: 2022-11-15 11:22:06
  * @ Modified by: Felix Orinda
- * @ Modified time: 2022-11-20 10:49:17
+ * @ Modified time: 2022-11-20 11:16:27
  * @ Description:
  */
 
@@ -61,7 +61,7 @@ const Protected = (props: Props) => {
 	return loading ? (
 		<FullScreenLoader />
 	) : loading === false ? (
-		isAuthenticated === true ? (
+		isAuthenticated === true && user.role ? (
 			props.children
 		) : (
 			<Navigate to={'/account/sign-in'} state={{ from: path }} replace />
