@@ -2,7 +2,7 @@
  * @ Author: Felix Orinda
  * @ Create Time: 2022-11-19 06:21:37
  * @ Modified by: Felix Orinda
- * @ Modified time: 2022-11-20 10:40:59
+ * @ Modified time: 2022-11-20 11:58:48
  * @ Description:
  */
 
@@ -28,7 +28,12 @@ const CategoryList = () => {
 		setLoading(true);
 
 		try {
-			const res = await axiosQuery.get('/categories');
+			const res = await axiosQuery.get('/categories', {
+				params: {
+					page,
+					limit: 200
+				}
+			});
 			if (res.status === 200) {
 				const data = res.data as {
 					categories: ProductcategoryType[];
@@ -61,7 +66,7 @@ const CategoryList = () => {
 				<FullScreenLoader />
 			) : (
 				<div>
-					<ToastContainer/>
+					<ToastContainer />
 					<div className="overflow-x-scroll">
 						<Table
 							className="table-auto w-full border-collapse border-2 shadow p-2 text-left overflow-x-scroll"

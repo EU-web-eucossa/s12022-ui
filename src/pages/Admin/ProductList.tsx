@@ -3,7 +3,7 @@
  * @ Author: Felix Orinda
  * @ Create Time: 2022-11-19 06:21:45
  * @ Modified by: Felix Orinda
- * @ Modified time: 2022-11-20 11:24:59
+ * @ Modified time: 2022-11-20 11:59:09
  * @ Description:
  */
 
@@ -13,7 +13,7 @@ import Table from '../../components/Table';
 import { axiosQuery } from '../../api';
 import { loadProductsSuccess } from '../../state/slices/productsSlice';
 import moment from 'moment';
-import { ToastContainer,toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import { useAppDispatch, useAppSelector } from '../../state/hooks';
 
 const ProductList = () => {
@@ -102,7 +102,12 @@ const ProductList = () => {
 		setLoading(true);
 
 		try {
-			const res = await axiosQuery.get('/products');
+			const res = await axiosQuery.get('/products', {
+				params: {
+					page,
+					limit: 200
+				}
+			});
 			if (res.status === 200) {
 				const data = res.data as {
 					products: ProductEntityType[];

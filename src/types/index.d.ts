@@ -80,5 +80,5 @@ export type ProductcategoryType = {
 	name: string;
 	description: string;
 	image: string;
-	_id?: string;
+	_id: string;
 };

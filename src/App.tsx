@@ -25,7 +25,12 @@ const App = () => {
 	const fetchProducts = async () => {
 		try {
 			dispatch(loadProductsStart());
-			const response = await axiosQuery.get('/products');
+			const response = await axiosQuery.get('/products',{
+				params: {
+					page: 1,
+					limit: 200
+				}
+			});
 			const data = response.data.products;
 			data && data.length
 				? dispatch(loadProductsSuccess(data))
