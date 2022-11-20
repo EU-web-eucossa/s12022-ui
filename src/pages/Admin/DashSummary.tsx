@@ -44,8 +44,6 @@ const DashSummary = () => {
 		getCategoriesCount();
 	}, [categories, products]);
 
-	console.log(categoriesCount);
-
 	return (
 		<div>
 			<h1>Dashboard</h1>
@@ -75,7 +73,6 @@ const DashSummary = () => {
 								title: 'Image',
 								_id: 'Image',
 								element({ data }) {
-									console.log(data);
 
 									return (
 										<img
@@ -102,8 +99,6 @@ const DashSummary = () => {
 								title: 'Quantity of products available',
 								_id: 'Image',
 								element({ data }) {
-									console.log(data);
-
 									return <p className="text-center">{data.products}</p>;
 								}
 							}

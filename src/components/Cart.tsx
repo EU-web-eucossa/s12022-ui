@@ -2,7 +2,7 @@
  * @ Author: Felix Orinda
  * @ Create Time: 2022-11-15 11:22:06
  * @ Modified by: Felix Orinda
- * @ Modified time: 2022-11-19 15:05:53
+ * @ Modified time: 2022-11-20 21:36:02
  * @ Description:
  */
 
@@ -90,7 +90,7 @@ const Cart = () => {
 				)}
 				{totalPrice > 0 && (
 					<div className="font-medium text-md px-2 mt-4">
-						Total: $ {totalPrice.toFixed(2)}
+						Total: $ {totalPrice.toFixed(1)}
 					</div>
 				)}
 

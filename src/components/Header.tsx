@@ -2,8 +2,8 @@
  * @ Author: Felix Orinda
  * @ Create Time: 2022-11-15 11:22:06
  * @ Modified by: Felix Orinda
- * @ Modified by: Felix Orinda 12:42:28
- * @ Modified time: 2022-11-19 19:49:35
+ * @ Modified by: Felix Orinda
+ * @ Modified time: 2022-11-20 19:58:39
  */
 
 import Cart from './Cart';
@@ -24,16 +24,16 @@ const unloggedLinks = [
 	{ name: 'Sign in', path: '/account/sign-in' },
 	{ name: 'Sign up', path: '/account/sign-up' }
 ];
-const loggedLinks = [
-	{
-		name: 'Account',
-		path: '/account/profile',
-	},
-	{
-		name: 'Dashboard',
-		path: '/admin/dashboard'
-	}
-];
+// const loggedLinks = [
+// 	{
+// 		name: 'Account',
+// 		path: '/account/profile'
+// 	},
+// 	{
+// 		name: 'Dashboard',
+// 		path: '/admin/dashboard'
+// 	}
+// ];
 
 const Header = () => {
 	const location = useLocation();
@@ -116,21 +116,27 @@ const Header = () => {
 							)}
 						</button>
 						<div className="hidden top-[calc(100%_+_10px)] h-fit min-w-[200px] py-4 px-2 rounded shadow absolute -right-4 z-[2000] bg-white group-hover:block transition-all ease-linear duration-200 group-hover:top-[100%]">
-							<h2 className="text-center bg-slate-300">
+							{/* <h2 className="text-center bg-slate-300">
 								Logged in as {user?.name}
-							</h2>
+							</h2> */}
 							{isAuthenticated ? (
 								<ul>
-									{loggedLinks.map((link) => (
-										<li
-											key={link.name}
-											className="block px-4 hover:bg-primary rounded"
-										>
-											<Link to={link.path} className="py-2 w-full block">
-												{link.name}
+									<li className="block px-4 hover:bg-primary rounded">
+										<Link to={'/account/profile'} className="py-2 w-full block">
+											Account
+										</Link>
+									</li>
+
+									{user?.role.toLowerCase() === 'admin' && (
+										<li className="block px-4 hover:bg-primary rounded">
+											<Link
+												to={'/admin/dashboard'}
+												className="py-2 w-full block"
+											>
+												Admin
 											</Link>
 										</li>
-									))}
+									)}
 									<li className="">
 										<button
 											onClick={(e) => {
