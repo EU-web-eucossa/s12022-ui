@@ -43,7 +43,7 @@ const HomeProductItem = (product: ProductEntityType) => {
 					ref={imageRef}
 					src={product.featuredImage}
 					alt={product.name}
-					className="max-h-80 w-full mx-auto object-contain group-hover:scale-105 transition-all ease-linear duration-500"
+					className="h-72 w-full mx-auto object-cover group-hover:scale-105 transition-all ease-linear duration-500"
 				/>
 			</Link>
 			<div className="px-2 py-1">

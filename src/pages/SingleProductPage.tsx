@@ -2,7 +2,7 @@
  * @ Author: Felix Orinda
  * @ Create Time: 2022-11-15 11:22:06
  * @ Modified by: Felix Orinda
- * @ Modified time: 2022-11-19 15:04:45
+ * @ Modified time: 2022-11-20 19:48:29
  * @ Description:
  */
 
@@ -16,21 +16,55 @@ import starGenerator from '../helpers/starGenerator';
 import { useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../state/hooks';
 
-
 const SingleProductPage = () => {
 	const { id } = useParams();
 	const {
 		products: { products },
-		categories: { categories }
+		// categories: { categories }
 	} = useAppSelector((state) => state);
-	const [currentProduct, setCurrentProdut] = React.useState<ProductEntityType | null>(
-		null
-	);
+	const [currentProduct, setCurrentProdut] =
+		React.useState<ProductEntityType | null>(null);
+	const [productRelated, setProductRelated] = React.useState<
+		ProductEntityType[]
+	>([]);
+
+	const filterRelatedProductsAndRandomize = (products: ProductEntityType[]) => {
+		const relatedProducts = products.filter((product) => {
+			return product.category === currentProduct?.category;
+		});
+
+		const randomize = (array: ProductEntityType[]) => {
+			let currentIndex = array.length,
+				temporaryValue,
+				randomIndex;
+
+			while (0 !== currentIndex) {
+				randomIndex = Math.floor(Math.random() * currentIndex);
+				currentIndex -= 1;
+
+				temporaryValue = array[currentIndex];
+				array[currentIndex] = array[randomIndex];
+				array[randomIndex] = temporaryValue;
+			}
+
+			return array;
+		};
+
+		return randomize(relatedProducts);
+	};
+
 	React.useEffect(() => {
 		const p = products.find((p) => p._id === id!);
 		setCurrentProdut(p!);
-	}, [products.length]);
+	}, [products.length, id]);
 	const dispatch = useAppDispatch();
+
+	React.useEffect(() => {
+		if (currentProduct) {
+			const relatedProducts = filterRelatedProductsAndRandomize(products);
+			setProductRelated(relatedProducts);
+		}
+	}, [currentProduct, id]);
 
 	return (
 		<div>
@@ -71,8 +105,8 @@ const SingleProductPage = () => {
 									/>
 								))}
 							</div>
-							<h2 className="pt-3 capitalize font-bold">
-								price {currentProduct.price}
+							<h2 className="py-4 capitalize">
+								price <strong>$ {currentProduct.price.toFixed(2)}</strong>
 							</h2>
 							<button
 								className="bg-primary text-white py-2  p-4 rounded-full"
@@ -87,25 +121,30 @@ const SingleProductPage = () => {
 					</div>
 					<hr className="bg-slate-400 my-10" />
 					<div className="flex flex-col justify-center items-center">
-						<h4 className='my-4 underline'>More Like This</h4>
-						<div className="flex  justify-around items-center gap-4">
-							{categories.slice(0,3).map((category) => (
-								<Link key={category.name}
-									to={`/categories?category=${category}`}
-									className="text-primary capitalize font-bold border border-primary rounded-2xl px-4 py-2"
-								>
-									{category.name}
-								</Link>
-							))}
+						<h4 className="my-4 underline">More Like This</h4>
+						<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 justify-center items-center gap-4">
+							{productRelated.slice(0, 6).map(
+								(relatedProduct) =>
+									relatedProduct._id !== currentProduct._id && (
+										<Link
+											key={relatedProduct.name}
+											to={`/product/${relatedProduct._id}`}
+											className="text-primary capitalize font-bold max-w-[30rem]"
+										>
+											<img
+												src={relatedProduct.featuredImage}
+												alt=""
+												className="h-64 w-full object-scale-down"
+											/>
+											<div className="px-4">{relatedProduct.name}</div>
+										</Link>
+									)
+							)}
 						</div>
 					</div>
-					
 				</div>
 			)}
-			
 		</div>
-			
-	
 	);
 };
 
