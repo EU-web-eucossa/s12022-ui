@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import React from 'react';
 import { useAppSelector } from '../state/hooks';
 
@@ -18,6 +19,9 @@ const ProfilePage = () => {
 			</div>
 			<p>
 				Email: <span className="text-primary">{user?.email}</span>
+			</p>
+			<p >
+				Back to <Link to="/" className='text-blue-700 underline'>Homepage</Link>
 			</p>
 		</div>
 	);
