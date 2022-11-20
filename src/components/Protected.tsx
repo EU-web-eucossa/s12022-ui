@@ -2,8 +2,8 @@
  * @ Author: Felix Orinda
  * @ Create Time: 2022-11-15 11:22:06
  * @ Modified by: Felix Orinda
- * @ Modified time: 2022-11-20 11:16:27
- * @ Description:
+ * @ Modified by: Felix Orinda
+ * @ Modified time: 2022-11-20 11:21:11
  */
 
 import { AxiosError } from 'axios';
@@ -56,7 +56,6 @@ const Protected = (props: Props) => {
 	React.useEffect(() => {
 		isAuthenticated && fetchUserProfile();
 	}, []);
-	console.log('user', user);
 
 	return loading ? (
 		<FullScreenLoader />

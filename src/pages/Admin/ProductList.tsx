@@ -3,7 +3,7 @@
  * @ Author: Felix Orinda
  * @ Create Time: 2022-11-19 06:21:45
  * @ Modified by: Felix Orinda
- * @ Modified time: 2022-11-19 20:55:26
+ * @ Modified time: 2022-11-20 11:24:59
  * @ Description:
  */
 
@@ -13,6 +13,7 @@ import Table from '../../components/Table';
 import { axiosQuery } from '../../api';
 import { loadProductsSuccess } from '../../state/slices/productsSlice';
 import moment from 'moment';
+import { ToastContainer,toast } from 'react-toastify';
 import { useAppDispatch, useAppSelector } from '../../state/hooks';
 
 const ProductList = () => {
@@ -118,7 +119,7 @@ const ProductList = () => {
 				dispatch(loadProductsSuccess(data.products));
 			}
 		} catch (err) {
-			console.log(err);
+			toast.error('Error fetching products');
 		} finally {
 			setLoading(false);
 		}
@@ -134,6 +135,7 @@ const ProductList = () => {
 				<div>Loading...</div>
 			) : (
 				<div>
+					<ToastContainer />
 					<div className="overflow-x-scroll">
 						<Table
 							className=" table-fixed w-full border-collapse border-2 shadow p-2 text-left overflow-x-scroll"

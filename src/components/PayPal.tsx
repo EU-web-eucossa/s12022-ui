@@ -1,3 +1,11 @@
+/**
+ * @ Author: Felix Orinda
+ * @ Create Time: 2022-11-15 11:22:06
+ * @ Modified by: Felix Orinda
+ * @ Modified time: 2022-11-20 11:23:48
+ * @ Description:
+ */
+
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable camelcase */
 import React from 'react';
@@ -14,15 +22,15 @@ export default function Paypal() {
 
 	return (
 		<PayPalScriptProvider
-			options={{
-				'client-id':
-					'ARlD4eYBquW5PAihq6LsSchvHfLyo-7t8-P3wjxyQqVV4NjgcpfQgBkABHqssSs4m3HaA7o72_45b30v'
-			}}
+			// options={{
+			// 	'client-id':
+			// 		'ARlD4eYBquW5PAihq6LsSchvHfLyo-7t8-P3wjxyQqVV4NjgcpfQgBkABHqssSs4m3HaA7o72_45b30v'
+			// }}
+			options={initialOptions}
 		>
 			<PayPalButtons
 				style={{ layout: 'vertical' }}
 				createOrder={(data, actions) => {
-					console.table(data);
 
 					return actions.order.create({
 						purchase_units: [
@@ -35,7 +43,6 @@ export default function Paypal() {
 					});
 				}}
 				onApprove={(data, actions) => {
-					console.log('Appoved', data);
 
 					return actions.order!.capture().then(function (details) {
 						alert('Transaction completed by ' + details.payer.name!.given_name);

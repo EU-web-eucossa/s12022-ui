@@ -14,6 +14,7 @@ import { axiosQuery } from '../../api';
 import { loadCategorySuccess } from '../../state/slices/categoriesSlice';
 import moment from 'moment';
 import { useAppDispatch } from '../../state/hooks';
+import { ToastContainer, toast } from 'react-toastify';
 const CategoryList = () => {
 	const [categories, setCategories] = React.useState<ProductcategoryType[]>([]);
 	const [loading, setLoading] = React.useState<boolean>(false);
@@ -44,7 +45,7 @@ const CategoryList = () => {
 				dispatch(loadCategorySuccess(data.categories));
 			}
 		} catch (err) {
-			console.log(err);
+			toast.error('Error fetching categories');
 		} finally {
 			setLoading(false);
 		}
@@ -60,6 +61,7 @@ const CategoryList = () => {
 				<FullScreenLoader />
 			) : (
 				<div>
+					<ToastContainer/>
 					<div className="overflow-x-scroll">
 						<Table
 							className="table-auto w-full border-collapse border-2 shadow p-2 text-left overflow-x-scroll"
