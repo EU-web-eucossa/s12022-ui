@@ -3,7 +3,7 @@
 
 import Protected from '../components/Protected';
 import React from 'react';
-import RoleProtected from '../components/AdminProtected';
+import RoleProtected from '../components/RoleProtected';
 
 type Lmap = (
 	LayoutContainer: React.FC<{
