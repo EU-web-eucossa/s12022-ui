@@ -1,17 +1,20 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react/no-unescaped-entities */
 import 'react-toastify/dist/ReactToastify.css';
+
 import { AxiosError } from 'axios';
 import FullScreenLoader from '../components/FullScreenLoader';
 import InputElement from '../components/InputElement';
 import PasswordElement from '../components/PasswordElement';
 import React from 'react';
+import { UserType } from '../types';
 import { authQuery } from '../api';
-import { loginUser } from '../state/slices/userSlice';
 import { useAppDispatch } from '../state/hooks';
 import { useLocation } from 'react-router-dom';
+
 import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
+import { loginUser, logoutUser } from '../state/slices/userSlice';
 
 type UserDataInputs = {
 	email: string;
@@ -35,6 +38,35 @@ const LoginPage = () => {
 		e.preventDefault();
 		setUserData((initial) => ({ ...initial, [e.target.name]: e.target.value }));
 	};
+	const fetchUserProfile = async (token: string) => {
+		try {
+			setLoading(true);
+			const response = await authQuery.get('/profile', {
+				headers: {
+					'Content-Type': 'application/json',
+					Authorization: `Bearer ${token}`
+				}
+			});
+			const data = response.data;
+			if (response.status !== 200) {
+				dispatch(logoutUser());
+
+				return;
+			}
+
+			const { email, name, profilePic, role } = data.user as UserType;
+
+			dispatch(loginUser({ user: { email, name, profilePic, role }, token }));
+			toast.success('Login Successful');
+		} catch (error) {
+			if (error instanceof AxiosError) {
+				toast.error(error.response?.data.message);
+				dispatch(logoutUser());
+			}
+		} finally {
+			setLoading(false);
+		}
+	};
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		e.stopPropagation();
@@ -42,16 +74,11 @@ const LoginPage = () => {
 			setLoading(true);
 
 			try {
-				const res = await authQuery.post('/login', userData);
+				const response = await authQuery.post('/login', userData);
 
-				if (res.status === 200 || res.status === 201) {
-					toast.success('Logged in successfully');
-					dispatch(
-						loginUser({
-							user: {} as any,
-							token: res.data.user.token
-						})
-					);
+				if (response.status === 200 || response.status === 201) {
+					await fetchUserProfile(response.data.user.token);
+
 					setTimeout(() => {
 						pathState?.from ? navigate(pathState.from) : navigate('/');
 					}, 2000);
