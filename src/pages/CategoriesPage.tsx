@@ -2,7 +2,11 @@
  * @ Author: Felix Orinda
  * @ Create Time: 2022-11-10 13:55:28
  * @ Modified by: Felix Orinda
+<<<<<<< HEAD
+ * @ Modified time: 2022-11-23 16:28:38
+=======
  * @ Modified time: 2022-11-23 15:45:50
+>>>>>>> 0daef6fcbad81fe612027cf58f0040735d39d2f2
  * @ Description:
  */
 
@@ -51,7 +55,7 @@ const CategoriesPage = () => {
 	return (
 		<div>
 			<div className="py-4 flex justify-between items-center">
-				<h2 className="flex items-center text-xl capitalize">
+				<h2 className="flex items-center text-[12px] capitalize">
 					<Link to={'/categories'}>Categories</Link>{' '}
 					{category && (
 						<span className="flex items-center">
@@ -60,7 +64,7 @@ const CategoriesPage = () => {
 						</span>
 					)}
 				</h2>
-				<div className="">
+				<div className="text-[12px]">
 					<select
 						name=""
 						id=""
@@ -74,7 +78,7 @@ const CategoriesPage = () => {
 							<option
 								key={category}
 								selected={category === selectedCategory.name}
-								className={`text-sm text-gray-500 hover:text-gray-700 text-ellipsis ${
+								className={`text-[12px] text-gray-500 hover:text-gray-700 text-ellipsis ${
 									selectedCategory.name === category ? 'text-gray-700' : ''
 								}`}
 							>
