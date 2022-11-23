@@ -1,14 +1,14 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/naming-convention */
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /**
+ * @ Author: Felix Orinda
+ * @ Create Time: 2022-11-23 14:49:18
  * @ Modified by: Felix Orinda
- * @ Create Time: 2022-11-19 06:15:42
- * @ Modified time: 2022-11-23 14:53:27
- * @ Modified time: 2022-11-23 14:55:18
+ * @ Modified time: 2022-11-23 14:56:37
  * @ Description:
  */
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { AxiosError } from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import FullScreenLoader from '../../components/FullScreenLoader';
@@ -17,36 +17,31 @@ import { axiosQuery } from '../../api';
 import extractValidLinks from '../../helpers/extractValidLinks';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { fieldGenerator } from '../../helpers/fieldGenerator';
+import { toast } from 'react-toastify';
 import { useAppSelector } from '../../state/hooks';
-import { useNavigate } from 'react-router-dom';
 
 import { ProductEntityType, ProductcategoryType } from '../../types';
-import { ToastContainer, toast } from 'react-toastify';
 
-const Addproduct = () => {
+type Props = {
+	product: ProductEntityType;
+	toggleEdit: () => void;
+};
+
+const EditProduct = ({ product, toggleEdit }: Props) => {
+	const { low } = product.quantity as any;
+
 	const [loading, setLoading] = React.useState<boolean>(false);
 	const [success, setSuccess] = React.useState<boolean>(false);
-	const { categories: productCategories } = useAppSelector(
-		(state) => state.categories
-	);
+	const {
+		categories: { categories: productCategories },
+	} = useAppSelector((state) => state);
 	const temp: ProductcategoryType[] = [...productCategories];
-	const sortedCategories:ProductcategoryType[] =
-		temp.length > 0 ?temp.sort((a, b) => a.name.localeCompare(b.name)): [];
+	const sortedCategories: ProductcategoryType[] =
+		temp.length > 0 ? temp.sort((a, b) => a.name.localeCompare(b.name)) : [];
 
-	const navigate = useNavigate();
 	const [productData, setProductData] = React.useState<
 		ProductEntityType & { [k: string]: any }
-	>({
-		name: '',
-		description: '',
-		price: 0,
-		category: productCategories[0]?._id,
-		quantity: 0,
-		featuredImage: '',
-		images: [],
-		inStock: false,
-		ratings: 0
-	} as unknown as ProductEntityType);
+	>({ ...product, quantity: low } as unknown as ProductEntityType);
 	const handleInputChange = (
 		e: React.ChangeEvent<
 			HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -79,18 +74,23 @@ const Addproduct = () => {
 		setLoading(true);
 
 		try {
-			const res = await axiosQuery.post('/products/add', productData);
+			const res = await axiosQuery.put(
+				`/products/update/${product._id}`,
+				productData
+			);
 			if (res.status === 200 || res.status === 201) {
 				toast.success('Product added successfully');
 				setSuccess(true);
+
 				setTimeout(() => {
-					navigate('/admin/dashboard/product-list');
+					toggleEdit();
 				}, 2000);
 			}
 		} catch (err) {
 			if (err instanceof AxiosError) toast.error(err.response?.data.message);
 		} finally {
 			setLoading(false);
+			setSuccess(false);
 		}
 
 		return;
@@ -102,22 +102,20 @@ const Addproduct = () => {
 
 	return (
 		<div className="w-full ">
-			<ToastContainer />
+			{/* <ToastContainer /> */}
 			{success ? (
 				<div className="text-green-500 text-center p-10">
-					Product added successfully redirecting....
+					Product Updated successfully
 				</div>
 			) : loading ? (
 				<FullScreenLoader />
 			) : (
 				<form
-					className="w-full p-8 shadow bg-white rounded"
+					className=" shadow bg-white rounded"
 					onSubmit={(e) => {
 						handleSubmit(e);
 					}}
 				>
-					<h1 className="text-center font-bold my-5">Add new Item category</h1>
-
 					<div className="grid grid-cols-1  md:grid-cols-2 gap-4">
 						{/* String fields */}
 						<div className="flex flex-col gap-4">
@@ -274,7 +272,7 @@ const Addproduct = () => {
 						type="submit"
 						disabled={loading}
 					>
-						Add Product
+						Update product
 					</button>
 				</form>
 			)}
@@ -282,4 +280,4 @@ const Addproduct = () => {
 	);
 };
 
-export default Addproduct;
+export default EditProduct;
