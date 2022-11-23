@@ -2,7 +2,7 @@
  * @ Author: Felix Orinda
  * @ Create Time: 2022-11-15 11:22:06
  * @ Modified by: Felix Orinda
- * @ Modified time: 2022-11-20 11:23:48
+ * @ Modified time: 2022-11-20 21:47:02
  * @ Description:
  */
 
@@ -22,11 +22,11 @@ export default function Paypal() {
 
 	return (
 		<PayPalScriptProvider
-			// options={{
-			// 	'client-id':
-			// 		'ARlD4eYBquW5PAihq6LsSchvHfLyo-7t8-P3wjxyQqVV4NjgcpfQgBkABHqssSs4m3HaA7o72_45b30v'
-			// }}
-			options={initialOptions}
+			options={{
+				'client-id':
+					'ARlD4eYBquW5PAihq6LsSchvHfLyo-7t8-P3wjxyQqVV4NjgcpfQgBkABHqssSs4m3HaA7o72_45b30v'
+			}}
+			// options={initialOptions}
 		>
 			<PayPalButtons
 				style={{ layout: 'vertical' }}

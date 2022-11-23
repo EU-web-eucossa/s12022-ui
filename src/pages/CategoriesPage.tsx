@@ -2,7 +2,7 @@
  * @ Author: Felix Orinda
  * @ Create Time: 2022-11-10 13:55:28
  * @ Modified by: Felix Orinda
- * @ Modified time: 2022-11-19 14:48:21
+ * @ Modified time: 2022-11-23 15:45:50
  * @ Description:
  */
 
@@ -23,9 +23,9 @@ const CategoriesPage = () => {
 		products: { products },
 		categories: { categories }
 	} = useAppSelector((state) => state);
-	const [filteredProducts, setFilteredProducts] = React.useState<ProductEntityType[]>(
-		[]
-	);
+	const [filteredProducts, setFilteredProducts] = React.useState<
+		ProductEntityType[]
+	>([]);
 	const getCategoryFromUrl = (url: string) => {
 		const urlParams = new URLSearchParams(url);
 
@@ -37,7 +37,9 @@ const CategoriesPage = () => {
 
 	React.useEffect(() => {
 		if (category) {
-			const filtered = products.filter((p) => p.category === category);
+			const filtered = products.filter(
+				(p) => categories.find((c) => c.name === category)?._id === p.category
+			);
 			if (filtered.length > 0) return setFilteredProducts(filtered);
 
 			return setFilteredProducts([]);
@@ -62,14 +64,16 @@ const CategoriesPage = () => {
 					<select
 						name=""
 						id=""
-						className="py-2 rounded-md"
+						className="rounded-md focus:ring-0"
 						onChange={(e) => {
 							setCategory(e.target.value);
 						}}
 					>
+						<option value="" disabled>----Please select a category-----</option>
 						{categories.map((selectedCategory) => (
 							<option
 								key={category}
+								selected={category === selectedCategory.name}
 								className={`text-sm text-gray-500 hover:text-gray-700 text-ellipsis ${
 									selectedCategory.name === category ? 'text-gray-700' : ''
 								}`}

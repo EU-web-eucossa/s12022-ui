@@ -12,7 +12,7 @@ const PasswordElement = ({ type: _, ...props }: InputPropsTypes) => {
 	return (
 		<div className="flex items-center border border-slate-300 px-2 rounded-md bg-white focus:border-slate-300">
 			<input
-				className="w-full border-none outline-none focus:ring-0"
+				className="w-full border-none outline-none focus:ring-0 bg-white"
 				type={show ? 'text' : 'password'}
 				{...props}
 			/>
