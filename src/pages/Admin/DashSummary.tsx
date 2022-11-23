@@ -2,7 +2,7 @@
  * @ Author: Felix Orinda
  * @ Create Time: 2022-11-19 06:15:35
  * @ Modified by: Felix Orinda
- * @ Modified time: 2022-11-23 14:06:57
+ * @ Modified time: 2022-11-23 22:18:14
  * @ Description:
  */
 
@@ -14,6 +14,24 @@ import { ProductcategoryType } from '../../types';
 import React from 'react';
 import { useAppSelector } from '../../state/hooks';
 
+// import { Area, AreaChart, CartesianGrid, Tooltip, XAxis, YAxis } from 'recharts';
+import {
+	Bar,
+	BarChart,
+	CartesianGrid,
+	Legend,
+	Line,
+	LineChart,
+	PolarAngleAxis,
+	PolarGrid,
+	PolarRadiusAxis,
+	Radar,
+	RadarChart,
+	ResponsiveContainer,
+	Tooltip,
+	XAxis,
+	YAxis
+} from 'recharts';
 import { faFolder, faShoppingBag } from '@fortawesome/free-solid-svg-icons';
 
 type CounterType = {
@@ -106,53 +124,6 @@ const DashSummary = () => {
 			<div className="py-10">
 				<h2>Categories summary</h2>
 				<div className="grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-4">
-					{/* <Table
-						className="w-full table-auto shadow-xl bg-white"
-						columns={[
-							
-							{
-								columnName: 'Image',
-								customElement: true,
-								id: 'name',
-								title: 'Image',
-								_id: 'Image',
-								element({ data }) {
-
-									return (
-										<img
-											src={data.image}
-											alt=""
-											className="h-8 w-8 object-scale-down rounded-full"
-										/>
-									);
-								}
-							},{
-								columnName: 'categoryName',
-								customElement: true,
-								id: 'name',
-								title: 'Category',
-								_id: 'name',
-								element({ data }) {
-									return <p>{data.name}</p>;
-								}
-							},
-							{
-								columnName: 'products',
-								customElement: true,
-								id: 'name',
-								title: 'Quantity of products available',
-								_id: 'Image',
-								element({ data }) {
-									return <p className="text-center">{data.products}</p>;
-								}
-							}
-						]}
-						rows={Object.values(categoriesCount).map((category) => ({
-							categoryName: category.name,
-							products: category.products,
-							...category.category
-						}))}
-					/> */}
 					<div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4">
 						{categoriesCountArray.length > 0 ? (
 							categoriesCountArray.map((category) => (
@@ -182,6 +153,70 @@ const DashSummary = () => {
 						)}
 					</div>
 				</div>
+				{/* <AreaChart
+					width={1230}
+					height={450}
+					data={categoriesCountArray}
+					margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+				>
+					<defs>
+						<linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+							<stop offset="5%" stopColor="#8884d8" stopOpacity={0.8} />
+							<stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
+						</linearGradient>
+						<linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
+							<stop offset="5%" stopColor="#82ca9d" stopOpacity={0.8} />
+							<stop offset="95%" stopColor="#82ca9d" stopOpacity={0} />
+						</linearGradient>
+					</defs>
+					<XAxis dataKey="name" />
+					<YAxis />
+					<CartesianGrid strokeDasharray="3 3" />
+					<Tooltip />
+					<Area
+						type="monotone"
+						dataKey="products"
+						stroke="#8884d8"
+						fillOpacity={1}
+						fill="url(#colorUv)"
+					/>
+					<Area
+						type="monotone"
+						dataKey="name"
+						stroke="#82ca9d"
+						fillOpacity={1}
+						fill="url(#colorPv)"
+					/>
+				</AreaChart> */}
+				{/* <RadarChart outerRadius={200} width={730} height={550} data={categoriesCountArray}>
+					<PolarGrid />
+					<PolarAngleAxis dataKey="name" />
+					<PolarRadiusAxis angle={90} domain={[1, 15]} />
+					<Radar
+						name="Name"
+						dataKey="name"
+						stroke="#8884d8"
+						fill="#8884d8"
+						fillOpacity={0.6}
+					/>
+					<Radar
+						name="Products"
+						dataKey="products"
+						stroke="#82ca9d"
+						fill="#82ca9d"
+						fillOpacity={0.6}
+					/>
+					<Legend />
+				</RadarChart> */}
+				<BarChart width={1200} height={450} data={categoriesCountArray}>
+					<CartesianGrid strokeDasharray="3 3" />
+					<XAxis dataKey="name" />
+					<YAxis />
+					<Tooltip />
+					<Legend />
+					<Bar dataKey="products" fill="#8884d8" />
+					<Bar dataKey="uv" fill="#82ca9d" />
+				</BarChart>
 			</div>
 		</div>
 	);

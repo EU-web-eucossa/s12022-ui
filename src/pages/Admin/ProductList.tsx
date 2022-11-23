@@ -3,7 +3,7 @@
  * @ Author: Felix Orinda
  * @ Modified by: Felix Orinda
  * @ Modified time: 2022-11-23 14:53:22
- * @ Modified time: 2022-11-23 15:36:24
+ * @ Modified time: 2022-11-23 22:49:32
  * @ Description:
  */
 
@@ -60,9 +60,17 @@ const ProductList = () => {
 			columnName: 'quantity',
 			customElement: true,
 			id: 'Category',
-			title: 'Quantity Name',
+			title: 'Quantity',
 			element: ({ data }: any) => (
 				<div className="relative">{data.quantity.low}</div>
+			)
+		},{
+			columnName: 'price',
+			customElement: true,
+			id: 'Price',
+			title: 'Price',
+			element: ({ data }: any) => (
+				<div className="relative">$ {data.price}</div>
 			)
 		},
 		{
@@ -209,7 +217,7 @@ const ProductList = () => {
 
 					<div className="overflow-x-scroll">
 						<Table
-							className=" table-fixed w-full border-collapse border-2 shadow p-2 text-left overflow-x-scroll"
+							className=" table-fixed w-full border-collapse border-2 shadow p-2 text-left overflow-x-scroll text-[12px]"
 							columns={cols}
 							rows={products}
 						/>
