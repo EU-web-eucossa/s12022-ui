@@ -1,22 +1,18 @@
 /**
  * @ Author: Felix Orinda
- * @ Create Time: 2022-11-10 13:55:28
+ * @ Create Time: 2022-11-23 16:35:38
  * @ Modified by: Felix Orinda
-<<<<<<< HEAD
- * @ Modified time: 2022-11-23 16:28:38
-=======
- * @ Modified time: 2022-11-23 15:45:50
->>>>>>> 0daef6fcbad81fe612027cf58f0040735d39d2f2
+ * @ Modified time: 2022-11-23 16:36:29
  * @ Description:
  */
 
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import CategoryProductItem from '../components/CategoryProductItem';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import { ProductEntityType } from '../types';
 import React from 'react';
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
+// import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { useAppSelector } from '../state/hooks';
 import { useLocation } from 'react-router-dom';
 
@@ -57,12 +53,12 @@ const CategoriesPage = () => {
 			<div className="py-4 flex justify-between items-center">
 				<h2 className="flex items-center text-[12px] capitalize">
 					<Link to={'/categories'}>Categories</Link>{' '}
-					{category && (
+					{/* {category && (
 						<span className="flex items-center">
 							<FontAwesomeIcon icon={faChevronRight} className="text-[12px]" />{' '}
 							<Link to={`/categories?category=${category}`}>{category}</Link>
 						</span>
-					)}
+					)} */}
 				</h2>
 				<div className="text-[12px]">
 					<select

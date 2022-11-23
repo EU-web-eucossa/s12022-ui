@@ -1,13 +1,14 @@
-/* eslint-disable @typescript-eslint/naming-convention */
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 /**
  * @ Author: Felix Orinda
  * @ Create Time: 2022-11-23 14:49:18
  * @ Modified by: Felix Orinda
- * @ Modified time: 2022-11-23 14:56:37
+ * @ Modified time: 2022-11-23 16:32:50
  * @ Description:
  */
+
+/* eslint-disable @typescript-eslint/naming-convention */
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { AxiosError } from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
