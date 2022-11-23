@@ -2,7 +2,7 @@
  * @ Author: Felix Orinda
  * @ Create Time: 2022-11-10 13:55:28
  * @ Modified by: Felix Orinda
- * @ Modified time: 2022-11-19 14:57:25
+ * @ Modified time: 2022-11-23 16:34:27
  * @ Description:
  */
 
@@ -14,13 +14,14 @@ import { addProductToCart } from '../state/slices/cartSlice';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import starGenerator from '../helpers/starGenerator';
 import { useAppDispatch } from '../state/hooks';
+
 import { faAdd, faListDots } from '@fortawesome/free-solid-svg-icons';
 
 const CategoryProductItem = ({ product }: { product: ProductEntityType }) => {
 	const dispatch = useAppDispatch();
 
 	return (
-		<div className="shadow-md rounded-md flex flex-col justify-between">
+		<div className="shadow-md rounded-md flex flex-col justify-between max-w-sm">
 			<Link to={`/product/${product._id}`} className="h-64 relative">
 				<img
 					src={product.featuredImage}
