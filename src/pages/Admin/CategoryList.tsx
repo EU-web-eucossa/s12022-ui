@@ -2,7 +2,7 @@
  * @ Author: Felix Orinda
  * @ Create Time: 2022-11-19 06:21:37
  * @ Modified by: Felix Orinda
- * @ Modified time: 2022-11-20 11:58:48
+ * @ Modified time: 2022-11-23 22:51:22
  * @ Description:
  */
 
@@ -14,7 +14,9 @@ import { axiosQuery } from '../../api';
 import { loadCategorySuccess } from '../../state/slices/categoriesSlice';
 import moment from 'moment';
 import { useAppDispatch } from '../../state/hooks';
+
 import { ToastContainer, toast } from 'react-toastify';
+
 const CategoryList = () => {
 	const [categories, setCategories] = React.useState<ProductcategoryType[]>([]);
 	const [loading, setLoading] = React.useState<boolean>(false);
@@ -69,7 +71,7 @@ const CategoryList = () => {
 					<ToastContainer />
 					<div className="overflow-x-scroll">
 						<Table
-							className="table-auto w-full border-collapse border-2 shadow p-2 text-left overflow-x-scroll"
+							className="table-auto w-full border-collapse border-2 shadow p-2 text-left text-[12px] overflow-x-scroll"
 							columns={[
 								{
 									columnName: 'image',

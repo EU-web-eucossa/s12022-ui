@@ -2,7 +2,7 @@
  * @ Author: Felix Orinda
  * @ Create Time: 2022-11-23 14:49:18
  * @ Modified by: Felix Orinda
- * @ Modified time: 2022-11-23 16:32:50
+ * @ Modified time: 2022-11-23 22:52:22
  * @ Description:
  */
 
@@ -102,7 +102,7 @@ const EditProduct = ({ product, toggleEdit }: Props) => {
 	};
 
 	return (
-		<div className="w-full ">
+		<div className="w-full text-[12px]">
 			{/* <ToastContainer /> */}
 			{success ? (
 				<div className="text-green-500 text-center p-10">

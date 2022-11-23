@@ -10,6 +10,7 @@ import ContactPage from '../pages/ContactPage';
 import DashBoard from '../pages/Admin/DashBoard';
 import DashSummary from '../pages/Admin/DashSummary';
 import EmptyLayout from '../layouts/EmptyLayout';
+import ErrorElement from '../pages/ErrorElement';
 import Homepage from '../pages/Homepage';
 import LoginPage from '../pages/LoginPage';
 import NotFound from '../pages/NotFound';
@@ -52,7 +53,8 @@ const routes =createBrowserRouter([
 	},
 	{
 		element: layoutWrap(EmptyLayout, SignupPage),
-		path: '/account/sign-up'
+		path: '/account/sign-up',
+		errorElement:<ErrorElement/>
 	},
 	{
 		element: layoutWrap(BaseLayout, CartPage),
@@ -65,6 +67,7 @@ const routes =createBrowserRouter([
 	{
 		element: layoutWrap(EmptyLayout, DashBoard, { role: 'admin' }),
 		path: '/admin/dashboard',
+		errorElement:<ErrorElement/>,
 		children: [
 			{
 				element: layoutWrap(EmptyLayout, DashSummary),

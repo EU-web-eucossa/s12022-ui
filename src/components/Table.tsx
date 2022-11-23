@@ -2,7 +2,7 @@
  * @ Author: Felix Orinda
  * @ Create Time: 2022-11-19 10:41:07
  * @ Modified by: Felix Orinda
- * @ Modified time: 2022-11-20 10:55:15
+ * @ Modified time: 2022-11-23 22:50:33
  * @ Description:
  */
 
@@ -34,18 +34,18 @@ const Table = ({ columns, rows, ...props }: Props) => {
 	return (
 		<table {...props}>
 			<thead>
-				<tr className="font-bold uppercase bg-slate-200">
+				<tr className="font-medium uppercase bg-slate-200">
 					{columns.map((c) => (
 						<th
 							key={c.title + c.id + Math.random().toString().slice(2, 5)}
-							className="border border-slate-300 px-4 py-4"
+							className="border border-slate-300 p-2 "
 						>
 							{c.title}
 						</th>
 					))}
 				</tr>
 			</thead>
-			<tbody className="w-full text-sm">
+			<tbody className="w-full">
 				{rows.map((data, index) => {
 					return (
 						<tr key={id + index} className="even:bg-slate-100">
@@ -53,7 +53,7 @@ const Table = ({ columns, rows, ...props }: Props) => {
 								col.element ? (
 									<td
 										key={col.columnName + data.id}
-										className="border px-4 py-4"
+										className="border p-2 "
 									>
 										<col.element
 											key={data[col.columnName] + data.id}
@@ -63,7 +63,7 @@ const Table = ({ columns, rows, ...props }: Props) => {
 								) : (
 									<td
 										key={col.columnName + data.id}
-										className="border px-4 py-4"
+										className="border px-2 py-2"
 									>
 										{data[col.columnName]}
 									</td>
