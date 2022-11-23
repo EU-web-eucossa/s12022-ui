@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/naming-convention */
 /**
- * @ Author: Felix Orinda
- * @ Create Time: 2022-11-19 06:15:42
  * @ Modified by: Felix Orinda
- * @ Modified time: 2022-11-20 10:40:34
+ * @ Create Time: 2022-11-19 06:15:42
+ * @ Modified time: 2022-11-23 14:53:27
+ * @ Modified time: 2022-11-23 14:55:18
  * @ Description:
  */
 
@@ -12,44 +12,16 @@
 import { AxiosError } from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import FullScreenLoader from '../../components/FullScreenLoader';
-import { ProductEntityType } from '../../types';
 import React from 'react';
 import { axiosQuery } from '../../api';
 import extractValidLinks from '../../helpers/extractValidLinks';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { fieldGenerator } from '../../helpers/fieldGenerator';
 import { useAppSelector } from '../../state/hooks';
 import { useNavigate } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
-const fieldGenerator = (props: {
-	name: string;
-	label: string;
-	value: string;
-	placeholder: string;
-	type: 'text' | 'number' | 'email' | 'password' | 'url';
-	onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-	required?: boolean;
-	pattern?: string;
-	min?: number;
-	max?: number;
 
-	[key: string]: any;
-}) => (
-	<div key={props.name} className="flex flex-col w-full">
-		<label htmlFor={props.name} className="capitalize font-medium">
-			{props.label}
-		</label>
-		<input
-			required={props.required}
-			type={props.type}
-			placeholder={props.placeholder}
-			name={props.name}
-			id={props.name}
-			value={props.value}
-			onChange={props.onChange}
-			className="border border-gray-300 rounded-md p-2 w-full focus:ring-0 focus:border-[1px]"
-		/>
-	</div>
-);
+import { ProductEntityType, ProductcategoryType } from '../../types';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Addproduct = () => {
 	const [loading, setLoading] = React.useState<boolean>(false);
@@ -57,6 +29,10 @@ const Addproduct = () => {
 	const { categories: productCategories } = useAppSelector(
 		(state) => state.categories
 	);
+	const temp: ProductcategoryType[] = [...productCategories];
+	const sortedCategories:ProductcategoryType[] =
+		temp.length > 0 ?temp.sort((a, b) => a.name.localeCompare(b.name)): [];
+
 	const navigate = useNavigate();
 	const [productData, setProductData] = React.useState<
 		ProductEntityType & { [k: string]: any }
@@ -226,7 +202,7 @@ const Addproduct = () => {
 										----Please select a category----
 									</option>
 									{productCategories.length > 0 &&
-										productCategories.map((category) => (
+										sortedCategories.map((category) => (
 											<option key={category._id} value={category._id}>
 												{category.name}
 											</option>
