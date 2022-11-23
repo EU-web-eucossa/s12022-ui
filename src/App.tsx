@@ -1,13 +1,14 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { AxiosError } from 'axios';
-import MapRouter from 'react-router-map';
 import OfflineComponent from './components/OfflineComponent';
 import React from 'react';
+import { RouterProvider } from 'react-router-dom';
 import { axiosQuery } from './api';
 import routes from './router';
 import { useAppDispatch } from './state/hooks';
 import useOnline from './hooks/useOnline';
+
 import {
 	loadCategoryFailure,
 	loadCategoryStart,
@@ -61,7 +62,7 @@ const App = () => {
 	}, []);
 
 	return online ? (
-		<MapRouter routes={routes} topScroll />
+		<RouterProvider router={routes} />
 	) : (
 		<OfflineComponent />
 	);

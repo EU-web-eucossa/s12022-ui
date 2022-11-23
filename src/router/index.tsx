@@ -11,7 +11,6 @@ import DashBoard from '../pages/Admin/DashBoard';
 import DashSummary from '../pages/Admin/DashSummary';
 import EmptyLayout from '../layouts/EmptyLayout';
 import Homepage from '../pages/Homepage';
-import { IRouteProps } from 'react-router-map/dist/types';
 import LoginPage from '../pages/LoginPage';
 import NotFound from '../pages/NotFound';
 import ProductList from '../pages/Admin/ProductList';
@@ -19,111 +18,92 @@ import ProfilePage from '../pages/ProfilePage';
 import React from 'react';
 import SignupPage from '../pages/SignupPage';
 import SingleProductPage from '../pages/SingleProductPage';
+import { createBrowserRouter } from 'react-router-dom';
 import layoutWrap from '../helpers/LayoutWrapper';
 
-const routes: IRouteProps[] = [
+const routes =createBrowserRouter([
 	{
-		Component: layoutWrap(BaseLayout, Homepage),
-		pathName: 'Home',
-		urlPath: '/'
+		element: layoutWrap(BaseLayout, Homepage),
+		path: '/'
 	},
 	{
-		Component: layoutWrap(BaseLayout, SingleProductPage),
-		pathName: 'SingleProductPage',
-		urlPath: '/product/:id'
+		element: layoutWrap(BaseLayout, SingleProductPage),
+		path: '/product/:id'
 	},
 	{
-		Component: layoutWrap(BaseLayout, CategoriesPage),
-		pathName: 'categories',
-		urlPath: '/categories'
+		element: layoutWrap(BaseLayout, CategoriesPage),
+		path: '/categories'
 	},
 	{
-		Component: layoutWrap(BaseLayout, AboutPage),
-		hasChildren: false,
-		pathName: 'About',
-		urlPath: '/about'
+		element: layoutWrap(BaseLayout, AboutPage),
+		path: '/about'
 	},
 	{
-		Component: layoutWrap(BaseLayout, ContactPage),
-		pathName: 'Contact',
-		urlPath: '/contact'
+		element: layoutWrap(BaseLayout, ContactPage),
+		path: '/contact'
 	},
 	{
-		Component: layoutWrap(EmptyLayout, LoginPage),
-		pathName: 'Login',
-		urlPath: '/account/sign-in'
+		element: layoutWrap(EmptyLayout, LoginPage),
+		path: '/account/sign-in'
 	},
 	{
-		Component: layoutWrap(EmptyLayout, ProfilePage),
-		pathName: 'Profile',
-		urlPath: '/account/profile'
+		element: layoutWrap(EmptyLayout, ProfilePage),
+		path: '/account/profile'
 	},
 	{
-		Component: layoutWrap(EmptyLayout, SignupPage),
-		pathName: 'Signup',
-		urlPath: '/account/sign-up'
+		element: layoutWrap(EmptyLayout, SignupPage),
+		path: '/account/sign-up'
 	},
 	{
-		Component: layoutWrap(BaseLayout, CartPage),
-		pathName: 'Cart',
-		urlPath: '/cart'
+		element: layoutWrap(BaseLayout, CartPage),
+		path: '/cart'
 	},
 	{
-		Component: layoutWrap(EmptyLayout, CheckoutPage, true),
-		pathName: 'Checkout',
-		urlPath: '/checkout'
+		element: layoutWrap(EmptyLayout, CheckoutPage, true),
+		path: '/checkout'
 	},
 	{
-		Component: layoutWrap(EmptyLayout, DashBoard, { role: 'admin' }),
-		pathName: 'Admin Dashboard',
-		urlPath: '/admin/dashboard',
-		nestedComponents: [
+		element: layoutWrap(EmptyLayout, DashBoard, { role: 'admin' }),
+		path: '/admin/dashboard',
+		children: [
 			{
-				Component: layoutWrap(EmptyLayout, DashSummary),
-				pathName: 'Dashboard',
-				urlPath: '/admin/dashboard'
+				element: layoutWrap(EmptyLayout, DashSummary),
+				path: '/admin/dashboard'
 			},
 			{
-				Component: layoutWrap(EmptyLayout, AddCategory),
-				pathName: 'Add Category',
-				urlPath: '/admin/dashboard/add-category'
+				element: layoutWrap(EmptyLayout, AddCategory),
+				path: '/admin/dashboard/add-category'
 			},
 			{
-				Component: layoutWrap(EmptyLayout, Addproduct),
-				pathName: 'Add Product',
-				urlPath: '/admin/dashboard/add-product'
+				element: layoutWrap(EmptyLayout, Addproduct),
+				path: '/admin/dashboard/add-product'
 			},
 			{
-				Component: layoutWrap(EmptyLayout, CategoryList),
-				pathName: 'Category List',
-				urlPath: '/admin/dashboard/category-list'
+				element: layoutWrap(EmptyLayout, CategoryList),
+				path: '/admin/dashboard/category-list'
 			},
 			{
-				Component: layoutWrap(EmptyLayout, ProductList),
-				pathName: 'Product List',
-				urlPath: '/admin/dashboard/product-list'
+				element: layoutWrap(EmptyLayout, ProductList),
+				path: '/admin/dashboard/product-list'
 			},
 			{
-				Component: layoutWrap(EmptyLayout, ProfilePage),
-				pathName: 'Admin Profile',
-				urlPath: '/admin/dashboard/profile'
+				element: layoutWrap(EmptyLayout, ProfilePage),
+				path: '/admin/dashboard/profile'
 			},
 			{
-				Component: layoutWrap(EmptyLayout, () => (
+				element: layoutWrap(EmptyLayout, () => (
 					<div className="h-full w-full flex items-center justify-center">
 						<div>Page you are looking for is not available</div>
 					</div>
 				)), // 404 page)),
-				pathName: '404',
-				urlPath: '/admin/dashboard/*'
+				path: '/admin/dashboard/*'
 			}
 		]
 	},
 	{
-		Component: layoutWrap(BaseLayout, NotFound),
-		pathName: 'NotFound',
-		urlPath: '*'
+		element: layoutWrap(BaseLayout, NotFound),
+		path: '*'
 	}
-];
+]);
 
 export default routes;
