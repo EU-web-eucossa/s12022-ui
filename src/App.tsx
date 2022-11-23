@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { AxiosError } from 'axios';
-import MapRouter from 'react-router-map';
 import OfflineComponent from './components/OfflineComponent';
 import React from 'react';
 import { RouterProvider } from 'react-router-dom';
