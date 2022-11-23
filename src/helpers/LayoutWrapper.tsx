@@ -4,6 +4,7 @@
 import Protected from '../components/Protected';
 import React from 'react';
 import RoleProtected from '../components/RoleProtected';
+import TopScroll from './TopScroll';
 
 type Lmap = (
 	LayoutContainer: React.FC<{
@@ -24,15 +25,21 @@ const layoutWrap: Lmap = (
 ) => {
 	return typeof isProtected === 'boolean' ? (
 		<LayoutContainer>
-			{isProtected ? <Protected>{<Component />}</Protected> : <Component />}
+			<>
+				<TopScroll />
+				{isProtected ? <Protected>{<Component />}</Protected> : <Component />}
+			</>
 		</LayoutContainer>
 	) : (
 		<LayoutContainer>
-			<Protected>
-				<RoleProtected role={isProtected.role}>
-					<Component />
-				</RoleProtected>
-			</Protected>
+			<>
+				<TopScroll />
+				<Protected>
+					<RoleProtected role={isProtected.role}>
+						<Component />
+					</RoleProtected>
+				</Protected>
+			</>
 		</LayoutContainer>
 	);
 };
