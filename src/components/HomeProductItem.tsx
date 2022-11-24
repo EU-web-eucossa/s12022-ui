@@ -43,18 +43,18 @@ const HomeProductItem = (product: ProductEntityType) => {
 					ref={imageRef}
 					src={product.featuredImage}
 					alt={product.name}
-					className="h-72 w-full mx-auto object-cover group-hover:scale-105 transition-all ease-linear duration-500"
+					className="h-72 w-full mx-auto object-scale-down group-hover:scale-105 transition-all ease-linear duration-500"
 				/>
 			</Link>
 			<div className="px-2 py-1">
 				<h2
-					className="text-sm sm:text-md capitalize font-bold text-black 
+					className="text-[12px] capitalize font-bold text-black 
                 "
 				>
 					{product.name}
 				</h2>
 				<h2
-					className="sm:text-lg font-medium text-black
+					className="text-[12px]font-medium text-black
                 "
 				>
 					$ {product.price.toFixed(2)}

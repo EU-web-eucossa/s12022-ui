@@ -2,7 +2,7 @@
  * @ Author: Felix Orinda
  * @ Create Time: 2022-11-10 13:55:28
  * @ Modified by: Felix Orinda
- * @ Modified time: 2022-11-19 14:55:52
+ * @ Modified time: 2022-11-24 05:16:21
  * @ Description:
  */
 
@@ -11,6 +11,7 @@ import HomeproductItem from './HomeProductItem';
 import { Link } from 'react-router-dom';
 import React from 'react';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
+
 import { ProductEntityType, ProductcategoryType } from '../types';
 
 const HomeProductCategoriesRow = ({
@@ -52,7 +53,7 @@ const HomeProductCategoriesRow = ({
 					<FontAwesomeIcon icon={faChevronRight} className="text-[10px]" />
 				</Link>
 			</div>
-			<div className="w-full  md:p-4 grid grid-cols xs:grid-cols-2 sm:grid-cols-3  md:grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-2">
+			<div className="w-full  md:p-4 grid grid-cols xs:grid-cols-2 sm:grid-cols-3  md:grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-2">
 				{filteredProducts.slice(0, 4).map((product) => (
 					<HomeproductItem key={product.name} {...product} />
 				))}
