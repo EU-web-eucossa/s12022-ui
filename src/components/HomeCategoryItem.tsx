@@ -2,7 +2,7 @@
  * @ Author: Felix Orinda
  * @ Create Time: 2022-11-10 13:55:28
  * @ Modified by: Felix Orinda
- * @ Modified time: 2022-11-19 20:23:06
+ * @ Modified time: 2022-11-24 05:15:22
  * @ Description:
  */
 
@@ -32,9 +32,9 @@ const HomecategoryItem = (props: ProductcategoryType) => {
 					ref={imageRef}
 					src="/product.webp"
 					alt=""
-					className="w-full h-40 object-contain rounded-md transition-all ease-linear duration-300"
+					className="w-full h-24 object-scale-down rounded-md transition-all ease-linear duration-300"
 				/>
-				<div className="text-sm text-center capitalize py-1 text-black font-medium">
+				<div className="text-[12px] text-center capitalize py-1 text-black font-medium">
 					{props.name}
 				</div>
 			</div>

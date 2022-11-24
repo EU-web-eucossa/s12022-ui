@@ -2,7 +2,7 @@
  * @ Author: Felix Orinda
  * @ Create Time: 2022-11-10 13:55:28
  * @ Modified by: Felix Orinda
- * @ Modified time: 2022-11-23 16:34:27
+ * @ Modified time: 2022-11-24 05:17:52
  * @ Description:
  */
 
@@ -26,7 +26,7 @@ const CategoryProductItem = ({ product }: { product: ProductEntityType }) => {
 				<img
 					src={product.featuredImage}
 					alt=""
-					className="w-full object-fill absolute h-64 -z-[1]"
+					className="w-full object-scale-down absolute h-64 -z-[1]"
 				/>
 				<div className="p-1 flex justify-between">
 					<FontAwesomeIcon icon={faListDots} />
@@ -34,7 +34,7 @@ const CategoryProductItem = ({ product }: { product: ProductEntityType }) => {
 				</div>
 			</Link>
 			<div className="px-1 font-roboto capitalize">
-				<h1 className="text-lg font-bold">{product.name}</h1>
+				<h1 className="text-[12px] font-bold">{product.name}</h1>
 				<p>
 					<strong>$ {product.price.toFixed(2)}</strong>
 				</p>

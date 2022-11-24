@@ -3,7 +3,7 @@
  * @ Create Time: 2022-11-15 11:22:06
  * @ Modified by: Felix Orinda
  * @ Modified by: Felix Orinda
- * @ Modified time: 2022-11-20 19:58:39
+ * @ Modified time: 2022-11-24 05:40:40
  */
 
 import Cart from './Cart';
@@ -13,6 +13,7 @@ import React from 'react';
 import { faBell } from '@fortawesome/free-regular-svg-icons';
 import { logoutUser } from '../state/slices/userSlice';
 import { useLocation } from 'react-router-dom';
+
 import {
 	faSearch,
 	faShoppingCart,
@@ -56,7 +57,7 @@ const Header = () => {
 			<div className="bg-white z-[1020]">
 				<nav className="px-4 sm:px-5 gap-2 md:px-2 max-w-7xl mx-auto flex items-center justify-between">
 					<Link to={'/'}>
-						<img src="/logo.svg" alt="" className="w-20 h-20 md:w-40 md:h-40" />
+						<img src="/logo.svg" alt="" className="w-16 h-16 md:w-28 md:h-28" />
 					</Link>
 					<div className="text-left">
 						<h1 className="text-md md:text-4xl font-bold">Discover</h1>
@@ -69,7 +70,7 @@ const Header = () => {
 					</div>
 				</nav>
 			</div>
-			<div className="bg-white sticky top-0 py-2 shadow z-[1020]">
+			<div className="bg-white sticky top-0 py-0.5 shadow z-[1020]">
 				<nav className="px-4 sm:px-5 md:px-2 max-w-7xl mx-auto flex items-center gap-4">
 					<div
 						className="relative h-8 md:h-12 w-8 md:w-12 bg-primary rounded-lg cursor-pointer flex items-center justify-center "
