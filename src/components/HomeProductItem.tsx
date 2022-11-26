@@ -34,7 +34,7 @@ const HomeProductItem = (product: ProductEntityType) => {
 	}, []);
 
 	return (
-		<div className="flex flex-col justify-between hover:shadow-lg rounded-md transition-all ease-linear duration-500 border-slate-200 border max-w-[25rem]">
+		<div className="flex flex-col justify-between hover:shadow-lg rounded-md transition-all ease-linear duration-500  max-w-[18rem]">
 			<Link
 				to={`/product/${product._id}`}
 				className="relative h-full w-full object-cover overflow-hidden group border-0 "

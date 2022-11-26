@@ -18,6 +18,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@paypal/react-paypal-js": "^7.8.1",
     "@reduxjs/toolkit": "^1.8.6",
+    "@tanstack/react-table": "^8.7.0",
     "axios": "^0.27.2",
     "framer-motion": "^7.6.1",
     "moment": "^2.29.4",
