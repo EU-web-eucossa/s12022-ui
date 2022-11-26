@@ -2,12 +2,11 @@
  * @ Author: Felix Orinda
  * @ Create Time: 2022-11-10 13:55:28
  * @ Modified by: Felix Orinda
- * @ Modified time: 2022-11-26 08:38:36
+ * @ Modified time: 2022-11-26 08:50:45
  * @ Description:
  */
 
 import HomecategoryItem from './HomeCategoryItem';
-import { Link } from 'react-router-dom';
 import React from 'react';
 import { useAppSelector } from '../state/hooks';
 
