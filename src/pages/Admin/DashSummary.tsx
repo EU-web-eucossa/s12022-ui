@@ -2,7 +2,7 @@
  * @ Author: Felix Orinda
  * @ Create Time: 2022-11-19 06:15:35
  * @ Modified by: Felix Orinda
- * @ Modified time: 2022-11-23 22:18:14
+ * @ Modified time: 2022-11-26 08:54:51
  * @ Description:
  */
 
@@ -20,14 +20,6 @@ import {
 	BarChart,
 	CartesianGrid,
 	Legend,
-	Line,
-	LineChart,
-	PolarAngleAxis,
-	PolarGrid,
-	PolarRadiusAxis,
-	Radar,
-	RadarChart,
-	ResponsiveContainer,
 	Tooltip,
 	XAxis,
 	YAxis

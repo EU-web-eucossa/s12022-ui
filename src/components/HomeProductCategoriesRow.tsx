@@ -2,7 +2,7 @@
  * @ Author: Felix Orinda
  * @ Create Time: 2022-11-10 13:55:28
  * @ Modified by: Felix Orinda
- * @ Modified time: 2022-11-24 05:16:21
+ * @ Modified time: 2022-11-26 08:44:15
  * @ Description:
  */
 
@@ -38,13 +38,11 @@ const HomeProductCategoriesRow = ({
 	}, [products, category]);
 
 	return filteredProducts.length > 0 ? (
-		<div className="shadow-lg">
-			<div className="flex items-center py-1 sm:py-4 px-6 text-black bg-orange-300 rounded-sm justify-between">
-				<h2 className="text-md font-medium capitalize flex items-center">
-					Categories
-					<FontAwesomeIcon icon={faChevronRight} className="text-[10px]" />
+		<div className="text-[12px]">
+			<div className="flex items-center py-1 sm:py-4 px-6 text-black border-b border-t rounded-sm justify-between">
+				<p className="text-[12px] font-[12px] capitalize flex items-center">
 					{categoryName}
-				</h2>
+				</p>
 				<Link
 					to={`/categories?category=${categoryName}`}
 					className="flex items-center gap-1 hover:text-white"

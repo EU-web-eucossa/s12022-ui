@@ -2,13 +2,14 @@
  * @ Author: Felix Orinda
  * @ Create Time: 2022-11-10 13:55:28
  * @ Modified by: Felix Orinda
- * @ Modified time: 2022-11-19 05:39:10
+ * @ Modified time: 2022-11-26 08:36:38
  * @ Description:
  */
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import React from 'react';
+
 import { faFacebook, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 const Footer = () => {
@@ -18,10 +19,10 @@ const Footer = () => {
 			<div className="max-w-7xl mx-auto text-white capitalize flex flex-col justify-center text-center">
 				<div className="flex justify-center gap-2 p-2">
 					<Link to="/">Home</Link>
-					<Link to="#/about">About</Link>
-					<Link to="#/categories">Categories</Link>
-					<Link to="#/contact">Contacts</Link>
-					<Link to="#/signup">Sign Up</Link>
+					<Link to="/about">About</Link>
+					<Link to="/categories">Categories</Link>
+					<Link to="/contact">Contacts</Link>
+					<Link to="/signup">Sign Up</Link>
 				</div>
 				<div className="flex justify-center gap-2 p-2">
 					<Link to="#">{
