@@ -9,7 +9,7 @@
 import axios from 'axios';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/naming-convention
-const BASE_URL = 'https://eucossa-bc.herokuapp.com/api/v1';
+const BASE_URL = 'https://inventory-jop4.onrender.com/api/v1';
 
 export const apiEndpoints = {
 	products: `${BASE_URL}/products`,
